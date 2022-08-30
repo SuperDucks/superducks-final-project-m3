@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { Form, Header, Main } from "./styles";
+import { Container, Form } from "./styles";
 import {AiFillEye, AiFillEyeInvisible} from 'react-icons/ai'
 
 
@@ -25,7 +25,7 @@ const schema = yup.object({
 
 }).required();
 
-const Login = () => {
+const LoginModal = () => {
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -43,11 +43,9 @@ const Login = () => {
 
   return (
     <>
-      <Header>
-        <h1>Duckplay</h1>
-      </Header>
-      <Main>
-        <div className="form-container">
+    
+      <Container>
+        <div className="modal-box">
           <Form onSubmit={handleSubmit(loginUser)}>
             <label htmlFor="email">E-mail</label>
             <input type="text" placeholder="E-mail" id="email" {...register("email")}/>
@@ -65,8 +63,8 @@ const Login = () => {
               </button>
           </Form>
         </div>  
-      </Main>
+      </Container>
     </>
   );
 };
-export default Login;
+export default LoginModal;

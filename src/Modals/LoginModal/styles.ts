@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const Container = styled.div`
   width: 100%;
-`;
-export const Header = styled.header`
-  width: 100%;
+  position: fixed;
 
-  .form-container {
-    width: 50%;
+  .modal-box {
+    width: 100%;
+    max-width: 600px;
   }
 `;
 
