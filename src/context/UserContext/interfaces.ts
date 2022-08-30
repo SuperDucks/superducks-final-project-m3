@@ -6,7 +6,8 @@ export interface UserProviderProps {
 
 export interface IUserProps {
  loginUser: (data: loginUserProps) => void;
-
+  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModal: boolean;
 }
 export interface loginUserProps {
  email: string;
