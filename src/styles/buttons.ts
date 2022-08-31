@@ -8,11 +8,10 @@ interface IButtonsProps{
 export const BtnPrimary = styled.button<IButtonsProps>`
   background: var(--color-primary);
   border-radius: 30px;
-  font: var(--font-title-8);
+  font: var(--font-title-9);
   font-weight: 600;
   color: var(--color-grey-4);
-
-  ${({padding}) => {
+   ${({padding}) => {
     switch(padding){
       case 'small': return css`padding: 6px 18px;`
       case 'big': return css`padding: 9px 39px;`
@@ -27,6 +26,8 @@ export const BtnFake = styled.button`
   font: var(--font-title-9);
   font-weight: 600;
   color: var(--color-grey-0);
+  padding: 6px 28px;
+
   
 `;
 export const BtnOutline = styled.button`
@@ -35,6 +36,17 @@ export const BtnOutline = styled.button`
   font: var(--font-title-9);
   font-weight: 600;
   color: var(--color-grey-4);
-  padding: 9px 39px;
+  
+  
+`;
+export const BtnOutlineModal = styled.button`
+  background: transparent;
+  border-radius: 30px;
+  font: var(--font-title-9);
+  font-weight: 600;
+  color: var(--color-grey-4);
+  border: 2px solid var(--color-grey-4);
+  padding: 8px 28px;
+  
   
 `;
