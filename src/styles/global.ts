@@ -14,6 +14,9 @@ export default createGlobalStyle`
 
         /* Grey Scale Palette */
 
+        --color-grey-7: #505050;
+        --color-grey-6: #202020;
+        --color-grey-5: #181818;
         --color-grey-4: #121214;
         --color-grey-3: #212529;
         --color-grey-2: #343B41;
@@ -105,7 +108,7 @@ export default createGlobalStyle`
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--color-primary-dark);
+    background: var(--color-primary);
     border-radius: 1.6rem;
   }
 

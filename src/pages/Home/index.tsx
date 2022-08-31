@@ -3,8 +3,6 @@ import logo from '../../assets/logo.png';
 import { BtnFake, BtnPrimary } from "../../styles/buttons";
 
 
-
-
 const Home = () => {
   return (
     <Container>
