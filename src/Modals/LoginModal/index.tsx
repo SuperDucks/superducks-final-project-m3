@@ -8,6 +8,8 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { BtnOutlineModal, BtnPrimary } from "../../styles/buttons";
 import { loginSchema } from "../../validators/LoginUser";
+import { useOutsiedeClick } from "../../hooks/useOutsideClick";
+
 
 interface FormProps {
   email: string;
@@ -18,6 +20,10 @@ interface FormProps {
 const LoginModal = () => {
   const { loginUser, setIsOpenModal, setIsOpenModalRegister } =
     useContext(UserContext);
+
+  const modalRef = useOutsiedeClick(() => {
+    setIsOpenModal(false);
+  });
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -38,7 +44,7 @@ const LoginModal = () => {
   return (
     <>
       <Modal>
-        <div className="modal-content">
+        <div className="modal-content" ref={modalRef}>
           <div className="container-title">
             <ThemeTitle>Login</ThemeTitle>
             <button className="close" onClick={() => setIsOpenModal(false)}>

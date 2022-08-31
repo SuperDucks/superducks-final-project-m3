@@ -7,6 +7,8 @@ import { UserContext } from "../../context/UserContext";
 import { BtnPrimary } from "../../styles/buttons";
 import { Form, Modal } from "./styles";
 import { registerSchema } from "../../validators/RegisterUser";
+import { useOutsiedeClick } from "../../hooks/useOutsideClick";
+
 
 interface FormProps {
   name: string;
@@ -15,6 +17,7 @@ interface FormProps {
   confirmPassword: string;
   errors?: string;
 }
+
 
 const RegisterModal = () => {
   const {
@@ -29,12 +32,16 @@ const RegisterModal = () => {
     useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
 
+  const modalRef = useOutsiedeClick(() => {
+    setIsOpenModalRegister(false);
+  });
+
   const handleBtnClick = () => {
     setShowPassword((prevState) => !prevState);
   };
   return (
     <Modal>
-      <div className="modal-content">
+      <div className="modal-content" ref={modalRef}>
         <div className="title-container">
           <h2>Create your account</h2>
           <button

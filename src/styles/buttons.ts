@@ -1,13 +1,16 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const BtnPrimary = styled.button`
+interface IButtonsProps{
+  padding?: string;
+  
+}
+
+export const BtnPrimary = styled.button<IButtonsProps>`
   background: var(--color-primary);
   border-radius: 30px;
   font: var(--font-title-9);
   font-weight: 600;
   color: var(--color-grey-4);
-  border: 2px solid var(--color-primary);
-  
    ${({padding}) => {
     switch(padding){
       case 'small': return css`padding: 6px 18px;`
@@ -16,6 +19,8 @@ export const BtnPrimary = styled.button`
   }}
   
 `;
+
+
 export const BtnFake = styled.button`
   background: transparent;
   font: var(--font-title-9);
