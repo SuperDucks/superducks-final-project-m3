@@ -21,19 +21,19 @@ const schema = yup
       .string()
       .email("Must be an email")
       .required("E-mail is required"),
-    password: yup.string().required("Password is required"),
+    password: yup
+    .string()
+    .required("Password is required"),
   })
   .required();
 
 const LoginModal = () => {
-
-  const {setIsOpenModal} = useContext(UserContext)
-  const { loginUser } = useContext(UserContext);
+  const { loginUser, setIsOpenModal, setIsOpenModalRegister } =
+    useContext(UserContext);
 
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
-
 
   const {
     register,
@@ -59,46 +59,57 @@ const LoginModal = () => {
           </div>
           <Form onSubmit={handleSubmit(loginUser)}>
             <div className="form-container">
-            <div className="input-container">
-              <label htmlFor="email">E-mail</label>
-              <input
-                type="text"
-                placeholder="E-mail"
-                id="email"
-                {...register("email")}
-              />
-              <small>{errors.email?.message}</small>
-            </div>
-            <div className="input-container">
-              <label htmlFor="password">Password</label>
-              <div className="container-eye">
-                <input className="input-password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  id="password"
-                  {...register("password")}
+              <div className="input-container">
+                <label htmlFor="email">E-mail</label>
+                <input
+                  type="text"
+                  placeholder="E-mail"
+                  id="email"
+                  {...register("email")}
                 />
+                <small>{errors.email?.message}</small>
+              </div>
+              <div className="input-container">
+                <label htmlFor="password">Password</label>
+                <div className="container-eye">
+                  <input
+                    className="input-password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    id="password"
+                    {...register("password")}
+                  />
 
-                <button onClick={handleBtnClick} className="show-password">
-                  {showPassword ? (
-                    <AiFillEyeInvisible size={"20"} />
+                  <button onClick={handleBtnClick} className="show-password">
+                    {showPassword ? (
+                      <AiFillEyeInvisible size={"20"}/>
                     ) : (
                       <AiFillEye size={"20"} />
-                      )}
-                </button>
+                    )}
+                  </button>
+                </div>
+                <small>{errors.password?.message}</small>
               </div>
-              <small>{errors.password?.message}</small>
             </div>
-            </div>
-            
+
             <div className="login-buttons">
               <BtnPrimary
                 type="submit"
-                onClick={() => navigate("/dashboard", { replace: true })}
+                onClick={() => {
+                  setIsOpenModal(false);
+                  navigate("/dashboard", { replace: true });
+                }}
               >
                 Log In
               </BtnPrimary>
-              <BtnOutlineModal>Sign Up</BtnOutlineModal>
+              <BtnOutlineModal
+                onClick={() => {
+                  setIsOpenModalRegister(true);
+                  setIsOpenModal(false);
+                }}
+              >
+                Sign Up
+              </BtnOutlineModal>
             </div>
           </Form>
         </div>
