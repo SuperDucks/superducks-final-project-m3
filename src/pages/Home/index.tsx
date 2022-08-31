@@ -2,6 +2,19 @@ import { Container, Header, Main } from "./styles";
 import logo from '../../assets/logo.png';
 import { BtnFake, BtnPrimary } from "../../styles/buttons";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation } from "swiper";
+import { Container2, Grid, MovieCardSlide, StyledSwiper } from "./styles";
+import LoginModal from "../../Modals/LoginModal";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+import RegisterModal from "../../Modals/RegisterModal";
+
 
 const Home = () => {
   return (
