@@ -20,24 +20,29 @@ import { Container2, Grid, MovieCardSlide, StyledSwiper } from "./styles";
 import LoginModal from "../../Modals/LoginModal";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import RegisterModal from "../../Modals/RegisterModal";
 
 
 const Home = () => {
 
-  const {setIsOpenModal, isOpenModal} = useContext(UserContext)
+  const {setIsOpenModal,
+    isOpenModal,
+    setIsOpenModalRegister, 
+    isOpenModalRegister} = useContext(UserContext)
 
   return (
     
     <Container>
-      {
-        isOpenModal && <LoginModal/>
-      }
+
+      {isOpenModal && <LoginModal/>}
+      {isOpenModalRegister && <RegisterModal/>}
+      
       <Header>       
           <figure>
             <img src={logo} alt="logo" />
           </figure>
           <div className="login-container">
-            <BtnPrimary onClick={() => console.log('cadastrar')}>SIGN UP</BtnPrimary>
+            <BtnPrimary onClick={() => setIsOpenModalRegister(true)}>SIGN UP</BtnPrimary>
             <BtnFake onClick={() => setIsOpenModal(true)}>LOG IN</BtnFake>
           </div>       
       </Header>
