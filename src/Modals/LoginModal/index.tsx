@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -8,23 +7,15 @@ import { Modal, Form, ThemeTitle } from "./styles";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { BtnOutlineModal, BtnPrimary } from "../../styles/buttons";
+import { loginSchema } from "../../validators/LoginUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
+
 
 interface FormProps {
   email: string;
   password: string;
   errors?: string;
 }
-
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email("Must be an email")
-      .required("E-mail is required"),
-    password: yup.string().required("Password is required"),
-  })
-  .required();
 
 const LoginModal = () => {
   const { loginUser, setIsOpenModal, setIsOpenModalRegister } =
@@ -43,7 +34,7 @@ const LoginModal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormProps>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(loginSchema),
   });
 
   const handleBtnClick = () => {

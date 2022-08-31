@@ -13,7 +13,6 @@ export const Modal = styled.div`
   .modal-content {
     width: 100%;
     max-width: 500px;
-    
 
     display: flex;
     flex-direction: column;
@@ -60,14 +59,12 @@ export const Form = styled.form`
     background-color: white;
     ::placeholder {
       color: var(--color-grey-1);
-  
     }
     .input-password {
       padding: 15px 24px;
       border-radius: 25px;
       border: none;
       width: 85%;
-      
     }
 
     .show-password {

@@ -1,13 +1,14 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { UserContext } from "../../context/UserContext";
 import { BtnPrimary } from "../../styles/buttons";
 import { Form, Modal } from "./styles";
+import { registerSchema } from "../../validators/RegisterUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
+
 
 interface FormProps {
   name: string;
@@ -17,26 +18,6 @@ interface FormProps {
   errors?: string;
 }
 
-const schema = yup
-  .object({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .email("Must be an E-mail")
-      .required("E-mail is required"),
-    password: yup
-      .string()
-      .required("Password is required")
-      .matches(/[A-Z]/, "Must contain at least 1 letter")
-      .matches(/([a-z])/, "Must contain at least 1 lowercase letter")
-      .matches(/(\d)/, "Must contain at least 1 number")
-      .matches(/(\W)|_/, "Must contain at least 1 special character")
-      .matches(/.{8,}/, "Must contain at least 8 digits"),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password")], "Passwords must be identical"),
-  })
-  .required();
 
 const RegisterModal = () => {
   const {
@@ -44,7 +25,7 @@ const RegisterModal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormProps>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
   });
 
   const { setIsOpenModalRegister, registerUser, setIsOpenModal } =
