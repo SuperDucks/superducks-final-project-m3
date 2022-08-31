@@ -87,7 +87,7 @@ const LoginModal = () => {
             </div>
 
             <div className="login-buttons">
-              <BtnPrimary
+              <BtnPrimary padding="big"
                 type="submit"
                 onClick={() => {
                   setIsOpenModal(false);

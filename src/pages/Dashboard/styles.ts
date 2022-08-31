@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  /* height: 100vh; */
 
   display: flex;
   flex-direction: column;
@@ -17,7 +16,7 @@ export const Container = styled.div`
 
     aside {
       width: 25%;
-      height: 100%;
+      height: 1700px;
 
       border-right: 1px solid var(--color-grey-7);
     }
@@ -25,7 +24,6 @@ export const Container = styled.div`
     main {
       width: 75%;
       height: 100%;
-      /* background-color: blue; */
       padding: 68px 0px 0px 56px;
     }
   }

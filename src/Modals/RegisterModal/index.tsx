@@ -92,7 +92,7 @@ const RegisterModal = () => {
             <small>{errors.confirmPassword?.message}</small>
           </div>
         </Form>
-        <BtnPrimary
+        <BtnPrimary padding="big"
           type="submit"
           className="btn-submit"
           onClick={() => {
