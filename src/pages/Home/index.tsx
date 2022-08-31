@@ -41,7 +41,7 @@ const Home = () => {
           <img src={logo} alt="logo" />
         </figure>
         <div className="login-container">
-          <BtnPrimary onClick={() => setIsOpenModalRegister(true)}>
+          <BtnPrimary padding="big" onClick={() => setIsOpenModalRegister(true)}>
             SIGN UP
           </BtnPrimary>
           <BtnFake onClick={() => setIsOpenModal(true)}>LOG IN</BtnFake>
