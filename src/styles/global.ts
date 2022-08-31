@@ -2,15 +2,13 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
   :root {
 
     /* style guide */
 
       /* Color Style guide */
         /* Primary Palette */
-        --color-primary: #FF577F;
+        --color-primary: #F1D302;
         --Color-primary-Focus: #FF427F;
         --Color-primary-Negative: #59323F;
 
@@ -21,6 +19,7 @@ export default createGlobalStyle`
         --color-grey-2: #343B41;
         --color-grey-1: #868E96;
         --color-grey-0: #F8F9FA;
+        
 
         /* Feedback Palette */
 
@@ -31,18 +30,22 @@ export default createGlobalStyle`
 
         /* fonte style */
 
-        --font-inter: 'Inter', sans-serif;
+        --font-poppins: 'Poppins', sans-serif;
 
         /* Typography */
 
-        --font-title-1: bold 18px var(--font-inter);
-        --font-title-2: bold 16px var(--font-inter);
-        --font-title-3: bold 14px var(--font-inter);
+        --font-title-1: bold 40px var(--font-poppins);
+        --font-title-2: bold 36px var(--font-poppins);
+        --font-title-3: bold 32px var(--font-poppins);
+        --font-title-4: bold 28px var(--font-poppins);
+        --font-title-5: bold 26px var(--font-poppins);
+        --font-title-6: bold 24px var(--font-poppins);
 
-        --font-headline: normal 12px var(--font-inter);
-        --font-headlineBold: bold 12px var(--font-inter);
-        --font-headlineItalic: italic 12px var(--font-inter);
-
+        --font-title-7: bold 20px var(--font-poppins);
+        --font-title-8: bold 18px var(--font-poppins);
+        --font-title-9: bold 16px var(--font-poppins);
+        --font-title-10: bold 14px var(--font-poppins);
+        --font-title-11: bold 12px var(--font-poppins);
 
     font-size: 62.5%;
     
@@ -64,18 +67,19 @@ export default createGlobalStyle`
   body,html{
     max-width: 100vw;
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
   }
 
   body {
     background: var(--color-background);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
+    
 
     overflow-x: hidden;
   }
 
   body, input, button, textarea {
-    font-family: 'Roboto';
     font-size: 1.6rem;
   }
 
@@ -85,6 +89,7 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: none;
   }
 
   /* width */
