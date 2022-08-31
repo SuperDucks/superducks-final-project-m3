@@ -8,6 +8,7 @@ import { Modal, Form, ThemeTitle } from "./styles";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { BtnOutlineModal, BtnPrimary } from "../../styles/buttons";
+import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 
 interface FormProps {
   email: string;
@@ -21,15 +22,17 @@ const schema = yup
       .string()
       .email("Must be an email")
       .required("E-mail is required"),
-    password: yup
-    .string()
-    .required("Password is required"),
+    password: yup.string().required("Password is required"),
   })
   .required();
 
 const LoginModal = () => {
   const { loginUser, setIsOpenModal, setIsOpenModalRegister } =
     useContext(UserContext);
+
+  const modalRef = useOutsiedeClick(() => {
+    setIsOpenModal(false);
+  });
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -50,7 +53,7 @@ const LoginModal = () => {
   return (
     <>
       <Modal>
-        <div className="modal-content">
+        <div className="modal-content" ref={modalRef}>
           <div className="container-title">
             <ThemeTitle>Login</ThemeTitle>
             <button className="close" onClick={() => setIsOpenModal(false)}>
@@ -82,7 +85,7 @@ const LoginModal = () => {
 
                   <button onClick={handleBtnClick} className="show-password">
                     {showPassword ? (
-                      <AiFillEyeInvisible size={"20"}/>
+                      <AiFillEyeInvisible size={"20"} />
                     ) : (
                       <AiFillEye size={"20"} />
                     )}

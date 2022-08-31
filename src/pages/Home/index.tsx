@@ -2,11 +2,12 @@ import { Container, Header, Main } from "./styles";
 import logo from "../../assets/logo.png";
 import { BtnFake, BtnPrimary } from "../../styles/buttons";
 import { SwiperSlide } from "swiper/react";
-import dead from './../../assets/dead.svg'
-import stranger from './../../assets/stranger.svg'
-import carro1 from './../../assets/img-carro-01.svg'
-import carro2 from './../../assets/carro2.svg'
-import carro3 from './../../assets/carro3.svg'
+import dead from "./../../assets/dead.svg";
+import stranger from "./../../assets/stranger.svg";
+import carro1 from "./../../assets/img-carro-01.svg";
+import carro2 from "./../../assets/carro2.svg";
+import carro3 from "./../../assets/carro3.svg";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -22,29 +23,29 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import RegisterModal from "../../Modals/RegisterModal";
 
-
 const Home = () => {
-
-  const {setIsOpenModal,
+  const {
+    setIsOpenModal,
     isOpenModal,
-    setIsOpenModalRegister, 
-    isOpenModalRegister} = useContext(UserContext)
+    setIsOpenModalRegister,
+    isOpenModalRegister,
+  } = useContext(UserContext);
 
   return (
-    
     <Container>
+      {isOpenModal && <LoginModal />}
+      {isOpenModalRegister && <RegisterModal />}
 
-      {isOpenModal && <LoginModal/>}
-      {isOpenModalRegister && <RegisterModal/>}
-      
-      <Header>       
-          <figure>
-            <img src={logo} alt="logo" />
-          </figure>
-          <div className="login-container">
-            <BtnPrimary onClick={() => setIsOpenModalRegister(true)}>SIGN UP</BtnPrimary>
-            <BtnFake onClick={() => setIsOpenModal(true)}>LOG IN</BtnFake>
-          </div>       
+      <Header>
+        <figure>
+          <img src={logo} alt="logo" />
+        </figure>
+        <div className="login-container">
+          <BtnPrimary onClick={() => setIsOpenModalRegister(true)}>
+            SIGN UP
+          </BtnPrimary>
+          <BtnFake onClick={() => setIsOpenModal(true)}>LOG IN</BtnFake>
+        </div>
       </Header>
       <Main>
         <div className="title-box">
@@ -56,9 +57,9 @@ const Home = () => {
         </div>
         <section className="section-box">
           <Grid>
-            <Container2>             
-              <div>               
-                <StyledSwiper                 
+            <Container2>
+              <div>
+                <StyledSwiper
                   slidesPerView={6}
                   spaceBetween={20}
                   grabCursor={true}
