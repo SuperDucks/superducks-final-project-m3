@@ -10,7 +10,6 @@ import { BtnOutlineModal, BtnPrimary } from "../../styles/buttons";
 import { loginSchema } from "../../validators/LoginUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 
-
 interface FormProps {
   email: string;
   password: string;
