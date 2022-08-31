@@ -7,7 +7,14 @@ export const BtnPrimary = styled.button`
   font-weight: 600;
   color: var(--color-grey-4);
   border: 2px solid var(--color-primary);
-  padding: 8px 28px;
+  
+   ${({padding}) => {
+    switch(padding){
+      case 'small': return css`padding: 6px 18px;`
+      case 'big': return css`padding: 9px 39px;`
+    }
+  }}
+  
 `;
 export const BtnFake = styled.button`
   background: transparent;
