@@ -17,17 +17,28 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper";
 import { Container2, Grid, MovieCardSlide, StyledSwiper } from "./styles";
+import LoginModal from "../../Modals/LoginModal";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+
 
 const Home = () => {
+
+  const {setIsOpenModal, isOpenModal} = useContext(UserContext)
+
   return (
+    
     <Container>
+      {
+        isOpenModal && <LoginModal/>
+      }
       <Header>       
           <figure>
             <img src={logo} alt="logo" />
           </figure>
           <div className="login-container">
-            <BtnPrimary>SIGN UP</BtnPrimary>
-            <BtnFake>LOG IN</BtnFake>
+            <BtnPrimary onClick={() => console.log('cadastrar')}>SIGN UP</BtnPrimary>
+            <BtnFake onClick={() => setIsOpenModal(true)}>LOG IN</BtnFake>
           </div>       
       </Header>
       <Main>

@@ -6,6 +6,7 @@ export const BtnPrimary = styled.button`
   font: var(--font-title-9);
   font-weight: 600;
   color: var(--color-grey-4);
+  border: 2px solid var(--color-primary);
   padding: 8px 28px;
 `;
 export const BtnFake = styled.button`
@@ -23,6 +24,17 @@ export const BtnOutline = styled.button`
   font: var(--font-title-9);
   font-weight: 600;
   color: var(--color-grey-4);
+  
+  
+`;
+export const BtnOutlineModal = styled.button`
+  background: transparent;
+  border-radius: 30px;
+  font: var(--font-title-9);
+  font-weight: 600;
+  color: var(--color-grey-4);
+  border: 2px solid var(--color-grey-4);
+  padding: 8px 28px;
   
   
 `;
