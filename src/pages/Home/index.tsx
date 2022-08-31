@@ -8,11 +8,11 @@ import carro1 from './../../assets/img-carro-01.svg'
 import carro2 from './../../assets/carro2.svg'
 import carro3 from './../../assets/carro3.svg'
 
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 
 // import required modules
 import { Navigation } from "swiper";
