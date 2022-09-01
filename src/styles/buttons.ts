@@ -11,6 +11,7 @@ export const BtnPrimary = styled.button<IButtonsProps>`
   font: var(--font-title-9);
   font-weight: 600;
   color: var(--color-grey-4);
+  transition: .3s;
   ${({padding}) => {
     switch(padding){
       case 'small': return css`padding: 6px 18px;`
