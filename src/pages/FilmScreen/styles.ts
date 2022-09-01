@@ -1,128 +1,118 @@
 import styled from "styled-components";
+import background from "../../assets/background-film.svg";
 
-export const Main = styled.main`
+export const Container = styled.div`
   width: 100%;
-  margin: -8px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 100%;
-  background-color: black;
-  color: #ffffff;
+  height: 100vh;
 
-  .individual-film-info{
-    padding: 80px 90px;
-  }
+  .main-movie {
+    width: 100%;
+    height: 85%;
+    background-image: url(${background});
+    background-repeat: no-repeat;
+    background-size: cover;
 
-  .film-title {
-    width: 40%;
-    height: auto;
-    max-width: 600px;
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 100%;
-  }
-
-  .film-gender {
-    font-weight: 600;
-    font-size: 32px;
-    color: #b4b4b4;
-    line-height: 100%;
-  }
-
-  .film-description {
-    width: 40%;
-    max-width: 600px;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 115%;
-  }
-
-  .film-rating {
-    font-weight: 600;
-    font-size: 22px;
-  }
-
-  .buttons {
-    border-radius: 30px;
-    border: none;
-  }
-
-  .recommended-film-section {
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 35%;
-    padding: 28px 0;
-    background-color: #533333;
-  }
-
-  .recommended-film-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 164px;
-    height: 234px;
-    margin-left: 18px;
-    background-color: #722222;
+
+    .background-form {
+      position: fixed;
+      z-index: 0;
+      width: 60%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      clip-path: polygon(0 0, 100% 0%, 68% 100%, 0% 100%);
+    }
+
+    .main-movie-carousel {
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      height: 328px;
+      margin-bottom: 28px;
+
+      div {
+        width: 65%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.72);
+      }
+    }
+
+    .main-movie-section {
+      z-index: 1;
+      width: 32%;
+      margin-top: 80px;
+      margin-left: 90px;
+      /* background-color: black; */
+
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .main-movie-section-header {
+        display: flex;
+        flex-direction: column;
+        /* background-color: red; */
+
+        h1 {
+          width: 75%;
+          font: var(--font-title-1);
+          color: var(--color-grey-0);
+          font-size: 45px;
+        }
+
+        h2 {
+          font: var(--font-title-3);
+          color: var(--color-grey-1);
+          font-weight: 600;
+        }
+      }
+
+      .main-movie-section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        /* background-color: blue; */
+
+        h3 {
+          font: var(--font-title-7);
+          color: var(--color-grey-0);
+          font-weight: 500;
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          p {
+            font: var(--font-title-7);
+            color: var(--color-grey-0);
+            font-weight: 600;
+          }
+        }
+      }
+
+      .main-movie-section-footer {
+        display: flex;
+        gap: 15px;
+
+        /* background-color: green; */
+
+        .favorite-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+        }
+      }
+    }
   }
-
-  .film-info{
-  }
-
-  .recommended-film-title {
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  .recommended-film-rating {
-    font-weight: 600;
-    font-size: 10px;
-  }
-
-  .card-bar {
-    display: flex;
-    width: 160px
-    height: 26px;
-    margin: 0 -4px 5px 4px;
-    font-weight: 600;
-    font-size: 10px;
-    line-height: 100%;
-    text-align: center;
-    color: #000000;
-  }
-
-  .recommended-film-add-div {
-    width: 30%;
-    background: #F9F9F9;
-  }
-
-  .recommended-film-add {
-  }
-
-  .recommended-film-gender-div {
-    width: 70%;
-    background: #F1D302;
-  }
-
-  .recommended-film-gender {
-  }
-`;
-
-export const FavoriteButton = styled.button`
-  width: 44px;
-  height: 42px;
-  background: #ffffff;
-`;
-
-export const TrailerButton = styled.button`
-  width: 150px;
-  height: 42px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #000000;
-  background: #f1d302;
 `;
