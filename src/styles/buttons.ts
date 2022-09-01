@@ -17,6 +17,13 @@ export const BtnPrimary = styled.button<IButtonsProps>`
       case 'big': return css`padding: 9px 39px;`
     }
   }}
+  &:hover {
+    filter: brightness(1.1);
+  }
+  &::disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
   
 `;
 
