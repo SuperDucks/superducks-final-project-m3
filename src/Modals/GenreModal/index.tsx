@@ -7,11 +7,20 @@ import { BtnPrimary } from "../../styles/buttons";
 import { Modal, ThemeTitle } from "./style";
 
 const GenreModal = () => {
-  const { setIsOpenModalGenre } = useContext(GenreContext);
+  const { setIsOpenModalGenre, setUserGenres, userGenres } =
+    useContext(GenreContext);
 
   const modalRef = useOutsiedeClick(() => {
     setIsOpenModalGenre(false);
   });
+
+  const addGenre = (genreName: string) => {
+    if (!userGenres.includes(genreName)) {
+      return setUserGenres([...userGenres, genreName]);
+    }
+    const filterGenre = userGenres.filter((genre) => genre !== genreName);
+    setUserGenres(filterGenre);
+  };
 
   return (
     <>
@@ -28,8 +37,14 @@ const GenreModal = () => {
           </div>
           <div className="genre-container">
             {genres.map((genre) => {
+              const genreName = genre.name;
               return (
-                <BtnPrimary className="genre-buttons">{genre.name}</BtnPrimary>
+                <BtnPrimary
+                  className="genre-buttons"
+                  onClick={() => addGenre(genreName)}
+                >
+                  {genre.name}{" "}
+                </BtnPrimary>
               );
             })}
           </div>

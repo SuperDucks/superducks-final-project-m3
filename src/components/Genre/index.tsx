@@ -5,28 +5,19 @@ import { useContext } from "react";
 import { GenreContext } from "../../context/GenreContext";
 
 function Genre() {
-  const { setIsOpenModalGenre } = useContext(GenreContext);
+  const { setIsOpenModalGenre, userGenres } = useContext(GenreContext);
   return (
     <Container>
       <h2>Favourit genres</h2>
 
-      {/* colocar um state rodando um map pra fazer os generos */}
       <ul>
-        <li>
-          <BtnPrimary padding="small">Action</BtnPrimary>
-        </li>
-        <li>
-          <BtnPrimary padding="small">Drama</BtnPrimary>
-        </li>
-        <li>
-          <BtnPrimary padding="small">Adventures</BtnPrimary>
-        </li>
-        <li>
-          <BtnPrimary padding="small">Comedy</BtnPrimary>
-        </li>
-        <li>
-          <BtnPrimary padding="small">Sci-Fi</BtnPrimary>
-        </li>
+        {userGenres?.map((genre) => {
+          return (
+            <li key={genre}>
+              <BtnPrimary padding="small">{genre}</BtnPrimary>
+            </li>
+          );
+        })}
       </ul>
 
       <button
