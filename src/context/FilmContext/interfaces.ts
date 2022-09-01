@@ -4,6 +4,15 @@ export interface FilmProviderProps {
   children: ReactNode;
 }
 
+export interface IFilmProps {
+  DashboardMovies: IDashboardMovies[];
+}
+
+export interface IDashboardMovies {
+  type: string;
+  movielist: IMovies[] | [];
+}
+
 export interface IMovies {
   adult: boolean;
   backdrop_path: string | null;
@@ -20,15 +29,6 @@ export interface IMovies {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
-
-export interface IDashboardMovies {
-  type: string;
-  movielist: IMovies[] | [];
-}
-
-export interface IFilmProps {
-  DashboardMovies: IDashboardMovies[];
 }
 
 export interface Imovie {
@@ -51,7 +51,7 @@ export interface Imovie {
   };
 }
 
-export interface IGender {
+export interface IGenre {
   id: number;
   name: string;
 }

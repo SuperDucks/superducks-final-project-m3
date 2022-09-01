@@ -4,13 +4,17 @@ import Footer from "../../components/Footer";
 import Genre from "../../components/Genre";
 import NavBar from "../../components/NavBar";
 import { FilmContext } from "../../context/FilmContext";
+import { GenreContext } from "../../context/GenreContext";
+import GenreModal from "../../Modals/GenreModal";
 import { Container } from "./styles";
 
 const Dashboard = () => {
   const { DashboardMovies } = useContext(FilmContext);
+  const { isOpenModalGenre } = useContext(GenreContext);
 
   return (
     <Container>
+      {isOpenModalGenre && <GenreModal />}
       <NavBar />
 
       <div className="content">

@@ -1,6 +1,6 @@
-import { IGender } from "./interfaces";
+import { IGenre } from "./interfaces";
 
-export const genres: IGender[] = [
+export const genres: IGenre[] = [
   {
     id: 28,
     name: "Action",

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import{ api} from "../../services/api";
+import { api } from "../../services/api";
 import { FilmProviderProps, IFilmProps, IMovies } from "./interfaces";
 
 export const FilmContext = createContext({} as IFilmProps);
@@ -10,12 +10,12 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
 
   const DashboardMovies = [
     {
-      type: "TOP RATED",
-      movielist: topRatedMovies,
-    },
-    {
       type: "UPCOMING",
       movielist: upcomingMovies,
+    },
+    {
+      type: "TOP RATED",
+      movielist: topRatedMovies,
     },
   ];
 
