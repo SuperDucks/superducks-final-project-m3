@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import api from "../../services/api";
+import{ api} from "../../services/api";
 import { FilmProviderProps, IFilmProps, IMovies } from "./interfaces";
 
 export const FilmContext = createContext({} as IFilmProps);

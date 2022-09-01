@@ -81,7 +81,7 @@ const RegisterModal = () => {
                 id="password"
                 {...register("password")}
               />
-              <button onClick={handleBtnClick} className="show-password">
+              <button type="button" onClick={handleBtnClick} className="show-password">
                 {showPassword ? (
                   <AiFillEyeInvisible size={"20"} />
                 ) : (
@@ -101,7 +101,7 @@ const RegisterModal = () => {
             <small>{errors.confirmPassword?.message}</small>
           </div>
 
-        <BtnPrimary type="submit" className="btn-submit" disabled={loading}>
+        <BtnPrimary type="submit" padding='big' className="btn-submit" disabled={loading}>
           {loading ? "Registering..." : "Sign Up"}
         </BtnPrimary>
         </Form>
