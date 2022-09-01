@@ -35,7 +35,6 @@ export const UserProvider = ({ children }: IUserProvider) => {
             Authorization:`Bearer ${token as string}`
           }
         })
-        console.log(response)
         setUser(response.data[0])
         console.log(user)
         navigate('/dashboard')
@@ -59,8 +58,12 @@ export const UserProvider = ({ children }: IUserProvider) => {
 
   async function registerUser(data: IFormRegister, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
     try {
+      const newData = {
+        ...data, genders: []
+      }
       setLoading(true);
-      await userAPI.post('/register', data);      
+      const {data: apiData} = await userAPI.post('/register', newData);
+      console.log(apiData)      
       setIsOpenModalRegister(false);
       toast.success('User registered successfully');
       setTimeout(() => {
