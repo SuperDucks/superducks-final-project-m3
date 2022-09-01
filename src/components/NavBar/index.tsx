@@ -1,30 +1,33 @@
 import { Container } from "./styles";
-import logo from '../../assets/logo.png';
-import imgProfile from '../../assets/img-profile.svg';
-import { AiOutlineSearch } from 'react-icons/ai'
-import { RiArrowDropDownLine } from 'react-icons/ri'
+import logo from "../../assets/logo.png";
+import imgProfile from "../../assets/img-profile.svg";
+import { AiOutlineSearch } from "react-icons/ai";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
+
+  const navigate = useNavigate();
   return (
-
     <Container>
-
       <figure>
-        <img src={ logo } alt="" />
+        <img src={logo} alt="" />
       </figure>
 
       <div className="nav-bar-choice">
-        <button>HOME</button>
+        <button onClick={() => navigate("/dashboard")}>HOME</button>
         <hr />
         <button>MY LIST</button>
       </div>
 
       <div className="nav-bar-search">
         <input type="text" placeholder="Search" />
-        <button><AiOutlineSearch size={'25'} /></button>
+        <button onClick={() => navigate("/search", { replace: true })}>
+          <AiOutlineSearch size={"25"} />
+        </button>
       </div>
 
       <div className="nav-bar-profile">
@@ -36,10 +39,8 @@ function NavBar() {
           <img src={imgProfile} alt="" />
         </figure>
       </div>
-
     </Container>
-
-  )
+  );
 }
 
 export default NavBar;
