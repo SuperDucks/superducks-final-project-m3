@@ -9,7 +9,6 @@ import { Form, Modal } from "./styles";
 import { registerSchema } from "../../validators/RegisterUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 
-
 interface FormProps {
   name: string;
   email: string;
@@ -18,8 +17,12 @@ interface FormProps {
   errors?: string;
 }
 
-
 const RegisterModal = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const { setIsOpenModalRegister, registerUser } =
+    useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -28,8 +31,6 @@ const RegisterModal = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const { setIsOpenModalRegister, registerUser, setIsOpenModal } =
-    useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const modalRef = useOutsiedeClick(() => {
@@ -51,15 +52,23 @@ const RegisterModal = () => {
             <MdOutlineClose size={32} />
           </button>
         </div>
-        <Form onSubmit={handleSubmit(registerUser)}>
+        <Form
+          onSubmit={handleSubmit((formData) =>
+            registerUser(formData, setLoading)
+          )}
+        >
           <div className="input-container">
             <label htmlFor="">Name</label>
-            <input type="text" placeholder="Name" {...register("name")} />
+            <input type="text"
+              placeholder="Name" 
+             {...register("name")} />
             <small>{errors.name?.message}</small>
           </div>
           <div className="input-container">
             <label htmlFor="">E-mail</label>
-            <input type="email" placeholder="E-mail" {...register("email")} />
+            <input type="email" 
+            placeholder="E-mail" 
+            {...register("email")} />
             <small>{errors.email?.message}</small>
           </div>
           <div className="input-container">
@@ -91,17 +100,11 @@ const RegisterModal = () => {
             />
             <small>{errors.confirmPassword?.message}</small>
           </div>
-        </Form>
-        <BtnPrimary padding="big"
-          type="submit"
-          className="btn-submit"
-          onClick={() => {
-            setIsOpenModalRegister(false);
-            setIsOpenModal(true);
-          }}
-        >
-          Register
+
+        <BtnPrimary type="submit" className="btn-submit" disabled={loading}>
+          {loading ? "Registering..." : "Sign Up"}
         </BtnPrimary>
+        </Form>
       </div>
     </Modal>
   );
