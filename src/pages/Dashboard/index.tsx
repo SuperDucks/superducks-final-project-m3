@@ -24,7 +24,7 @@ const Dashboard = () => {
         </aside>
         <main>
           {DashboardMovies.map((moviesInfo) => {
-            return <Carousel moviesInfo={moviesInfo} />;
+            return <Carousel key={moviesInfo.type} moviesInfo={moviesInfo} />;
           })}
         </main>
       </div>

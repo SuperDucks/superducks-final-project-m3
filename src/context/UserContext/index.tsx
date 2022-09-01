@@ -15,6 +15,7 @@ import {
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProvider) => {
+  /* const [loading, setLoading] = useState(false); */
   const [user, setUser] = useState<IUser | null>(null);
   const navigate = useNavigate()
 
@@ -24,24 +25,32 @@ export const UserProvider = ({ children }: IUserProvider) => {
 
   useEffect(() => {
     const token = localStorage.getItem('@TOKEN')
-
+    const id = localStorage.getItem('@USERID')
+    console.log(token, id)
     async function autoLogin(){
       try {
-        const response = await userAPI.post('/autologin', {}, {
+        /* setLoading(true) */
+        const response = await userAPI.get(`/users?id=${id}`, {
           headers: {
-            auth: token as string,
+            Authorization:`Bearer ${token as string}`
           }
         })
-        setUser(response.data.user)
+        setUser(response.data[0])
+        console.log(user)
         navigate('/dashboard')
       } catch (error) {
-        localStorage.removeItem('@TOKEN');
-        navigate('/');
-      } finally {
+        console.log(error)
+        console.log(error)
 
+        localStorage.removeItem('@TOKEN');
+        localStorage.removeItem('@USERID');
+        navigate('/');
+        
+      } finally {
+       /*  setLoading(false) */
       }
     }
-    if(token) {
+    if(token && id) {
       autoLogin();
     }
   }, [])
@@ -49,8 +58,12 @@ export const UserProvider = ({ children }: IUserProvider) => {
 
   async function registerUser(data: IFormRegister, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
     try {
+      const newData = {
+        ...data, genders: []
+      }
       setLoading(true);
-      await userAPI.post('/register', data);      
+      const {data: apiData} = await userAPI.post('/register', newData);
+      console.log(apiData)      
       setIsOpenModalRegister(false);
       toast.success('User registered successfully');
       setTimeout(() => {
@@ -69,6 +82,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
         const response = await userAPI.post('/login', data);
         setUser(response.data.user);
         localStorage.setItem('@TOKEN', response.data.accessToken)
+        localStorage.setItem('@USERID', response.data.user.id)
         toast.success('Login successfully!')
         setTimeout(() => {
           navigate('/dashboard')
@@ -83,6 +97,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
   function logoutUser() {
     setUser(null);
     localStorage.removeItem('@TOKEN');
+    localStorage.removeItem('@USERID');
     navigate('/');
   }
   

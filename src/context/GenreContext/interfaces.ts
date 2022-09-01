@@ -7,4 +7,6 @@ export interface IGenreProvider {
 export interface IGenreContext {
   isOpenModalGenre: boolean;
   setIsOpenModalGenre: React.Dispatch<React.SetStateAction<boolean>>;
+  userGenres: string[];
+  setUserGenres: React.Dispatch<React.SetStateAction<string[]>>;
 }
