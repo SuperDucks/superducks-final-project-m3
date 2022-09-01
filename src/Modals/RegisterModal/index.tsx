@@ -100,6 +100,7 @@ const RegisterModal = () => {
             />
             <small>{errors.confirmPassword?.message}</small>
           </div>
+
         <BtnPrimary type="submit" className="btn-submit" disabled={loading}>
           {loading ? "Registering..." : "Sign Up"}
         </BtnPrimary>
