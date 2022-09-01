@@ -7,7 +7,7 @@ function Carousel({ moviesInfo }: IMoviesInfo) {
     <Container>
       <h2>{moviesInfo.type}</h2>
       {moviesInfo.movielist.map((movie) => {
-        return <Card movie={movie}></Card>;
+        return <Card movie={movie} key={movie.id}></Card>;
       })}
     </Container>
   );
