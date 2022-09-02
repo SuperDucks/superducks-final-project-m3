@@ -132,7 +132,6 @@ export const UserProvider = ({ children }: IUserProvider) => {
         },
         );
         setUser(response.data as IUser)
-      setDisplayGenre(response.data.user);
       setIsOpenEditProfileModal(false);    
       toast.success("Successfully edited!");
     } catch (error) {
