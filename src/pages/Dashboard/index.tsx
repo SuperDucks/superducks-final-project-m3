@@ -11,13 +11,17 @@ import EditProfileModal from "../../Modals/EditProfileModal";
 
 import GenreModal from "../../Modals/GenreModal";
 import { Container } from "./styles";
+import LottieLoading from "../../components/LottieLoading";
 
 const Dashboard = () => {
-  const { DashboardMovies } = useContext(FilmContext);
+  const { DashboardMovies, loadingPage } = useContext(FilmContext);
   const { isOpenModalGenre } = useContext(GenreContext);
-  const { isOpenEditProfileModal } = useContext(UserContext);
+  const { isOpenEditProfileModal} = useContext(UserContext)
 
   return (
+    <>
+    {loadingPage ? <LottieLoading/> : (
+
     <Container>
       {isOpenModalGenre && <GenreModal />}
       {isOpenEditProfileModal && <EditProfileModal />}
@@ -37,7 +41,9 @@ const Dashboard = () => {
       </div>
 
       <Footer />
-    </Container>
+    </Container>   
+    )}
+    </>
   );
 };
 export default Dashboard;

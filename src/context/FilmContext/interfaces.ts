@@ -6,6 +6,8 @@ export interface FilmProviderProps {
 
 export interface IFilmProps {
   DashboardMovies: IDashboardMovies[];
+  loadingPage: boolean;
+  setLoadingPage: React.Dispatch<React.SetStateAction<boolean>>;
   addMovie: (data: IMovies) => void;
 }
 

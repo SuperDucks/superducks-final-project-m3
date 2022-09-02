@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DropdownMenu from "../Dropdown/DropdownMenu";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 
@@ -22,9 +22,11 @@ function NavBar() {
 
   return (
     <Container>
-      <figure>
-        <img src={logo} alt="" />
-      </figure>
+      <Link to='/dashboard'>
+        <figure>
+          <img src={logo} alt="Logo Duckplay"/>
+        </figure>
+      </Link>
       <div className="nav-bar-choice">
       <button onClick={() => navigate("/dashboard")}>HOME</button>
         <hr />
