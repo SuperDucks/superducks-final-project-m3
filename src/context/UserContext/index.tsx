@@ -70,6 +70,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
         genres: [],
         movie_list: [],
       };
+      console.log(newData)
       setLoading(true);
       const { data: apiData } = await userAPI.post("/register", newData);
       console.log(apiData);
@@ -92,14 +93,10 @@ export const UserProvider = ({ children }: IUserProvider) => {
     try {
       setLoading(true);
       const response = await userAPI.post("/login", data);
-      setUser(response.data.user);
-      console.log(user)
-      if (response.data.genres) {
-        setDisplayGenre(response.data.genres);
-      }
+      setUser(response.data.user);     
+      setDisplayGenre(response.data.user.genres);  
       localStorage.setItem("@TOKEN", response.data.accessToken);
       localStorage.setItem("@USERID", response.data.user.id);
-      localStorage.setItem("@USERGENRES", response.data.user.genres);
       toast.success("Login successfully!");
       setTimeout(() => {
         navigate("/dashboard");
@@ -113,8 +110,8 @@ export const UserProvider = ({ children }: IUserProvider) => {
 
   function logoutUser() {
     setUser(null);
-    localStorage.removeItem("@TOKEN");
-    localStorage.removeItem("@USERID");
+    setDisplayGenre([]);
+    localStorage.clear();    
     navigate("/");
   }
 
