@@ -8,6 +8,7 @@ import { BtnPrimary } from "../../styles/buttons";
 import { Form, Modal } from "./styles";
 import { registerSchema } from "../../validators/RegisterUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
+import { motion } from "framer-motion";
 
 interface FormProps {
   name: string;
@@ -42,7 +43,10 @@ const RegisterModal = () => {
   };
   return (
     <Modal>
-      <div className="modal-content" ref={modalRef}>
+      <motion.div
+          initial={{ y: -100, opacity: 0}}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }} className="modal-content" ref={modalRef}>
         <div className="title-container">
           <h2>Create your account</h2>
           <button
@@ -105,7 +109,7 @@ const RegisterModal = () => {
           {loading ? "Registering..." : "Sign Up"}
         </BtnPrimary>
         </Form>
-      </div>
+      </motion.div>
     </Modal>
   );
 };

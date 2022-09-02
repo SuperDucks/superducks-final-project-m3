@@ -9,6 +9,7 @@ import { registerSchema } from "../../validators/RegisterUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 import { Form, Modal } from "./styes";
 import { IFormEdit } from "../../context/UserContext/interfaces";
+import { motion } from "framer-motion";
 
 
 const EditProfileModal = () => {
@@ -36,7 +37,11 @@ const EditProfileModal = () => {
   };
   return (
     <Modal>
-      <div className="modal-content" ref={modalRef}>
+      <motion.div
+          initial={{ y: -100, opacity: 0}}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="modal-content" ref={modalRef}>
         <div className="title-container">
           <h2>Edit your profile</h2>
           <button
@@ -91,7 +96,7 @@ const EditProfileModal = () => {
           {loading ? "Saving..." : "Save editions"}
         </BtnPrimary>
         </Form>
-      </div>
+      </motion.div>
     </Modal>
   );
 };

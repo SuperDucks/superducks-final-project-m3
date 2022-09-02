@@ -39,7 +39,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
         })
         setUser(response.data[0])
         console.log(user)
-        navigate('/dashboard')
+       /*  navigate('/dashboard') */ 
       } catch (error) {
         console.log(error)
         console.log(error)

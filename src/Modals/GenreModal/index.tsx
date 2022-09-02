@@ -5,6 +5,7 @@ import { GenreContext } from "../../context/GenreContext";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 import { BtnPrimary } from "../../styles/buttons";
 import { Modal, ThemeTitle } from "./style";
+import { motion } from "framer-motion";
 
 const GenreModal = () => {
   const { setIsOpenModalGenre, setUserGenres, userGenres } =
@@ -25,7 +26,11 @@ const GenreModal = () => {
   return (
     <>
       <Modal>
-        <div className="modal-content" ref={modalRef}>
+        <motion.div
+          initial={{ y: -100, opacity: 0}}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="modal-content" ref={modalRef}>
           <div className="container-title">
             <ThemeTitle>Genres</ThemeTitle>
             <button
@@ -48,7 +53,7 @@ const GenreModal = () => {
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </Modal>
     </>
   );

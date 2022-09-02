@@ -7,7 +7,8 @@ const ProtectedRoutes = () => {
   const {user} = useContext(UserContext)
   const navigate = useNavigate()
   useEffect(() => {
-    if (!user) {
+    
+    if (!localStorage.getItem('@TOKEN')) {
       navigate("/");
     }
   }, [])
