@@ -1,7 +1,7 @@
 import { Swiper, SwiperProps } from 'swiper/react';
 import { ReactNode } from 'react';
 
-import { Navigation, Pagination } from 'swiper';
+import { Navigation } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -16,7 +16,7 @@ interface SliderProps{
 
 function Slider({ settings, children }: SliderProps) {
 	return (
-		<Swiper modules={[Navigation, Pagination]} {...settings}>
+		<Swiper modules={[Navigation]} {...settings}>
       {children}    
     </Swiper>
 	)

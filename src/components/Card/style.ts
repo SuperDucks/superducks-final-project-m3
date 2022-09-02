@@ -7,11 +7,10 @@ interface IPoster {
 export const Container = styled.div<IPoster>`
   display: flex;
   flex-direction: column;
-
+  background-color: red;
   
-  gap: 14px;
+  /* gap: 14px; */
   margin-bottom: 56px;
-
 
   h2 {
     font: var(--font-title-3);
@@ -23,7 +22,7 @@ export const Container = styled.div<IPoster>`
   .carousel-container {
     height: 286px;
     display: flex;
-    gap: 24px;
+    /* gap: 24px; */
 
     .carousel-card {
       /* background-color: blue; */
@@ -36,6 +35,7 @@ export const Container = styled.div<IPoster>`
       display: flex;
       flex-direction: column;
       align-items: center;
+      
 
       .carousel-card-main {
         width: 100%;
@@ -46,13 +46,24 @@ export const Container = styled.div<IPoster>`
         justify-content: space-between;
         align-items: space-between;
 
+        
+
         .carousel-card-title {
-          margin-left: 18px;
+          /* margin-top: 8px;
+
+          margin-left: 12px; */
+          padding: 8px;
           /* background-color: green; */
 
+          background: rgb(0,0,0);
+          background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.605217086834734) 53%, rgba(0,0,0,0.8685224089635855) 100%);
+
           h2 {
+            height: 38px;
+            
             font: var(--font-title-8);
             color: var(--color-grey-0);
+            /* background-color: red; */
           }
 
           .carousel-card-ratio {
@@ -61,9 +72,11 @@ export const Container = styled.div<IPoster>`
             gap: 5px;
 
             p {
-              font: var(--font-title-9);
+              -webkit-text-stroke-width: .8px;
+              -webkit-text-stroke-color: #000;
+              font: var(--font-title-8);
               color: var(--color-grey-0);
-              font-weight: 400;
+              font-weight: 700;
             }
           }
         }

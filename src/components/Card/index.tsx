@@ -11,7 +11,6 @@ function Card({ movie }: Imovie) {
     <Container moviePoster={movie.poster_path}>
       <div className="carousel-container">
         <div className="carousel-card">
-
           <div className="carousel-card-main">
             <div className="carousel-card-title">
               <h2>{movie.original_title}</h2>
@@ -32,11 +31,8 @@ function Card({ movie }: Imovie) {
                 <p>{movieGenre[0].name}</p>
               </button>
             </div>
-
           </div>
-
         </div>
-
       </div>
     </Container>
   );

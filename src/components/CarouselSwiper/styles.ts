@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 60%;
-  height: 30%;
 
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+
   justify-content: center;
-  align-items: center;
-  gap: 5%;
+
   
-  background-color: blue;
-  color: white;
+  h2 {
+    margin-bottom: 16px;
+    font: var(--font-title-3);
+    color: var(--color-grey-0);
+    font-weight: 400;
+  }
+
 `
