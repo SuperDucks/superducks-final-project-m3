@@ -72,7 +72,7 @@ const LoginModal = () => {
                     {...register("password")}
                   />
 
-                  <button onClick={handleBtnClick} className="show-password">
+                  <button type="button" onClick={handleBtnClick} className="show-password">
                     {showPassword ? (
                       <AiFillEyeInvisible size={"20"} />
                     ) : (

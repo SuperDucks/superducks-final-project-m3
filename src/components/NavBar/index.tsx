@@ -6,10 +6,10 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import DropdownMenu from "../Dropdown/DropdownMenu";
 
 function NavBar() {
-  const { user } = useContext(UserContext);
-
+  const {user, dropdownOpen, setDropdownOpen} = useContext(UserContext);
   const navigate = useNavigate();
   return (
     <Container>
@@ -32,12 +32,13 @@ function NavBar() {
 
       <div className="nav-bar-profile">
         <h3>{user?.name}</h3>
-        <button>
+        <button onClick={() => setDropdownOpen(!dropdownOpen)}>
           <RiArrowDropDownLine color="white" font-size={50} />
         </button>
+        <DropdownMenu/>        
         <figure>
           <img src={imgProfile} alt="" />
-        </figure>
+        </figure>    
       </div>
     </Container>
   );

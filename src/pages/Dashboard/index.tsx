@@ -6,16 +6,21 @@ import NavBar from "../../components/NavBar";
 import { FilmContext } from "../../context/FilmContext";
 import { GenreContext } from "../../context/GenreContext";
 
+import { UserContext } from "../../context/UserContext";
+import EditProfileModal from "../../Modals/EditProfileModal";
+
 import GenreModal from "../../Modals/GenreModal";
 import { Container } from "./styles";
 
 const Dashboard = () => {
   const { DashboardMovies } = useContext(FilmContext);
   const { isOpenModalGenre } = useContext(GenreContext);
+  const {isOpenEditProfileModal } = useContext(UserContext);
 
   return (
     <Container>
       {isOpenModalGenre && <GenreModal />}
+      {isOpenEditProfileModal && <EditProfileModal />}
       <NavBar />
 
       <div className="content">
