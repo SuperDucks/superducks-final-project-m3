@@ -23,18 +23,27 @@ export interface IFormEdit {
 }
 
 export interface IUser {
-	id: number
-	name: string,
-  email: string,
+  id: number;
+  name: string;
+  email: string;
+  genres: string[] | [] | undefined;
 }
 
 export interface IUserContext {
-  
   user: IUser | null;
-  registerUser: (data: IFormRegister, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void;
-  loginUser: (data: IFormLogin, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void;
+  registerUser: (
+    data: IFormRegister,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+  loginUser: (
+    data: IFormLogin,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
   logoutUser: () => void;
-  editProfileUser: (data: IFormEdit, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void;
+  editProfileUser: (
+    data: IFormEdit,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   isOpenModal: boolean;
   isOpenModalRegister: boolean;
@@ -43,6 +52,7 @@ export interface IUserContext {
   setIsOpenEditProfileModal: React.Dispatch<React.SetStateAction<boolean>>;
   dropdownOpen: boolean;
   setDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  displayGenre: string[];
+  setDisplayGenre: React.Dispatch<React.SetStateAction<string[]>>;
+  loading: boolean;
 }
-
-
