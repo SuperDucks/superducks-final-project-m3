@@ -5,17 +5,18 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { UserContext } from "../../context/UserContext";
 import { BtnPrimary } from "../../styles/buttons";
-import { registerSchema } from "../../validators/RegisterUser";
+import { editSchema } from "../../validators/EditUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 import { Form, Modal } from "./styes";
 import { IFormEdit } from "../../context/UserContext/interfaces";
 import { motion } from "framer-motion";
 
 
+
 const EditProfileModal = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
-  const { setIsOpenEditProfileModal, editProfileUser } =
+  const { setIsOpenEditProfileModal, editProfileUser, user } =
     useContext(UserContext);
 
   const {
@@ -23,7 +24,8 @@ const EditProfileModal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormEdit>({
-    resolver: yupResolver(registerSchema),
+    resolver: yupResolver(editSchema),
+    defaultValues: {photo: user?.avatar_url, name: user?.name},
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -56,6 +58,13 @@ const EditProfileModal = () => {
             editProfileUser(formData, setLoading)
           )}
         >
+          <div className="input-container">
+            <label htmlFor="">Photo</label>
+            <input type="url"
+              placeholder="Photo" 
+             {...register("photo")}/>
+            <small>{errors.photo?.message}</small>
+          </div>
           <div className="input-container">
             <label htmlFor="">Name</label>
             <input type="text"
