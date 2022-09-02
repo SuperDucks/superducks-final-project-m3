@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 import logo from "../../assets/logo.png";
-import imgProfile from "../../assets/img-profile.svg";
+
 import { AiOutlineSearch } from "react-icons/ai";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useContext } from "react";
@@ -47,7 +47,7 @@ function NavBar() {
         <DropdownMenu/>        
         </div>
         <figure>
-          <img src={imgProfile} alt="" />
+          <img src={user?.avatar_url} alt="" />
         </figure>    
       </div>
     </Container>

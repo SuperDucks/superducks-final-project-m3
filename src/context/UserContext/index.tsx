@@ -27,7 +27,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
   const [isOpenModalRegister, setIsOpenModalRegister] =
     useState<boolean>(false);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-
+  
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN");
     const id = localStorage.getItem("@USERID");
@@ -66,7 +66,9 @@ export const UserProvider = ({ children }: IUserProvider) => {
     try {
       const newData = {
         ...data,
+        avatar_url: "https://www.promoview.com.br/uploads/images/unnamed%2819%29.png",
         genres: [],
+        movie_list: [],
       };
       setLoading(true);
       const { data: apiData } = await userAPI.post("/register", newData);
@@ -91,6 +93,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
       setLoading(true);
       const response = await userAPI.post("/login", data);
       setUser(response.data.user);
+      console.log(user)
       if (response.data.genres) {
         setDisplayGenre(response.data.genres);
       }
@@ -115,15 +118,30 @@ export const UserProvider = ({ children }: IUserProvider) => {
     navigate("/");
   }
 
-  function editProfileUser(
-    data: IFormEdit,
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  ) {
+  async function editProfileUser(data: IFormEdit, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
     try {
+      const token = localStorage.getItem("@TOKEN");
+      const response = await userAPI.patch(
+        `/users/${user?.id}`,
+        { avatar_url: data.photo ? data.photo : user?.avatar_url,
+          name: data.name ? data.name : user?.name,
+          password: data.password,
+          confirmPassword: data.confirmPassword
+         },
+        {
+          headers: {
+            Authorization: `Bearer ${token as string}`,
+          },
+        },
+        );
+        setUser(response.data as IUser)
+      setDisplayGenre(response.data.user);
+      setIsOpenEditProfileModal(false);    
       toast.success("Successfully edited!");
     } catch (error) {
-      toast.success("An error has occurred!");
+      toast.error("An error has occurred!");
     } finally {
+      
       setLoading(false);
     }
   }

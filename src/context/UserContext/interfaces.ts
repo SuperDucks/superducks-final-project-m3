@@ -16,17 +16,19 @@ export interface IFormLogin {
   password: string;
 }
 export interface IFormEdit {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
+  photo?: string | undefined;
+  name?:string | undefined;
+  password?: string | undefined;
+  confirmPassword?: string | undefined
 }
 
 export interface IUser {
   id: number;
   name: string;
   email: string;
-  genres: string[] | [] | undefined;
+  avatar_url: string;
+  genres?: string[] | [] | undefined;
+  movie_list?: string[] | [] | undefined;
 }
 
 export interface IUserContext {
