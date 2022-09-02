@@ -24,6 +24,7 @@ import { UserContext } from "../../context/UserContext";
 import RegisterModal from "../../Modals/RegisterModal";
 
 const Home = () => {
+ 
   const {
     setIsOpenModal,
     isOpenModal,
@@ -33,12 +34,13 @@ const Home = () => {
 
   return (
     <Container>
+      
       {isOpenModal && <LoginModal />}
       {isOpenModalRegister && <RegisterModal />}
-
       <Header>
         <figure>
           <img src={logo} alt="logo" />
+         
         </figure>
         <div className="login-container">
           <BtnPrimary padding="big" onClick={() => setIsOpenModalRegister(true)}>
@@ -48,6 +50,7 @@ const Home = () => {
         </div>
       </Header>
       <Main>
+     
         <div className="title-box">
           <h1>Agora ficou muito mais fácil encontrar filmes e séries</h1>
           <h2>

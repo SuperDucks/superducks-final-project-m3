@@ -8,6 +8,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { BtnOutlineModal, BtnPrimary } from "../../styles/buttons";
 import { loginSchema } from "../../validators/LoginUser";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
+import { motion } from "framer-motion";
 
 interface FormProps {
   email: string;
@@ -26,7 +27,6 @@ const LoginModal = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-
   const {
     register,
     handleSubmit,
@@ -42,14 +42,25 @@ const LoginModal = () => {
   return (
     <>
       <Modal>
-        <div className="modal-content" ref={modalRef}>
+        <motion.div
+          initial={{ y: -100, opacity: 0}}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+
+          className="modal-content"
+          ref={modalRef}
+        >
           <div className="container-title">
             <ThemeTitle>Login</ThemeTitle>
             <button className="close" onClick={() => setIsOpenModal(false)}>
               <MdOutlineClose size={32} />
             </button>
           </div>
-          <Form onSubmit={handleSubmit((formData) => loginUser(formData, setLoading))}>
+          <Form
+            onSubmit={handleSubmit((formData) =>
+              loginUser(formData, setLoading)
+            )}
+          >
             <div className="form-container">
               <div className="input-container">
                 <label htmlFor="email">E-mail</label>
@@ -72,7 +83,11 @@ const LoginModal = () => {
                     {...register("password")}
                   />
 
-                  <button type="button" onClick={handleBtnClick} className="show-password">
+                  <button
+                    type="button"
+                    onClick={handleBtnClick}
+                    className="show-password"
+                  >
                     {showPassword ? (
                       <AiFillEyeInvisible size={"20"} />
                     ) : (
@@ -85,11 +100,8 @@ const LoginModal = () => {
             </div>
 
             <div className="login-buttons">
-              <BtnPrimary padding="big"
-                type="submit"
-                disabled={loading}
-              >
-                {loading ? 'Logging in...' : 'Log In'}
+              <BtnPrimary padding="big" type="submit" disabled={loading}>
+                {loading ? "Logging in..." : "Log In"}
               </BtnPrimary>
               <BtnOutlineModal
                 onClick={() => {
@@ -101,7 +113,7 @@ const LoginModal = () => {
               </BtnOutlineModal>
             </div>
           </Form>
-        </div>
+        </motion.div>
       </Modal>
     </>
   );

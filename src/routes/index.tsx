@@ -14,7 +14,10 @@ const RoutesMain = () => (
       <Route index element={<Dashboard />} />
     </Route>
 
-    <Route path="/search" element={<SearchPage />} />
+    <Route path="/search" element={<ProtectedRoutes />}>
+    <Route index element={<SearchPage />} />
+      
+    </Route>
 
     <Route path="/movies" element={<FilmScreen />}/>
     <Route path="*" element={<Navigate to="/"/>}/>
