@@ -19,7 +19,6 @@ function CarouselSwiper({ moviesInfo }: IMoviesInfo) {
       <h2>{moviesInfo.type}</h2>
 
       <div>
-
         <Slider settings={settings}>
             {moviesInfo.movielist.map((movie) => {
               return (

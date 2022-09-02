@@ -14,6 +14,7 @@ const LottieLoading = () => {
   return (
     <Container> 
      <Lottie options={loadingOptions} width={300} height={300}/>
+     <h1>Duckplay</h1>
     </Container>
   )
 };
