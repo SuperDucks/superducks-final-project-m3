@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { BiLogOut } from "react-icons/bi";
 import { FaUserEdit } from "react-icons/fa";
 import { UserContext } from "../../../context/UserContext";
-import { useOutsiedeClick } from "../../../hooks/useOutsideClick";
 import DropdownItem from "../DropdownItem";
 import { Container } from "./styles";
 
@@ -10,12 +9,10 @@ import { Container } from "./styles";
 const DropdownMenu = () => {
   const { dropdownOpen, logoutUser, setIsOpenEditProfileModal, setDropdownOpen } = useContext(UserContext);
 
-  const modalRef = useOutsiedeClick(() => {
-    setDropdownOpen(false);
-  });
+  
 
   return (
-    <Container ref={modalRef}>
+    <Container>
       <div className={`dropdown-menu ${dropdownOpen ? "active" : "inactive"}`}>
         <ul>
           <div onClick={() => {
