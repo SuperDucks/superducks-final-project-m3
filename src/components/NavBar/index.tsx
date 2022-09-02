@@ -25,13 +25,8 @@ function NavBar() {
       <figure>
         <img src={logo} alt="" />
       </figure>
-
       <div className="nav-bar-choice">
-
       <button onClick={() => navigate("/dashboard")}>HOME</button>
-
-        <button onClick={() => navigate("/dashboard")}>HOME</button>
-
         <hr />
         <button>MY LIST</button>
       </div>
