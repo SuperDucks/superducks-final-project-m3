@@ -11,7 +11,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
   const [upcomingMovies, setUpcomingMovies] = useState<IMovies[] | []>([]);
   const { movieList, setMovieList, user } = useContext(UserContext);
 
-  async function addUserMovie(data: IMovies) {
+  async function addUserMovie(data: IMovies[]) {
     try {
       const token = localStorage.getItem("@TOKEN");
       const response = await userAPI.patch(
