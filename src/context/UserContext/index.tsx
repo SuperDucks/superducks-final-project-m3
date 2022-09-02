@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { userAPI } from "../../services/api";
+import { IMovies } from "../FilmContext/interfaces";
 
 import {
   IUserContext,
@@ -20,6 +21,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [user, setUser] = useState<IUser | null>(null);
   const [displayGenre, setDisplayGenre] = useState<string[]>([]);
+  const [movieList, setMovieList] = useState<IMovies[]>([]);
   const navigate = useNavigate();
 
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
@@ -28,7 +30,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
   const [isOpenModalRegister, setIsOpenModalRegister] =
     useState<boolean>(false);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  
+
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN");
     const id = localStorage.getItem("@USERID");
@@ -41,9 +43,8 @@ export const UserProvider = ({ children }: IUserProvider) => {
           },
         });
         setUser(response.data);
-        if (response.data.genres) {
-          setDisplayGenre(response.data.genres);
-        }
+        setDisplayGenre(response.data.genres);
+        setMovieList(response.data.movie_list);
         /*  navigate('/dashboard') */
       } catch (error) {
         console.log(error);
@@ -67,11 +68,12 @@ export const UserProvider = ({ children }: IUserProvider) => {
     try {
       const newData = {
         ...data,
-        avatar_url: "https://www.promoview.com.br/uploads/images/unnamed%2819%29.png",
+        avatar_url:
+          "https://www.promoview.com.br/uploads/images/unnamed%2819%29.png",
         genres: [],
         movie_list: [],
       };
-      console.log(newData)
+      console.log(newData);
       setLoading(true);
       const { data: apiData } = await userAPI.post("/register", newData);
       console.log(apiData);
@@ -95,8 +97,9 @@ export const UserProvider = ({ children }: IUserProvider) => {
     try {
       setLoading(true);
       const response = await userAPI.post("/login", data);
-      setUser(response.data.user);     
-      setDisplayGenre(response.data.user.genres);  
+      setUser(response.data.user);
+      setDisplayGenre(response.data.user.genres);
+      setMovieList(response.data.user.movie_list);
       localStorage.setItem("@TOKEN", response.data.accessToken);
       localStorage.setItem("@USERID", response.data.user.id);
       toast.success("Login successfully!");
@@ -113,32 +116,37 @@ export const UserProvider = ({ children }: IUserProvider) => {
   function logoutUser() {
     setUser(null);
     setDisplayGenre([]);
-    localStorage.clear();    
+    setMovieList([]);
+    localStorage.clear();
     navigate("/");
   }
 
-  async function editProfileUser(data: IFormEdit, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
+  async function editProfileUser(
+    data: IFormEdit,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) {
     try {
       const token = localStorage.getItem("@TOKEN");
       const response = await userAPI.patch(
         `/users/${user?.id}`,
-        { avatar_url: data.photo ? data.photo : user?.avatar_url,
+        {
+          avatar_url: data.photo ? data.photo : user?.avatar_url,
           name: data.name ? data.name : user?.name,
           password: data.password,
-          confirmPassword: data.confirmPassword
-         },
+          confirmPassword: data.confirmPassword,
+        },
         {
           headers: {
             Authorization: `Bearer ${token as string}`,
           },
-        },
-        );
-        setUser(response.data as IUser)
-      setIsOpenEditProfileModal(false);    
+        }
+      );
+      setUser(response.data as IUser);
+      setIsOpenEditProfileModal(false);
       toast.success("Successfully edited!");
     } catch (error) {
       toast.error("An error has occurred!");
-    } finally {     
+    } finally {
       setLoading(false);
     }
   }
@@ -164,6 +172,8 @@ export const UserProvider = ({ children }: IUserProvider) => {
         displayGenre,
         setDisplayGenre,
         loading,
+        movieList,
+        setMovieList,
       }}
     >
       {children}

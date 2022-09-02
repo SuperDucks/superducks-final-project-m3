@@ -15,19 +15,15 @@ const settings: SliderProps = {
 function CarouselSwiper({ moviesInfo }: IMoviesInfo) {
   return (
     <Slider settings={settings}>
-        
-      {
-        moviesInfo.movielist.map((movie) => {
-          return (
-            <Slide>
-              <Card movie={movie} key={movie.id}></Card>
-            </Slide>
-            );
-        })
-      }
-      
+      {moviesInfo.movielist.map((movie) => {
+        return (
+          <Slide>
+            <Card movie={movie} key={movie.id}></Card>
+          </Slide>
+        );
+      })}
     </Slider>
-  )
+  );
 }
 
 export default CarouselSwiper;
