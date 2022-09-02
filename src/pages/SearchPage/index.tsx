@@ -6,16 +6,22 @@ import carro3 from "./../../assets/carro3.svg";
 import Container from "./style";
 import { AiOutlineSearch } from "react-icons/ai";
 import NavBar from "../../components/NavBar";
+import EditProfileModal from "../../Modals/EditProfileModal";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 function SearchPage() {
+
+  const {isOpenEditProfileModal} = useContext(UserContext)
   return (
     <>
       <Container>
+      {isOpenEditProfileModal && <EditProfileModal />}
         <NavBar />
         <main className="search_main">
           <div className="search_main_input">
             <button>
-              <AiOutlineSearch size={62} />
+              <AiOutlineSearch size={62}/>
             </button>
             <input type="text" />
           </div>
