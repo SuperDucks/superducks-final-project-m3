@@ -5,9 +5,10 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import DropdownMenu from "../Dropdown/DropdownMenu";
 
 function NavBar() {
-  const {user} = useContext(UserContext);
+  const {user, dropdownOpen, setDropdownOpen} = useContext(UserContext);
   return (
 
     <Container>
@@ -29,14 +30,14 @@ function NavBar() {
 
       <div className="nav-bar-profile">
         <h3>{user?.name}</h3>
-        <button>
+        <button onClick={() => setDropdownOpen(!dropdownOpen)}>
           <RiArrowDropDownLine color="white" font-size={50} />
         </button>
+        <DropdownMenu/>        
         <figure>
           <img src={imgProfile} alt="" />
-        </figure>
+        </figure>    
       </div>
-
     </Container>
 
   )

@@ -62,16 +62,17 @@ export const Form = styled.form`
     }
     .input-password {
       padding: 15px 24px;
-      border-radius: 25px;
+      border-radius: 25px 0px 0px 25px;     
       border: none;
       width: 85%;
     }
 
-    .show-password {
+    .show-password {  
       background-color: transparent;
-      width: 40px;
+      width: 60px;
       height: 40px;
       border: none;
+      
     }
   }
   .input-container {

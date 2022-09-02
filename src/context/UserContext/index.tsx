@@ -10,6 +10,7 @@ import {
   IFormRegister,
   IFormLogin,
   IUserProvider,
+  IFormEdit,
 } from "./interfaces";
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
@@ -18,15 +19,16 @@ export const UserProvider = ({ children }: IUserProvider) => {
   /* const [loading, setLoading] = useState(false); */
   const [user, setUser] = useState<IUser | null>(null);
   const navigate = useNavigate()
-
+  
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [isOpenEditProfileModal, setIsOpenEditProfileModal] = useState<boolean>(false);
   const [isOpenModalRegister, setIsOpenModalRegister] =
-    useState<boolean>(false);
+  useState<boolean>(false);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const token = localStorage.getItem('@TOKEN')
     const id = localStorage.getItem('@USERID')
-    console.log(token, id)
     async function autoLogin(){
       try {
         /* setLoading(true) */
@@ -56,7 +58,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
   }, [])
 
 
-  async function registerUser(data: IFormRegister, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
+  async function registerUser(data: IFormRegister, setLoading: React.Dispatch<React.SetStateAction<boolean>>): Promise<void> {
     try {
       const newData = {
         ...data, genders: []
@@ -99,6 +101,16 @@ export const UserProvider = ({ children }: IUserProvider) => {
     localStorage.removeItem('@TOKEN');
     localStorage.removeItem('@USERID');
     navigate('/');
+  };
+  
+  function  editProfileUser(data: IFormEdit, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
+    try {
+      toast.success('Successfully edited!')
+    } catch (error) {
+      toast.success('An error has occurred!')
+    } finally {
+      setLoading(false);
+    }
   }
   
   return (
@@ -108,10 +120,15 @@ export const UserProvider = ({ children }: IUserProvider) => {
         registerUser,
         loginUser,
         logoutUser,
+        editProfileUser,
         setIsOpenModal,
         isOpenModal,
         isOpenModalRegister,
         setIsOpenModalRegister,
+        isOpenEditProfileModal,
+        setIsOpenEditProfileModal,
+        dropdownOpen,
+        setDropdownOpen,
       }}
     >
       {children}
