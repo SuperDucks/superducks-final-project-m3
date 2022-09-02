@@ -8,12 +8,10 @@ export const GenreContext = createContext({} as IGenreContext);
 
 export const GenreProvider = ({ children }: IGenreProvider) => {
   const [isOpenModalGenre, setIsOpenModalGenre] = useState<boolean>(false);
-  const token = localStorage.getItem("@TOKEN");
-
   const { displayGenre, setDisplayGenre, user } = useContext(UserContext);
 
   async function addUserGenre(data: string[]) {
-    console.log("entrou");
+    const token = localStorage.getItem("@TOKEN");
     try {
       const response = await userAPI.patch(
         `/users/${user?.id}`,

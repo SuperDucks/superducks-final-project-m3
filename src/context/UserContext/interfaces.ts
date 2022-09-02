@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { IMovies } from "../FilmContext/interfaces";
 
 export interface IUserProvider {
   children: ReactNode;
@@ -17,9 +18,9 @@ export interface IFormLogin {
 }
 export interface IFormEdit {
   photo?: string | undefined;
-  name?:string | undefined;
+  name?: string | undefined;
   password?: string | undefined;
-  confirmPassword?: string | undefined
+  confirmPassword?: string | undefined;
 }
 
 export interface IUser {
@@ -57,4 +58,6 @@ export interface IUserContext {
   displayGenre: string[];
   setDisplayGenre: React.Dispatch<React.SetStateAction<string[]>>;
   loading: boolean;
+  movieList: IMovies[];
+  setMovieList: React.Dispatch<React.SetStateAction<IMovies[]>>;
 }

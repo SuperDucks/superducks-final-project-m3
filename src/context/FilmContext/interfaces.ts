@@ -6,6 +6,7 @@ export interface FilmProviderProps {
 
 export interface IFilmProps {
   DashboardMovies: IDashboardMovies[];
+  addMovie: (data: IMovies) => void;
 }
 
 export interface IDashboardMovies {
