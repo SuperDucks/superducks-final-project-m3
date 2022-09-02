@@ -8,8 +8,10 @@ export const Container = styled.div<IPoster>`
   display: flex;
   flex-direction: column;
 
+  
   gap: 14px;
   margin-bottom: 56px;
+
 
   h2 {
     font: var(--font-title-3);
@@ -17,6 +19,7 @@ export const Container = styled.div<IPoster>`
     font-weight: 400;
   }
 
+  
   .carousel-container {
     height: 286px;
     display: flex;
@@ -24,11 +27,8 @@ export const Container = styled.div<IPoster>`
 
     .carousel-card {
       /* background-color: blue; */
-      background-image: url("https://image.tmdb.org/t/p/original${({
-        moviePoster,
-      }) => moviePoster}");
-
-      backgound-position: center;
+      background-image: url("https://image.tmdb.org/t/p/original${({ moviePoster,}) => moviePoster}");
+      background-position: center;
       background-size: cover;
       width: 196px;
       height: 100%;
@@ -108,4 +108,6 @@ export const Container = styled.div<IPoster>`
       }
     }
   }
+
+
 `;
