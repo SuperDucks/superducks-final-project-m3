@@ -7,10 +7,19 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import DropdownMenu from "../Dropdown/DropdownMenu";
+import { useOutsiedeClick } from "../../hooks/useOutsideClick";
+
 
 function NavBar() {
+
   const {user, dropdownOpen, setDropdownOpen} = useContext(UserContext);
+
+
   const navigate = useNavigate();
+  const modalRef = useOutsiedeClick(() => {
+    setDropdownOpen(false);
+  });
+
   return (
     <Container>
       <figure>
@@ -18,7 +27,11 @@ function NavBar() {
       </figure>
 
       <div className="nav-bar-choice">
+
+      <button onClick={() => navigate("/dashboard")}>HOME</button>
+
         <button onClick={() => navigate("/dashboard")}>HOME</button>
+
         <hr />
         <button>MY LIST</button>
       </div>
@@ -32,10 +45,12 @@ function NavBar() {
 
       <div className="nav-bar-profile">
         <h3>{user?.name}</h3>
+        <div ref={modalRef}>
         <button onClick={() => setDropdownOpen(!dropdownOpen)}>
           <RiArrowDropDownLine color="white" font-size={50} />
         </button>
         <DropdownMenu/>        
+        </div>
         <figure>
           <img src={imgProfile} alt="" />
         </figure>    
@@ -43,5 +58,6 @@ function NavBar() {
     </Container>
   );
 }
-
 export default NavBar;
+
+
