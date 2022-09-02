@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { userAPI } from "../../services/api";
+
 import {
   IUserContext,
   IUser,
@@ -16,7 +17,7 @@ import {
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProvider) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [user, setUser] = useState<IUser | null>(null);
   const [displayGenre, setDisplayGenre] = useState<string[]>([]);
   const navigate = useNavigate();
@@ -87,6 +88,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
   }
 
   async function loginUser(
+
     data: IFormLogin,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ): Promise<void> {
@@ -100,11 +102,11 @@ export const UserProvider = ({ children }: IUserProvider) => {
       toast.success("Login successfully!");
       setTimeout(() => {
         navigate("/dashboard");
+        setLoading(false);      
       }, 2000);
     } catch (error) {
       toast.error("An error has occurred!");
     } finally {
-      setLoading(false);
     }
   }
 
@@ -136,12 +138,13 @@ export const UserProvider = ({ children }: IUserProvider) => {
       toast.success("Successfully edited!");
     } catch (error) {
       toast.error("An error has occurred!");
-    } finally {
-      
+    } finally {     
       setLoading(false);
     }
   }
-
+  useEffect(() => {
+    
+  }, [])
   return (
     <UserContext.Provider
       value={{

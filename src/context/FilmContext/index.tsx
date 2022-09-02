@@ -7,6 +7,8 @@ export const FilmContext = createContext({} as IFilmProps);
 export const FilmProvider = ({ children }: FilmProviderProps) => {
   const [topRatedMovies, setTopRatedMovies] = useState<IMovies[] | []>([]);
   const [upcomingMovies, setUpcomingMovies] = useState<IMovies[] | []>([]);
+  const [loadingPage, setLoadingPage] = useState<boolean>(true);
+  
 
   const DashboardMovies = [
     {
@@ -57,10 +59,21 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
     getUpcomingMovies();
   }, []);
 
+  useEffect(() => { 
+    if(topRatedMovies.length > 0){  
+      setTimeout(() => {
+        setLoadingPage(false)
+      }, 3000)
+    }     
+  }, [topRatedMovies]);
+  
+
   return (
     <FilmContext.Provider
       value={{
         DashboardMovies,
+        loadingPage,
+        setLoadingPage
       }}
     >
       {children}
