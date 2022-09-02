@@ -5,8 +5,10 @@ import Genre from "../../components/Genre";
 import NavBar from "../../components/NavBar";
 import { FilmContext } from "../../context/FilmContext";
 import { GenreContext } from "../../context/GenreContext";
+
 import { UserContext } from "../../context/UserContext";
 import EditProfileModal from "../../Modals/EditProfileModal";
+
 import GenreModal from "../../Modals/GenreModal";
 import { Container } from "./styles";
 
