@@ -8,6 +8,7 @@ export const Container = styled.div`
   .main-movie {
     width: 100%;
     height: 85%;
+    padding-top: 150px;
     background-image: url(${background});
     background-repeat: no-repeat;
     background-size: cover;

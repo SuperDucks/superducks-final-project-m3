@@ -105,11 +105,11 @@ export const UserProvider = ({ children }: IUserProvider) => {
       toast.success("Login successfully!");
       setTimeout(() => {
         navigate("/dashboard");
-        setLoading(false);      
       }, 2000);
     } catch (error) {
       toast.error("An error has occurred!");
     } finally {
+      setLoading(false);      
     }
   }
 
