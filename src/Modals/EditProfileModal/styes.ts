@@ -8,23 +8,21 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   height: 100vh;
-  z-index: 2;
+  z-index: 999;
 
   background: rgba(0, 0, 0, 0.45);
 
   .modal-content {
     width: 100%;
     max-width: 500px;
-
+    z-index: 50;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
     
-
     padding: 50px 50px 60px 50px;
     background-color: var(--color-grey-0);
     border-radius: 15px;
@@ -92,7 +90,6 @@ export const Form = styled.form`
         border: none;
         width: 85%;
       }
-
       .show-password {
         background-color: transparent;
         width: 40px;

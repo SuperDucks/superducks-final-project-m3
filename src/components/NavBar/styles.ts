@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface IProps {
+  invisible: boolean;
+}
+export const Container = styled.div<IProps>`
   width: 100%;
   height: 130px;
-
+  position: fixed;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0px 2px 40px rgba(133, 133, 133, 0.1);
-  background: var(--color-grey-5);
+  z-index: 40;
+  transition: background-color .3s ease, opacity .2s linear;
+  background-image: linear-gradient(-180deg,rgba(0,0,0,.64),transparent);
+  background: ${props => (props.invisible ? "rgba(17, 17, 17, 0)" : "var(--color-grey-5)")};
 
   .nav-bar-choice{
     display: flex;
@@ -57,6 +62,7 @@ export const Container = styled.div`
   .nav-bar-profile{
     display: flex;
     align-items: center;
+    height: 100%;
 
     h3{
       font: var(--font-title-6);
@@ -79,8 +85,9 @@ export const Container = styled.div`
 
       img{
         width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
-
 `

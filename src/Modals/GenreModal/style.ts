@@ -8,7 +8,7 @@ export const Modal = styled.div`
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.45);
-  z-index: 2;
+  z-index: 999;
 
   .modal-content {
     width: 100%;

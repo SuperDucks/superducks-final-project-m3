@@ -110,7 +110,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
       value={{
         DashboardMovies,
         loadingPage,
-        setLoadingPage
+        setLoadingPage,
         addMovie,
       }}
     >

@@ -3,13 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   .dropdown-menu {
     position: absolute;
-    z-index: 2;
-    top: 80px;
-    right: 58px;
+    z-index: 45;
+    top: 110px;
+    right: 3.9%;
     background-color: white;
     border-radius: 8px;
     padding: 10px 20px;
-    width: 220px;
+    width: 16%;
+    @media screen and (min-width: 1024px){
+      width: 220px;
+    }
 
     ::before {
       content: "";
