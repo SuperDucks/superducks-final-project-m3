@@ -83,7 +83,7 @@ export const Container = styled.div<IPoster>`
 
         .carousel-card-add {
           width: 101%;
-          height: 32px;
+          height: 37px;
 
           display: flex;
           align-items: center;
@@ -99,12 +99,19 @@ export const Container = styled.div<IPoster>`
             align-items: center;
 
             gap: 5px;
-            padding: 8px;
 
             p {
               font: var(--font-title-8);
               color: var(--color-grey-4);
               font-weight: 600;
+            }
+          }
+          .button-animation {
+            height: 40px;
+            width: 40px;
+            path {
+              width: 100%;
+              height: 100%;
             }
           }
 
