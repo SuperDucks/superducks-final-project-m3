@@ -62,7 +62,7 @@ export const Container = styled.div<IPoster>`
             height: 38px;
             
             font: var(--font-title-8);
-            color: var(--color-grey-0);
+           
             /* background-color: red; */
           }
 
@@ -83,17 +83,13 @@ export const Container = styled.div<IPoster>`
 
         .carousel-card-add {
           width: 101%;
-          height: 37px;
-
           display: flex;
           align-items: center;
-
           margin-bottom: 6px;
           margin-left: 6px;
-          background-color: red;
 
           .caroulse-card-add-mark {
-            height: 100%;
+            
 
             display: flex;
             align-items: center;
@@ -107,7 +103,7 @@ export const Container = styled.div<IPoster>`
             }
           }
           .button-animation {
-            height: 40px;
+            height: 100%;
             width: 40px;
             path {
               width: 100%;

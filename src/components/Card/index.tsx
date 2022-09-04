@@ -48,8 +48,8 @@ function Card({ movie }: Imovie) {
                 }}
               > <div className="button-animation">
                 <Lottie options={defaultOptions}
-                height={40}
-                width={40}
+                height={50}
+                width={50}
                 isStopped={animationState.isStopped}
                 isPaused={animationState.isPaused}/>
               </div>
