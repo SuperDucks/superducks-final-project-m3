@@ -13,12 +13,13 @@ function Card({ movie }: Imovie) {
   const movieGenre = genres.filter((genre) => genre.id === movie.genre_ids[0]);
   const [isClicked, setIsClicked] = useState(false);
   const [animationState, setAnimationState] = useState({
-    isStopped: false, isPaused: false
+    isStopped: true, isPaused: false,
+    direction: -1, 
   });
 
   const defaultOptions = {
-    loop: true,
-    autoplay: true, 
+    loop: false,
+    autoplay: false, 
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
@@ -40,19 +41,26 @@ function Card({ movie }: Imovie) {
             </div>
 
             <div className="carousel-card-add">
-              <button
-                className="caroulse-card-add-mark"
-                onClick={() => {
-                  setIsClicked(!isClicked)
-                  addMovie(movie)
-                }}
-              > <div className="button-animation">
+              <button className="button-animation"
+              onClick={() => {
+                const reverseAnimation = -1;
+                const normalAnimation= 1;
+                setAnimationState({
+                  ...animationState,
+                  isStopped: false,
+                  direction: animationState.direction === normalAnimation
+                ? reverseAnimation 
+                : normalAnimation,})
+                setIsClicked(!isClicked)
+                addMovie(movie)
+              }}>
+                <div className="button-background"></div>
                 <Lottie options={defaultOptions}
                 height={50}
                 width={50}
+                direction={animationState.direction}
                 isStopped={animationState.isStopped}
                 isPaused={animationState.isPaused}/>
-              </div>
               </button>
               <button className="genre">
                 <p>{movieGenre[0].name}</p>

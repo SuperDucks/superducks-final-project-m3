@@ -57,7 +57,8 @@ const EditProfileModal = () => {
           onSubmit={handleSubmit((formData) =>
             editProfileUser(formData, setLoading)
           )}
-        >
+        > <div className="edit-options">
+          <h2>Edit options:</h2>
           <div className="input-container">
             <label htmlFor="">Photo</label>
             <input type="url"
@@ -92,8 +93,10 @@ const EditProfileModal = () => {
             </div>
             <small>{errors.password?.message}</small>
           </div>
+        </div>
+          
           <div className="input-container">
-            <label htmlFor="">Confirm password</label>
+            <label htmlFor="">Current password (to change)</label>
             <input
               type="password"
               placeholder="Confirm password"

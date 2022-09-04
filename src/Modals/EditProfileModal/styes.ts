@@ -53,6 +53,22 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 20px;
 
+  .edit-options {
+      margin-bottom: 20px;
+      background-color: pink;
+      padding: 8px;
+      /* outline: 1px solid var(--color-grey-2);
+      outline-offset: -20px; 
+      border-radius: 15px;  */
+       
+      h2 { 
+          background-color: white;
+           color: var(--color-grey-3);
+           font: var(--font-title-9);
+           font-weight: 600;
+      }
+    }
+
   .input-container {
     display: flex;
     flex-direction: column;
@@ -76,7 +92,7 @@ export const Form = styled.form`
       padding-left: 24px;
       color: var(--color-negative);
     }
-
+   
     .container-eye {
       display: flex;
       align-items: center;
@@ -100,5 +116,6 @@ export const Form = styled.form`
         border: none;
       }
     }
+    
   }
 `;
