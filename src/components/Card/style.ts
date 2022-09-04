@@ -62,7 +62,7 @@ export const Container = styled.div<IPoster>`
             height: 38px;
             
             font: var(--font-title-8);
-            color: var(--color-grey-0);
+           
             /* background-color: red; */
           }
 
@@ -83,39 +83,56 @@ export const Container = styled.div<IPoster>`
 
         .carousel-card-add {
           width: 101%;
-          height: 32px;
-
+          height: 36px;
           display: flex;
-          align-items: center;
-
-          margin-bottom: 6px;
+          align-items: start;
+          margin-bottom: 14px;
           margin-left: 6px;
-          background-color: red;
+          background-color: var(--color-primary);
 
-          .caroulse-card-add-mark {
-            height: 100%;
+          /* .caroulse-card-add-mark {
+            
 
             display: flex;
             align-items: center;
 
             gap: 5px;
-            padding: 8px;
 
             p {
               font: var(--font-title-8);
               color: var(--color-grey-4);
               font-weight: 600;
             }
+          } */
+          .button-animation {
+            height: 100%;
+            width: 50px;           
+           /*  pointer-events: none;  */
+            display: flex;
+            justify-content: center;
+            background-color: transparent;
+                   
+            .button-background {
+              position: fixed;
+              height: 30px;
+              width: 30px;
+              margin-top: 2px;
+              background-color: white;
+            }
           }
 
           .genre {
             width: 100%;
             height: 100%;
-            background-color: var(--color-primary);
-
+            display: flex;
+            align-items: center;
+            background-color: transparent;
             font: var(--font-title-8);
             color: var(--color-grey-4);
             font-weight: 600;
+            p {
+              padding-left: 20px;
+            }
           }
         }
       }
