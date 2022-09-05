@@ -10,7 +10,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
   const [topRatedMovies, setTopRatedMovies] = useState<IMovies[] | []>([]);
   const [upcomingMovies, setUpcomingMovies] = useState<IMovies[] | []>([]);
   const [loadingPage, setLoadingPage] = useState<boolean>(true);
-  
+
   const { movieList, setMovieList, user } = useContext(UserContext);
 
   async function addUserMovie(data: IMovies[]) {
@@ -25,7 +25,6 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
           },
         }
       );
-      console.log(response.data.movie_list);
       setMovieList(response.data.movie_list);
     } catch (error) {
       console.log(error);
@@ -35,10 +34,12 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
   }
 
   const addMovie = (data: IMovies) => {
-    if (!movieList?.includes(data)) {
+    if (!movieList?.find((movie) => movie.id === data.id)) {
       addUserMovie([...movieList, data]);
     } else {
-      const filterMovie = movieList.filter((movieOld) => movieOld !== data);
+      const filterMovie = movieList.filter(
+        (movieOld) => movieOld.id !== data.id
+      );
       addUserMovie(filterMovie);
     }
   };
@@ -96,14 +97,13 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
     getUpcomingMovies();
   }, []);
 
-  useEffect(() => { 
-    if(topRatedMovies.length > 0){  
+  useEffect(() => {
+    if (topRatedMovies.length > 0) {
       setTimeout(() => {
-        setLoadingPage(false)
-      }, 3000)
-    }     
+        setLoadingPage(false);
+      }, 3000);
+    }
   }, [topRatedMovies]);
-  
 
   return (
     <FilmContext.Provider
