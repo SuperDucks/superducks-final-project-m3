@@ -12,7 +12,7 @@ const GenreModal = () => {
   const { displayGenre } = useContext(UserContext);
   const { setIsOpenModalGenre, addUserGenre } = useContext(GenreContext);
 
-  const addGenre = (genreName: string) => {
+  const toggleGenre = (genreName: string) => {
     if (!displayGenre?.includes(genreName)) {
       addUserGenre([...displayGenre, genreName]);
     } else {
@@ -51,7 +51,7 @@ const GenreModal = () => {
                 <BtnPrimary
                   key={genreName}
                   className="genre-buttons"
-                  onClick={() => addGenre(genreName)}
+                  onClick={() => toggleGenre(genreName)}
                 >
                   {genre.name}{" "}
                 </BtnPrimary>
