@@ -69,6 +69,7 @@ export default createGlobalStyle`
   }
 
   body,html{
+    
     max-width: 100vw;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
