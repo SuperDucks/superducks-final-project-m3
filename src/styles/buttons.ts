@@ -3,11 +3,26 @@ import styled, { css } from "styled-components";
 interface IButtonsProps{
   padding?: string;
   select?: string;
+  buttonStyle?: 'genre';
   
 }
 
 export const BtnPrimary = styled.button<IButtonsProps>`
   background: var(--color-primary);
+
+  ${({select, buttonStyle}) => {
+
+    if(buttonStyle === "genre"){
+      if(select ){
+        return css`background: var(--color-primary);`
+      }
+      else{
+        return css`background: var(--color-grey-1);`
+      }
+    }
+
+  }}
+
   border-radius: 30px;
   font: var(--font-title-9);
   font-weight: 600;
