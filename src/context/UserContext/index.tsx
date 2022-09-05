@@ -131,8 +131,8 @@ export const UserProvider = ({ children }: IUserProvider) => {
         {
           avatar_url: data.photo ? data.photo : user?.avatar_url,
           name: data.name ? data.name : user?.name,
-          password: data.password,
-          confirmPassword: data.confirmPassword,
+          /* password: data.password,
+          confirmPassword: data.confirmPassword, */
         },
         {
           headers: {
