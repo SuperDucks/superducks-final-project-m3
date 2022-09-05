@@ -3,14 +3,14 @@ import { MdOutlineClose } from "react-icons/md";
 import { genres } from "../../context/FilmContext/genre";
 import { GenreContext } from "../../context/GenreContext";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
-import { BtnPrimary } from "../../styles/buttons";
+import { BtnPrimary_isSelect } from "../../styles/buttons";
 import { Modal, ThemeTitle } from "./style";
 import { motion } from "framer-motion";
 import { UserContext } from "../../context/UserContext";
 
 const GenreModal = () => {
   const { displayGenre } = useContext(UserContext);
-  const { setIsOpenModalGenre, addUserGenre } = useContext(GenreContext);
+  const { setIsOpenModalGenre, addUserGenre, isSelect, setIsSelect } = useContext(GenreContext);
 
   const toggleGenre = (genreName: string) => {
     if (!displayGenre?.includes(genreName)) {
@@ -48,13 +48,21 @@ const GenreModal = () => {
             {genres.map((genre) => {
               const genreName = genre.name;
               return (
-                <BtnPrimary
+                <BtnPrimary_isSelect
                   key={genreName}
                   className="genre-buttons"
-                  onClick={() => toggleGenre(genreName)}
+                  select="active"
+
+                  // select={ isSelect ? "disable" : "active"}
+
+                  onClick={() => {
+                    toggleGenre(genreName)
+                    setIsSelect(!isSelect)
+                  }}
+                  //usar o find no array de genres pra modificar a classname do butão
                 >
                   {genre.name}{" "}
-                </BtnPrimary>
+                </BtnPrimary_isSelect>
               );
             })}
           </div>
