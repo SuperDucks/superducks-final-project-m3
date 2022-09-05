@@ -4,11 +4,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: var(--color-grey-6);
 
   .search_main {
     background-color: var(--color-grey-6);
     width: 100%;
     height: 100%;
+
     padding-top: 150px;
     display: flex;
     justify-content: start;
@@ -64,8 +66,20 @@ const Container = styled.div`
       width: 100%;
       display: flex;
       gap: 7%;
+      margin-top: 30px;
       flex-wrap: wrap;
       margin-bottom: 30px;
+
+      .no_results {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        color: white;
+
+        ul {
+          list-style: none;
+        }
+      }
     }
 
     .cards_img {
