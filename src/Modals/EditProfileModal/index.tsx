@@ -11,8 +11,6 @@ import { Form, Modal } from "./styes";
 import { IFormEdit } from "../../context/UserContext/interfaces";
 import { motion } from "framer-motion";
 
-
-
 const EditProfileModal = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -25,7 +23,7 @@ const EditProfileModal = () => {
     formState: { errors },
   } = useForm<IFormEdit>({
     resolver: yupResolver(editSchema),
-    defaultValues: {photo: user?.avatar_url, name: user?.name},
+    defaultValues: { photo: user?.avatar_url, name: user?.name },
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -40,10 +38,12 @@ const EditProfileModal = () => {
   return (
     <Modal>
       <motion.div
-          initial={{ y: -100, opacity: 0}}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="modal-content" ref={modalRef}>
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="modal-content"
+        ref={modalRef}
+      >
         <div className="title-container">
           <h2>Edit your profile</h2>
           <button
@@ -57,44 +57,44 @@ const EditProfileModal = () => {
           onSubmit={handleSubmit((formData) =>
             editProfileUser(formData, setLoading)
           )}
-        > <div className="edit-options">
-          <h2>Edit options:</h2>
-          <div className="input-container">
-            <label htmlFor="">Photo</label>
-            <input type="url"
-              placeholder="Photo" 
-             {...register("photo")}/>
-            <small>{errors.photo?.message}</small>
-          </div>
-          <div className="input-container">
-            <label htmlFor="">Name</label>
-            <input type="text"
-              placeholder="Name" 
-             {...register("name")} />
-            <small>{errors.name?.message}</small>
-          </div>
-          <div className="input-container">
-            <label htmlFor="">Password</label>
-            <div className="container-eye">
-              <input
-                className="input-password"
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                id="password"
-                {...register("password")}
-              />
-              <button type="button" onClick={handleBtnClick} className="show-password">
-                {showPassword ? (
-                  <AiFillEyeInvisible size={"20"} />
-                ) : (
-                  <AiFillEye size={"20"} />
-                )}
-              </button>
+        >
+          <fieldset>
+            <h2>Edit options:</h2>
+            <div className="input-container">
+              <label htmlFor="">Photo</label>
+              <input type="url" placeholder="Photo" {...register("photo")} />
+              <small>{errors.photo?.message}</small>
             </div>
-            <small>{errors.password?.message}</small>
-          </div>
-        </div>
-          
+            <div className="input-container">
+              <label htmlFor="">Name</label>
+              <input type="text" placeholder="Name" {...register("name")} />
+              <small>{errors.name?.message}</small>
+            </div>
+            <div className="input-container">
+              <label htmlFor="">Password</label>
+              <div className="container-eye">
+                <input
+                  className="input-password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  id="password"
+                  {...register("password")}
+                />
+                <button
+                  type="button"
+                  onClick={handleBtnClick}
+                  className="show-password"
+                >
+                  {showPassword ? (
+                    <AiFillEyeInvisible size={"20"} />
+                  ) : (
+                    <AiFillEye size={"20"} />
+                  )}
+                </button>
+              </div>
+              <small>{errors.password?.message}</small>
+            </div>
+          </fieldset>
           <div className="input-container">
             <label htmlFor="">Current password (to change)</label>
             <input
@@ -104,9 +104,14 @@ const EditProfileModal = () => {
             />
             <small>{errors.confirmPassword?.message}</small>
           </div>
-        <BtnPrimary type="submit" padding='big' className="btn-submit" disabled={loading}>
-          {loading ? "Saving..." : "Save editions"}
-        </BtnPrimary>
+          <BtnPrimary
+            type="submit"
+            padding="big"
+            className="btn-submit"
+            disabled={loading}
+          >
+            {loading ? "Saving..." : "Save editions"}
+          </BtnPrimary>
         </Form>
       </motion.div>
     </Modal>
