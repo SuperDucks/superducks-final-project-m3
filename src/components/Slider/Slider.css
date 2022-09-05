@@ -1,0 +1,35 @@
+.swiper{
+  /* padding: 32px; */
+
+}
+
+.swiper-slide{
+  display: flex;
+  justify-content: center;
+
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #718096;
+
+}
+
+.swiper-button-prev{
+  padding-left: 32px;
+  color: var(--color-grey-0);
+
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+
+
+}
+
+.swiper-button-next{
+  padding-right: 32px;
+
+  color: var(--color-grey-0);
+
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+
+} 
