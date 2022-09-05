@@ -33,6 +33,7 @@ const Home = () => {
     <Container>
       {isOpenModal && <LoginModal />}
       {isOpenModalRegister && <RegisterModal />}
+
       <Header>
         <figure>
           <img src={logo} alt="logo" />
@@ -47,7 +48,11 @@ const Home = () => {
           <BtnFake onClick={() => setIsOpenModal(true)}>LOG IN</BtnFake>
         </div>
       </Header>
+
+
+
       <Main>
+
         <div className="title-box">
           <h1>Now it's much easier to find movies and series</h1>
           <h2>
@@ -55,13 +60,14 @@ const Home = () => {
             extensive and endless catalogs
           </h2>
         </div>
+
         <section className="section-box">
           <Grid>
             <Container2>
               <div>
                 <StyledSwiper
-                  slidesPerView={6}
-                  spaceBetween={20}
+                  slidesPerView={7}
+                  spaceBetween={2}
                   grabCursor={true}
                   slideVisibleClass={"swiper-visible"}
                   pagination={{
@@ -78,27 +84,27 @@ const Home = () => {
                   </SwiperSlide>
                   <SwiperSlide>
                     <MovieCardSlide>
-                      <img src={stranger} alt="dead" />
+                      <img src={stranger} alt="stranger" />
                     </MovieCardSlide>
                   </SwiperSlide>
                   <SwiperSlide>
                     <MovieCardSlide>
-                      <img src={carro1} alt="dead" />
+                      <img src={carro1} alt="carro1" />
                     </MovieCardSlide>
                   </SwiperSlide>
                   <SwiperSlide>
                     <MovieCardSlide>
-                      <img src={carro2} alt="dead" />
+                      <img src={carro2} alt="carro2" />
                     </MovieCardSlide>
                   </SwiperSlide>
                   <SwiperSlide>
                     <MovieCardSlide>
-                      <img src={carro3} alt="dead" />
+                      <img src={carro3} alt="carro3" />
                     </MovieCardSlide>
                   </SwiperSlide>
                   <SwiperSlide>
                     <MovieCardSlide>
-                      <img src={carro1} alt="dead" />
+                      <img src={carro1} alt="carro1" />
                     </MovieCardSlide>
                   </SwiperSlide>
                   <SwiperSlide>
@@ -108,7 +114,7 @@ const Home = () => {
                   </SwiperSlide>
                   <SwiperSlide>
                     <MovieCardSlide>
-                      <img src={carro3} alt="dead" />
+                      <img src={carro3} alt="carro3" />
                     </MovieCardSlide>
                   </SwiperSlide>
                 </StyledSwiper>
