@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+
 import ProtectedRoutes from "../components/ProtectedRoutes";
 import Dashboard from "../pages/Dashboard";
 import FilmScreen from "../pages/FilmScreen";
@@ -15,13 +16,11 @@ const RoutesMain = () => (
     </Route>
 
     <Route path="/search" element={<ProtectedRoutes />}>
-    <Route index element={<SearchPage />} />
-      
+      <Route index element={<SearchPage />} />
     </Route>
 
-    <Route path="/movies" element={<FilmScreen />}/>
-    <Route path="*" element={<Navigate to="/"/>}/>
-
+    <Route path="/movies" element={<FilmScreen />} />
+    <Route path="*" element={<Navigate to="/" />} />
   </Routes>
 );
 
