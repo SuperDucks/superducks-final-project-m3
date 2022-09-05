@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 interface IButtonsProps{
   padding?: string;
+  select?: string;
   
 }
 
@@ -18,16 +19,28 @@ export const BtnPrimary = styled.button<IButtonsProps>`
       case 'big': return css`padding: 9px 39px;`
     }
   }}
+
   &:hover {
     filter: brightness(1.1);
   }
-  &::disabled {
+  &:disabled {
     cursor: not-allowed;
     opacity: .5;
   }
   
 `;
 
+export const BtnPrimary_isSelect = styled(BtnPrimary)<IButtonsProps>`
+  ${({select}) => {
+
+    switch(select){
+      case 'active': return css`background: var(--color-primary);`
+      case 'disable': return css`background: var(--color-grey-1);`
+    }
+
+  }}
+
+`
 
 export const BtnFake = styled.button`
   background: transparent;
