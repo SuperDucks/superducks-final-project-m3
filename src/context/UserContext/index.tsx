@@ -65,6 +65,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
     data: IFormRegister,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ): Promise<void> {
+    delete data.confirmPassword
     try {
       const newData = {
         ...data,
@@ -73,10 +74,8 @@ export const UserProvider = ({ children }: IUserProvider) => {
         genres: [],
         movie_list: [],
       };
-      console.log(newData);
       setLoading(true);
-      const { data: apiData } = await userAPI.post("/register", newData);
-      console.log(apiData);
+       await userAPI.post("/register", newData);
       setIsOpenModalRegister(false);
       toast.success("User registered successfully");
       setTimeout(() => {
