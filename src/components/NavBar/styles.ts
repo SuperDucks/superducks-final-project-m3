@@ -6,17 +6,33 @@ interface IProps {
 export const Container = styled.div<IProps>`
   width: 100%;
   height: 130px;
+
   position: fixed;
   display: flex;
-  justify-content: space-around;
+
+  justify-content: space-between;
   align-items: center;
   z-index: 40;
-  transition: background-color 0.3s ease, opacity 0.2s linear;
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.64), transparent);
-  background: ${(props) =>
-    props.invisible ? "rgba(17, 17, 17, 0.5)" : "var(--color-grey-5)"};
+  
 
-  .nav-bar-choice {
+
+  padding-left: 6%;
+  padding-right: 6%;
+
+  transition: background-color .3s ease, opacity .2s linear;
+  background-image: linear-gradient(-180deg,rgba(0,0,0,.64),transparent);
+  background: ${props => (props.invisible ? "rgba(17, 17, 17, 0.5)" : "var(--color-grey-5)")};
+
+  .logo-align{
+    width: 39%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+  }
+
+  .nav-bar-choice{
     display: flex;
     gap: 20px;
 
@@ -28,29 +44,13 @@ export const Container = styled.div<IProps>`
     }
   }
 
-  .nav-bar-search {
-    width: 384px;
-    height: 48px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    border: 2px solid var(--color-grey-0);
-    border-radius: 25px;
-
-    input {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 25px 0 0 25px;
-      padding-left: 22px;
-      border: none;
-      background-color: transparent;
-      color: var(--color-grey-0);
-    }
-
-    button {
+  .nav-bar-search{
+    
+    button{
+      display: flex;
+      align-items: center;
+      gap: 10px;
       padding-right: 15px;
       background-color: transparent;
       color: var(--color-grey-0);

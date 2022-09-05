@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { api, userAPI } from "../../services/api";
 import { UserContext } from "../UserContext";
 import { FilmProviderProps, IFilmProps, IMovies } from "./interfaces";
+import animationData from "../../assets/nv5k325XKe.json";
 
 export const FilmContext = createContext({} as IFilmProps);
 
@@ -12,6 +13,15 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
   const [loadingPage, setLoadingPage] = useState<boolean>(true);
 
   const { movieList, setMovieList, user } = useContext(UserContext);
+
+  const defaultOptions = {
+    loop: false,
+    autoplay: false,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   async function addUserMovie(data: IMovies[]) {
     try {
@@ -112,6 +122,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
         loadingPage,
         setLoadingPage,
         addMovie,
+        defaultOptions,
       }}
     >
       {children}
