@@ -16,33 +16,37 @@ import LottieLoading from "../../components/LottieLoading";
 const Dashboard = () => {
   const { DashboardMovies, loadingPage } = useContext(FilmContext);
   const { isOpenModalGenre } = useContext(GenreContext);
-  const { isOpenEditProfileModal} = useContext(UserContext)
+  const { isOpenEditProfileModal } = useContext(UserContext);
 
   return (
     <>
-    {loadingPage ? <LottieLoading/> : (
+      {loadingPage ? (
+        <LottieLoading />
+      ) : (
+        <Container>
+          {isOpenModalGenre && <GenreModal />}
+          {isOpenEditProfileModal && <EditProfileModal />}
+          <NavBar />
 
-    <Container>
-      {isOpenModalGenre && <GenreModal />}
-      {isOpenEditProfileModal && <EditProfileModal />}
-      <NavBar />
+          <div className="content">
+            <aside>
+              <Genre />
+            </aside>
+            <main>
+              {DashboardMovies.map((moviesInfo) => {
+                return (
+                  <CarouselSwiper
+                    key={moviesInfo.type}
+                    moviesInfo={moviesInfo}
+                  />
+                );
+              })}
+            </main>
+          </div>
 
-      <div className="content">
-        <aside>
-          <Genre />
-        </aside>
-        <main>
-          {DashboardMovies.map((moviesInfo) => {
-            return (
-              <CarouselSwiper key={moviesInfo.type} moviesInfo={moviesInfo} />
-            );
-          })}
-        </main>
-      </div>
-
-      <Footer />
-    </Container>   
-    )}
+          <Footer />
+        </Container>
+      )}
     </>
   );
 };
