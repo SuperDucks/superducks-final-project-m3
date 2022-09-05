@@ -9,6 +9,7 @@ export interface IFilmProps {
   loadingPage: boolean;
   setLoadingPage: React.Dispatch<React.SetStateAction<boolean>>;
   addMovie: (data: IMovies) => void;
+  defaultOptions: IDefaultOptions;
 }
 
 export interface IDashboardMovies {
@@ -64,4 +65,17 @@ export interface IMoviesInfo {
     type: string;
     movielist: IMovies[] | [];
   };
+}
+
+export interface IDefaultOptions {
+  loop: boolean;
+  autoplay: boolean;
+  animationData: any;
+  rendererSettings: { preserveAspectRatio: string };
+}
+
+export interface IAnimationState {
+  isStopped: boolean;
+  isPaused: boolean;
+  direction: number;
 }
