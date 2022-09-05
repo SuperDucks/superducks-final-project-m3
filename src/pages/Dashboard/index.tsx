@@ -12,9 +12,11 @@ import EditProfileModal from "../../Modals/EditProfileModal";
 import GenreModal from "../../Modals/GenreModal";
 import { Container } from "./styles";
 import LottieLoading from "../../components/LottieLoading";
+import CarouselSwiperMyList from "../../components/CarouselSwiperMyList";
 
 const Dashboard = () => {
-  const { DashboardMovies, loadingPage } = useContext(FilmContext);
+  const { DashboardMovies, MyListFilmes, loadingPage } =
+    useContext(FilmContext);
   const { isOpenModalGenre } = useContext(GenreContext);
   const { isOpenEditProfileModal } = useContext(UserContext);
 
@@ -36,6 +38,14 @@ const Dashboard = () => {
               {DashboardMovies.map((moviesInfo) => {
                 return (
                   <CarouselSwiper
+                    key={moviesInfo.type}
+                    moviesInfo={moviesInfo}
+                  />
+                );
+              })}
+              {MyListFilmes.map((moviesInfo) => {
+                return (
+                  <CarouselSwiperMyList
                     key={moviesInfo.type}
                     moviesInfo={moviesInfo}
                   />

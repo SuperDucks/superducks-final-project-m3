@@ -6,6 +6,7 @@ export interface FilmProviderProps {
 
 export interface IFilmProps {
   DashboardMovies: IDashboardMovies[];
+  MyListFilmes: IMyListMovies[];
   loadingPage: boolean;
   setLoadingPage: React.Dispatch<React.SetStateAction<boolean>>;
   addMovie: (data: IMovies) => void;
@@ -13,6 +14,11 @@ export interface IFilmProps {
 }
 
 export interface IDashboardMovies {
+  type: string;
+  movielist: IMovies[] | [];
+}
+
+export interface IMyListMovies {
   type: string;
   movielist: IMovies[] | [];
 }

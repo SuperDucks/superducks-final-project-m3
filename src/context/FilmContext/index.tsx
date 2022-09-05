@@ -63,6 +63,9 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
       type: "TOP RATED",
       movielist: topRatedMovies,
     },
+  ];
+
+  const MyListFilmes = [
     {
       type: "MY LIST",
       movielist: movieList,
@@ -123,6 +126,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
         setLoadingPage,
         addMovie,
         defaultOptions,
+        MyListFilmes,
       }}
     >
       {children}
