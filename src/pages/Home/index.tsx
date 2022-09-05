@@ -8,12 +8,10 @@ import carro1 from "./../../assets/img-carro-01.svg";
 import carro2 from "./../../assets/carro2.svg";
 import carro3 from "./../../assets/carro3.svg";
 
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 
 // import required modules
 import { Navigation } from "swiper";
@@ -24,7 +22,6 @@ import { UserContext } from "../../context/UserContext";
 import RegisterModal from "../../Modals/RegisterModal";
 
 const Home = () => {
- 
   const {
     setIsOpenModal,
     isOpenModal,
@@ -34,28 +31,28 @@ const Home = () => {
 
   return (
     <Container>
-      
       {isOpenModal && <LoginModal />}
       {isOpenModalRegister && <RegisterModal />}
       <Header>
         <figure>
           <img src={logo} alt="logo" />
-         
         </figure>
         <div className="login-container">
-          <BtnPrimary padding="big" onClick={() => setIsOpenModalRegister(true)}>
+          <BtnPrimary
+            padding="big"
+            onClick={() => setIsOpenModalRegister(true)}
+          >
             SIGN UP
           </BtnPrimary>
           <BtnFake onClick={() => setIsOpenModal(true)}>LOG IN</BtnFake>
         </div>
       </Header>
       <Main>
-     
         <div className="title-box">
-          <h1>Agora ficou muito mais fácil encontrar filmes e séries</h1>
+          <h1>Now it's much easier to find movies and series</h1>
           <h2>
-            Você não precisa mais gastar horas e horas procurando filmes em
-            catálogos extensos e intermináveis
+            You no longer have to spend hours and hours looking for movies on
+            extensive and endless catalogs
           </h2>
         </div>
         <section className="section-box">
