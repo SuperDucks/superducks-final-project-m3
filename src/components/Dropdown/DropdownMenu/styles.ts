@@ -10,7 +10,7 @@ export const Container = styled.div`
     border-radius: 8px;
     padding: 10px 20px;
     width: 16%;
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) {
       width: 220px;
     }
 
@@ -18,7 +18,7 @@ export const Container = styled.div`
       content: "";
       position: absolute;
       top: -5px;
-      right: 15px;
+      right: 95px;
       height: 20px;
       width: 20px;
       background-color: white;
