@@ -11,24 +11,24 @@ export const Container = styled.div<IProps>`
   justify-content: space-around;
   align-items: center;
   z-index: 40;
-  transition: background-color .3s ease, opacity .2s linear;
-  background-image: linear-gradient(-180deg,rgba(0,0,0,.64),transparent);
-  background: ${props => (props.invisible ? "rgba(17, 17, 17, 0)" : "var(--color-grey-5)")};
+  transition: background-color 0.3s ease, opacity 0.2s linear;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.64), transparent);
+  background: ${(props) =>
+    props.invisible ? "rgba(17, 17, 17, 0.5)" : "var(--color-grey-5)"};
 
-  .nav-bar-choice{
+  .nav-bar-choice {
     display: flex;
     gap: 20px;
 
-    button{
+    button {
       background-color: transparent;
       font: var(--font-title-7);
       color: var(--color-grey-0);
       font-weight: 600;
     }
-
   }
 
-  .nav-bar-search{
+  .nav-bar-search {
     width: 384px;
     height: 48px;
 
@@ -39,7 +39,7 @@ export const Container = styled.div<IProps>`
     border: 2px solid var(--color-grey-0);
     border-radius: 25px;
 
-    input{
+    input {
       position: relative;
       width: 100%;
       height: 100%;
@@ -48,46 +48,42 @@ export const Container = styled.div<IProps>`
       border: none;
       background-color: transparent;
       color: var(--color-grey-0);
-
     }
 
-    button{
+    button {
       padding-right: 15px;
       background-color: transparent;
       color: var(--color-grey-0);
     }
-
   }
 
-  .nav-bar-profile{
+  .nav-bar-profile {
     display: flex;
     align-items: center;
     height: 100%;
 
-    h3{
+    h3 {
       font: var(--font-title-6);
       color: var(--color-grey-0);
       font-weight: 500;
-    
     }
 
-    button{
+    button {
       background-color: transparent;
-
     }
 
-    figure{
+    figure {
       width: 50px;
       height: 50px;
       border-radius: 50px;
       overflow: hidden;
       box-shadow: 3px 3px 40px rgba(133, 133, 133, 0.1);
 
-      img{
+      img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
     }
   }
-`
+`;

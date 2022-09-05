@@ -3,29 +3,62 @@ import { Container } from "./styles";
 import { AiFillStar } from "react-icons/ai";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { BtnPrimary } from "../../styles/buttons";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
+import { IMovies } from "../../context/FilmContext/interfaces";
+import { useParams } from "react-router-dom";
 
 const FilmScreen = () => {
+  const [movie, setMovie] = useState<IMovies>({} as IMovies);
+  const [genres, setGenres] = useState([]);
+
+  const imgbaseUrl = "https://image.tmdb.org/t/p/original/";
+
+  const { movieId } = useParams();
+
+  async function load() {
+    try {
+      const resposta = await api.get(
+        `/movie/${movieId}?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US`
+      );
+      setMovie(resposta.data);
+      setGenres(resposta.data.genres);
+
+      console.log(resposta.data);
+    } catch (erro) {
+      console.log(erro);
+    }
+  }
+
+  useEffect(() => {
+    load();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Container>
       <NavBar />
-      <main className="main-movie">
+      <main
+        className="main-movie"
+        style={{
+          backgroundImage: `url(${imgbaseUrl}${movie.backdrop_path})`,
+        }}
+      >
         <div className="background-form"></div>
 
         <section className="main-movie-section">
           <div className="main-movie-section-header">
-            <h1>STRANGER THINGS</h1>
-            <h2>Terror</h2>
+            <h1>{movie.title}</h1>
+            <h2>
+              {genres.map((genre: any) => {
+                return genre.name + " | ";
+              })}
+            </h2>
           </div>
 
           <div className="main-movie-section-content">
-            <h3>
-              Situada no início dos anos 1980, Stranger Things se passa na
-              cidade rural fictícia de Hawkins, Indiana. Como fachada, o
-              laboratório da região realizava experimentos científicos para o
-              Departamento de Energia Americano, quando na realidade, os
-              pesquisadores ali investiram em experimentos com o paranormal e o
-              sobrenatural, incluindo o uso de cobaias humanas.
-            </h3>
+            <h3>{movie.overview}</h3>
             <div>
               <AiFillStar color="yellow" />
               <p>7.4</p>

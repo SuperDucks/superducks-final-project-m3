@@ -20,6 +20,7 @@ export interface IMovies {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
+
   id: number;
   media_type: string;
   original_language: string;
