@@ -19,8 +19,8 @@ export interface IFormLogin {
 export interface IFormEdit {
   photo?: string | undefined;
   name?: string | undefined;
-  password?: string | undefined;
-  confirmPassword?: string | undefined;
+ /*  password?: string | undefined;
+  confirmPassword?: string | undefined; */
 }
 
 export interface IUser {
