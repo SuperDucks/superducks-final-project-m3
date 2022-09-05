@@ -12,11 +12,13 @@ export const Modal = styled.div`
 
   .modal-content {
     width: 100%;
-    max-width: 500px;
+    /* max-width: 500px; */
+    width: 630px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 30px;
 
     padding: 60px 50px 80px 50px;
     background-color: var(--color-grey-0);
@@ -33,9 +35,9 @@ export const Modal = styled.div`
   }
   .genre-container {
     display: flex;
-    flex-direction: row;
+    gap: 14px;
     flex-wrap: wrap;
-    justify-content: space-between;
+
   }
   .genre-buttons {
     display: flex;

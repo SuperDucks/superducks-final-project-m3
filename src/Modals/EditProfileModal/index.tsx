@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+/* import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; */
 import { MdOutlineClose } from "react-icons/md";
 import { UserContext } from "../../context/UserContext";
 import { BtnPrimary } from "../../styles/buttons";
@@ -26,15 +26,15 @@ const EditProfileModal = () => {
     defaultValues: { photo: user?.avatar_url, name: user?.name },
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-
+  /* const [showPassword, setShowPassword] = useState(false);
+ */
   const modalRef = useOutsiedeClick(() => {
     setIsOpenEditProfileModal(false);
   });
 
-  const handleBtnClick = () => {
+  /* const handleBtnClick = () => {
     setShowPassword((prevState) => !prevState);
-  };
+  }; */
   return (
     <Modal>
       <motion.div
@@ -58,8 +58,9 @@ const EditProfileModal = () => {
             editProfileUser(formData, setLoading)
           )}
         >
+            
           <fieldset>
-            <h2>Edit options:</h2>
+            <legend>Edit options</legend>
             <div className="input-container">
               <label htmlFor="">Photo</label>
               <input type="url" placeholder="Photo" {...register("photo")} />
@@ -70,7 +71,7 @@ const EditProfileModal = () => {
               <input type="text" placeholder="Name" {...register("name")} />
               <small>{errors.name?.message}</small>
             </div>
-            <div className="input-container">
+           {/*  <div className="input-container">
               <label htmlFor="">Password</label>
               <div className="container-eye">
                 <input
@@ -93,9 +94,9 @@ const EditProfileModal = () => {
                 </button>
               </div>
               <small>{errors.password?.message}</small>
-            </div>
+            </div> */}
           </fieldset>
-          <div className="input-container">
+          {/* <div className="input-container">
             <label htmlFor="">Current password (to change)</label>
             <input
               type="password"
@@ -103,7 +104,7 @@ const EditProfileModal = () => {
               {...register("confirmPassword")}
             />
             <small>{errors.confirmPassword?.message}</small>
-          </div>
+          </div> */}
           <BtnPrimary
             type="submit"
             padding="big"

@@ -27,6 +27,7 @@ function Card({ movie }: Imovie) {
           ? reverseAnimation
           : normalAnimation,
     });
+
   };
 
   return (
