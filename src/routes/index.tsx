@@ -18,8 +18,9 @@ const RoutesMain = () => (
     <Route path="/search" element={<ProtectedRoutes />}>
       <Route index element={<SearchPage />} />
     </Route>
-
-    <Route path="/movies" element={<FilmScreen />} />
+    <Route path="/movies/:movieId" element={<ProtectedRoutes />}>
+      <Route index element={<FilmScreen />} />
+    </Route>
     <Route path="*" element={<Navigate to="/" />} />
   </Routes>
 );

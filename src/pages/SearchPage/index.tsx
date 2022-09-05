@@ -81,7 +81,10 @@ function SearchPage() {
             <div className="content_main_cards">
               {!searchMovies ? (
                 fistMovies.map((movie: IMovies) => (
-                  <Link to={"/movies"} style={{ textDecoration: "none" }}>
+                  <Link
+                    to={`/movies/${movie.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
                     <CardSearch key={movie.id} movie={movie} />
                   </Link>
                 ))
@@ -102,7 +105,10 @@ function SearchPage() {
                 </div>
               ) : (
                 movies.map((movie: IMovies) => (
-                  <Link to={"/movies"} style={{ textDecoration: "none" }}>
+                  <Link
+                    to={`/movies/${movie.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
                     <CardSearch key={movie.id} movie={movie} />
                   </Link>
                 ))

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import background from "../../assets/background-film.svg";
 
 export const Container = styled.div`
   width: 100%;
@@ -7,9 +6,9 @@ export const Container = styled.div`
 
   .main-movie {
     width: 100%;
-    height: 85%;
+    height: 80%;
     padding-top: 150px;
-    background-image: url(${background});
+
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -67,7 +66,7 @@ export const Container = styled.div`
 
         h2 {
           font: var(--font-title-3);
-          color: var(--color-grey-1);
+          color: white;
           font-weight: 600;
         }
       }
