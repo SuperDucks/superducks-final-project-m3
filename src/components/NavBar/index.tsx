@@ -22,22 +22,22 @@ function NavBar() {
 
   return (
     <Container invisible={invisible}>
-      <Link to="/dashboard">
-        <figure>
-          <img src={logo} alt="Logo Duckplay" />
-        </figure>
-      </Link>
-      <div className="nav-bar-choice">
-        <button onClick={() => navigate("/dashboard")}>HOME</button>
-        <hr />
-        <button>MY LIST</button>
-      </div>
-
-      <div className="nav-bar-search">
-        <input type="text" placeholder="Search" />
-        <button onClick={() => navigate("/search", { replace: true })}>
-          <AiOutlineSearch size={"25"} />
-        </button>
+      <div className="logo-align">
+        <Link to="/dashboard">
+          <figure>
+            <img src={logo} alt="Logo Duckplay" />
+          </figure>
+        </Link>
+        <div className="nav-bar-choice">
+          <button>MY LIST</button>
+          <hr />
+          <div className="nav-bar-search">
+            <button onClick={() => navigate("/search", { replace: true })}>
+              <p>SEARCH</p>
+              <AiOutlineSearch size={35} />
+            </button>
+          </div>
+        </div>
       </div>
 
       <div
