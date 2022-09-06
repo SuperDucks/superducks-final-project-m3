@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import DropdownMenu from "../Dropdown/DropdownMenu";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 
@@ -22,22 +22,24 @@ function NavBar() {
 
   return (
     <Container invisible={invisible}>
-      <Link to="/dashboard">
-        <figure>
-          <img src={logo} alt="Logo Duckplay" />
-        </figure>
-      </Link>
-      <div className="nav-bar-choice">
-        <button onClick={() => navigate("/dashboard")}>HOME</button>
-        <hr />
-        <button>MY LIST</button>
-      </div>
-
-      <div className="nav-bar-search">
-        <input type="text" placeholder="Search" />
-        <button onClick={() => navigate("/search", { replace: true })}>
-          <AiOutlineSearch size={"25"} />
-        </button>
+      <div className="logo-align">
+        <NavLink to="/dashboard">
+          <figure>
+            <img src={logo} alt="Logo Duckplay" />
+          </figure>
+        </NavLink>
+        <div className="nav-bar-choice">
+          <button>MY LIST</button>
+          <hr />
+          <div className="nav-bar-search">
+            <NavLink to={"/search"}>
+              <button onClick={() => navigate("/search", { replace: true })}>
+                <p>SEARCH</p>
+                <AiOutlineSearch size={35} />
+              </button>
+            </NavLink>
+          </div>
+        </div>
       </div>
 
       <div

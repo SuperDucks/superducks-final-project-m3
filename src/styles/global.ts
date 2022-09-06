@@ -68,6 +68,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  a{
+    text-decoration: none;
+  }
+
   body,html{
     
     max-width: 100vw;

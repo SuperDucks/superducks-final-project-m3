@@ -8,7 +8,7 @@ export const Container = styled.div<IPoster>`
   display: flex;
   flex-direction: column;
   background-color: red;
-  
+
   /* gap: 14px; */
   margin-bottom: 56px;
 
@@ -18,7 +18,6 @@ export const Container = styled.div<IPoster>`
     font-weight: 400;
   }
 
-  
   .carousel-container {
     height: 286px;
     display: flex;
@@ -26,7 +25,9 @@ export const Container = styled.div<IPoster>`
 
     .carousel-card {
       /* background-color: blue; */
-      background-image: url("https://image.tmdb.org/t/p/original${({ moviePoster, }) => moviePoster}");
+      background-image: url("https://image.tmdb.org/t/p/original${({
+        moviePoster,
+      }) => moviePoster}");
       background-position: center;
       background-size: cover;
       width: 196px;
@@ -35,7 +36,6 @@ export const Container = styled.div<IPoster>`
       display: flex;
       flex-direction: column;
       align-items: center;
-      
 
       .carousel-card-main {
         width: 100%;
@@ -46,8 +46,6 @@ export const Container = styled.div<IPoster>`
         justify-content: space-between;
         align-items: space-between;
 
-        
-
         .carousel-card-title {
           /* margin-top: 8px;
 
@@ -55,14 +53,19 @@ export const Container = styled.div<IPoster>`
           padding: 8px;
           /* background-color: green; */
 
-          background: rgb(0,0,0);
-          background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.605217086834734) 53%, rgba(0,0,0,0.8685224089635855) 100%);
+          background: rgb(0, 0, 0);
+          background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.605217086834734) 53%,
+            rgba(0, 0, 0, 0.8685224089635855) 100%
+          );
 
           h2 {
             height: 38px;
-            
+
             font: var(--font-title-8);
-           
+
             /* background-color: red; */
           }
 
@@ -72,7 +75,7 @@ export const Container = styled.div<IPoster>`
             gap: 5px;
 
             p {
-              -webkit-text-stroke-width: .8px;
+              -webkit-text-stroke-width: 0.8px;
               -webkit-text-stroke-color: #000;
               font: var(--font-title-8);
               color: var(--color-grey-0);
@@ -106,12 +109,12 @@ export const Container = styled.div<IPoster>`
           } */
           .button-animation {
             height: 100%;
-            width: 50px;           
-           /*  pointer-events: none;  */
+            width: 50px;
+            /*  pointer-events: none;  */
             display: flex;
             justify-content: center;
             background-color: transparent;
-                   
+
             .button-background {
               position: fixed;
               height: 30px;
@@ -138,6 +141,4 @@ export const Container = styled.div<IPoster>`
       }
     }
   }
-
-
 `;

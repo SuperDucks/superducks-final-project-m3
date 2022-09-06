@@ -10,7 +10,7 @@ import { UserContext } from "../../context/UserContext";
 
 const GenreModal = () => {
   const { displayGenre } = useContext(UserContext);
-  const { setIsOpenModalGenre, addUserGenre } = useContext(GenreContext);
+  const { setIsOpenModalGenre, addUserGenre, isSelect, setIsSelect } = useContext(GenreContext);
 
   const toggleGenre = (genreName: string) => {
     if (!displayGenre?.includes(genreName)) {
@@ -46,12 +46,24 @@ const GenreModal = () => {
           </div>
           <div className="genre-container">
             {genres.map((genre) => {
-              const genreName = genre.name;
+              // const genreName = genre.name;
               return (
                 <BtnPrimary
-                  key={genreName}
+                  key={genre.name}
+                  buttonStyle="genre"
                   className="genre-buttons"
-                  onClick={() => toggleGenre(genreName)}
+                  select={ displayGenre.find((g)=> {
+                    return g === genre.name
+                  })
+                  }
+
+                  // select={ isSelect ? "disable" : "active"}
+
+                  onClick={() => {
+                    // toggleGenre(genreName)
+                    toggleGenre(genre.name)
+                  }}
+                  //usar o find no array de genres pra modificar a classname do butão
                 >
                   {genre.name}{" "}
                 </BtnPrimary>

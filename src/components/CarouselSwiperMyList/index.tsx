@@ -13,7 +13,7 @@ const settings: SliderProps = {
   // },
 };
 
-function CarouselSwiper({ moviesInfo }: IMoviesInfo) {
+function CarouselSwiperMyList({ moviesInfo }: IMoviesInfo) {
   return (
     <Container>
       <h2>{moviesInfo.type}</h2>
@@ -33,4 +33,4 @@ function CarouselSwiper({ moviesInfo }: IMoviesInfo) {
   );
 }
 
-export default CarouselSwiper;
+export default CarouselSwiperMyList;

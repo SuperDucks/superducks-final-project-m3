@@ -6,12 +6,20 @@ export interface FilmProviderProps {
 
 export interface IFilmProps {
   DashboardMovies: IDashboardMovies[];
+  MyListFilmes: IMyListMovies[];
   loadingPage: boolean;
   setLoadingPage: React.Dispatch<React.SetStateAction<boolean>>;
   addMovie: (data: IMovies) => void;
+  removeMovie: (data: IMovies) => void;
+  defaultOptions: IDefaultOptions;
 }
 
 export interface IDashboardMovies {
+  type: string;
+  movielist: IMovies[] | [];
+}
+
+export interface IMyListMovies {
   type: string;
   movielist: IMovies[] | [];
 }
@@ -20,6 +28,7 @@ export interface IMovies {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
+
   id: number;
   media_type: string;
   original_language: string;
@@ -64,4 +73,17 @@ export interface IMoviesInfo {
     type: string;
     movielist: IMovies[] | [];
   };
+}
+
+export interface IDefaultOptions {
+  loop: boolean;
+  autoplay: boolean;
+  animationData: any;
+  rendererSettings: { preserveAspectRatio: string };
+}
+
+export interface IAnimationState {
+  isStopped: boolean;
+  isPaused: boolean;
+  direction: number;
 }
