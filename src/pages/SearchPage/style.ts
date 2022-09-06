@@ -11,7 +11,7 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
 
-    padding-top: 150px;
+    padding-top: 130px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -45,6 +45,16 @@ const Container = styled.div`
     color: white;
   }
 
+  @media (max-width: 700px) {
+    input::-webkit-input-placeholder {
+      color: transparent;
+    }
+
+    input {
+      padding: 20px;
+    }
+  }
+
   .content_main {
     width: 70%;
     display: flex;
@@ -69,6 +79,16 @@ const Container = styled.div`
       margin-top: 30px;
       flex-wrap: wrap;
       margin-bottom: 30px;
+
+      @media (max-width: 600px) {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+
+        ::-webkit-scrollbar-corner {
+          background-color: var(--color-grey-6);
+        }
+      }
 
       .no_results {
         display: flex;
