@@ -35,7 +35,7 @@ const Dashboard = () => {
               <Genre />
             </aside>
             <main>
-              {DashboardMovies.map((moviesInfo) => {
+              {DashboardMovies?.map((moviesInfo) => {
                 return (
                   <CarouselSwiper
                     key={moviesInfo.type}
@@ -43,7 +43,7 @@ const Dashboard = () => {
                   />
                 );
               })}
-              {MyListFilmes.map((moviesInfo) => {
+              {MyListFilmes?.map((moviesInfo) => {
                 return (
                   <CarouselSwiperMyList
                     key={moviesInfo.type}

@@ -65,7 +65,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
     data: IFormRegister,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ): Promise<void> {
-    delete data.confirmPassword
+    delete data.confirmPassword;
     try {
       const newData = {
         ...data,
@@ -75,7 +75,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
         movie_list: [],
       };
       setLoading(true);
-       await userAPI.post("/register", newData);
+      await userAPI.post("/register", newData);
       setIsOpenModalRegister(false);
       toast.success("User registered successfully");
       setTimeout(() => {
@@ -89,7 +89,6 @@ export const UserProvider = ({ children }: IUserProvider) => {
   }
 
   async function loginUser(
-
     data: IFormLogin,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ): Promise<void> {
@@ -108,7 +107,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
     } catch (error) {
       toast.error("An error has occurred!");
     } finally {
-      setLoading(false);      
+      setLoading(false);
     }
   }
 
@@ -149,9 +148,7 @@ export const UserProvider = ({ children }: IUserProvider) => {
       setLoading(false);
     }
   }
-  useEffect(() => {
-    
-  }, [])
+  useEffect(() => {}, []);
   return (
     <UserContext.Provider
       value={{
