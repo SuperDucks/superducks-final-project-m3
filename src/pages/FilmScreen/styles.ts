@@ -26,24 +26,28 @@ export const Container = styled.div`
     }
 
     .main-movie-carousel {
+      position: absolute;
+      right: 0;
+      bottom: 0;
       z-index: 2;
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: center;
-      width: 100%;
-      height: 328px;
+      flex-direction: row;
+      width: 90%;
+      height: 360px;
       margin-bottom: 28px;
+      background: rgba(0, 0, 0, 0.4);
+    }
 
-      div {
-        width: 65%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.72);
-      }
+    .main-movie-carousel > div {
+      margin-bottom: 0;
+      margin-left: 20px;
     }
 
     .main-movie-section {
       z-index: 1;
-      width: 32%;
+      width: 36%;
       margin-top: 80px;
       margin-left: 90px;
 
