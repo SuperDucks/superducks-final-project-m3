@@ -26,7 +26,7 @@ export const Container = styled.div<IPoster>`
 
     .carousel-card {
       /* background-color: blue; */
-      background-image: url("https://image.tmdb.org/t/p/original${({ moviePoster,}) => moviePoster}");
+      background-image: url("https://image.tmdb.org/t/p/original${({ moviePoster, }) => moviePoster}");
       background-position: center;
       background-size: cover;
       width: 196px;

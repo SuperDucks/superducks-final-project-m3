@@ -20,10 +20,9 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
 
   useEffect(() => {
     if (user) {
-      console.log(movieList[0].id);
       api
         .get(
-          `/movie/${movieList[0].id}/recommendations?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1`
+          `/movie/${movieList[0]?.id}/recommendations?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1`
         )
         .then((res) => {
           let newResults = res.data.results;
@@ -32,7 +31,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
         })
         .catch((err) => console.log(err));
     }
-  }, [user]);
+  }, [user, movieList]);
 
   useEffect(() => {
     getTopRatedMovies();
