@@ -32,6 +32,7 @@ export const Container = styled.div<IProps>`
 
   .nav-bar-choice {
     display: flex;
+    align-items: center;
     gap: 20px;
 
     button {
@@ -42,9 +43,14 @@ export const Container = styled.div<IProps>`
     }
   }
 
+  hr {
+    height: 40px;
+  }
+
   .nav-bar-search {
     button {
       display: flex;
+
       align-items: center;
       gap: 10px;
       padding-right: 15px;

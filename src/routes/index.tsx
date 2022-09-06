@@ -24,6 +24,9 @@ const RoutesMain = () => (
       <Route index element={<FilmScreen />} />
     </Route>
 
+    <Route path="/mylist" element={<ProtectedRoutes />}>
+      <Route index element={<MyList />} />
+    </Route>
     <Route path="/mylist" element={<MyList />} />
 
     <Route path="*" element={<Navigate to="/" />} />
