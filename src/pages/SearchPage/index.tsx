@@ -5,7 +5,6 @@ import EditProfileModal from "../../Modals/EditProfileModal";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { api } from "../../services/api";
-
 import { IMovies } from "../../context/FilmContext/interfaces";
 import CardSearch from "../../components/CardSearch";
 import { Link } from "react-router-dom";
@@ -30,10 +29,7 @@ function SearchPage() {
       const resposta = await api.get(urlAPI);
       setMovies(resposta.data.results);
       setSearchMovies(true);
-      console.log(resposta.data.results);
-    } catch (erro) {
-      console.log(erro);
-    }
+    } catch (erro) {}
   }
 
   async function fistMoviesF() {
@@ -42,9 +38,7 @@ function SearchPage() {
         "/movie/top_rated?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1"
       );
       setFistMovies(resposta.data.results);
-    } catch (erro) {
-      console.log(erro);
-    }
+    } catch (erro) {}
   }
 
   const { isOpenEditProfileModal } = useContext(UserContext);
@@ -52,8 +46,9 @@ function SearchPage() {
   return (
     <>
       <Container>
-        {isOpenEditProfileModal && <EditProfileModal />}
         <NavBar />
+        {isOpenEditProfileModal && <EditProfileModal />}
+
         <main className="search_main">
           <div className="search_main_input">
             <button onClick={load}>
