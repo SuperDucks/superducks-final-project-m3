@@ -13,26 +13,24 @@ export const Container = styled.div<IProps>`
   justify-content: space-between;
   align-items: center;
   z-index: 40;
-  
-
 
   padding-left: 6%;
   padding-right: 6%;
 
-  transition: background-color .3s ease, opacity .2s linear;
-  background-image: linear-gradient(-180deg,rgba(0,0,0,.64),transparent);
-  background: ${props => (props.invisible ? "rgba(17, 17, 17, 0.5)" : "var(--color-grey-5)")};
+  transition: background-color 0.3s ease, opacity 0.2s linear;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.64), transparent);
+  background: ${(props) =>
+    props.invisible ? "rgba(17, 17, 17, 0.5)" : "var(--color-grey-5)"};
 
-  .logo-align{
+  .logo-align {
     width: 39%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-
   }
 
-  .nav-bar-choice{
+  .nav-bar-choice {
     display: flex;
     gap: 20px;
 
@@ -44,10 +42,8 @@ export const Container = styled.div<IProps>`
     }
   }
 
-
-  .nav-bar-search{
-    
-    button{
+  .nav-bar-search {
+    button {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -55,6 +51,10 @@ export const Container = styled.div<IProps>`
       background-color: transparent;
       color: var(--color-grey-0);
     }
+  }
+
+  .active button {
+    color: yellow;
   }
 
   .nav-bar-profile {
