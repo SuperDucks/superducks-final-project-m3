@@ -58,3 +58,12 @@ export const BtnOutlineModal = styled.button`
   
   
 `;
+export const BtnRegister = styled.button`
+  background: transparent;
+  border-radius: 30px;
+  font: var(--font-title-9);
+  font-weight: 600;
+  color: white;
+  border: 2px solid white;
+  padding: 8px 28px;
+`;

@@ -1,7 +1,7 @@
 import Lottie from "react-lottie";
 import { useContext, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
-import { BiBookmark } from "react-icons/bi";
+/* import { BiBookmark } from "react-icons/bi"; */
 import { FilmContext } from "../../context/FilmContext";
 import { genres } from "../../context/FilmContext/genre";
 import { Imovie } from "../../context/FilmContext/interfaces";
@@ -64,6 +64,7 @@ function Card({ movie }: Imovie) {
                   options={defaultOptions}
                   height={50}
                   width={50}
+                  speed={2}
                   direction={animationState.direction}
                   isStopped={animationState.isStopped}
                   isPaused={animationState.isPaused}

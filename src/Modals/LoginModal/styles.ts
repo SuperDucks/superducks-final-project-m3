@@ -9,11 +9,12 @@ export const Modal = styled.div`
   height: 100vh;
   background: rgba(0, 0, 0, 0.45);
   z-index: 2;
+  padding: 16px;
 
   .modal-content {
     width: 100%;
     max-width: 500px;
-
+    z-index: 999;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -21,6 +22,9 @@ export const Modal = styled.div`
     padding: 60px 50px 80px 50px;
     background-color: var(--color-grey-0);
     border-radius: 15px;
+    @media screen and (max-width: 768px){
+      padding: 30px 25px 40px 25px;
+    }
   }
   .container-title {
     display: flex;
@@ -36,6 +40,9 @@ export const ThemeTitle = styled.h2`
   font-size: 40px;
   font-weight: 700;
   color: var(--color-grey-4);
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 export const Form = styled.form`
