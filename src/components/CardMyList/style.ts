@@ -7,9 +7,7 @@ interface IPoster {
 export const Container = styled.div<IPoster>`
   display: flex;
   flex-direction: column;
-  background-color: red;
 
-  /* gap: 14px; */
   margin-bottom: 56px;
 
   h2 {
@@ -21,13 +19,9 @@ export const Container = styled.div<IPoster>`
   .carousel-container {
     height: 286px;
     display: flex;
-    /* gap: 24px; */
 
     .carousel-card {
-      /* background-color: blue; */
-      background-image: url("https://image.tmdb.org/t/p/original${({
-        moviePoster,
-      }) => moviePoster}");
+      background-image: url("https://image.tmdb.org/t/p/original${({ moviePoster,}) => moviePoster}");
       background-position: center;
       background-size: cover;
       width: 196px;
@@ -47,11 +41,8 @@ export const Container = styled.div<IPoster>`
         align-items: space-between;
 
         .carousel-card-title {
-          /* margin-top: 8px;
-
-          margin-left: 12px; */
+          margin-left: 12px;
           padding: 8px;
-          /* background-color: green; */
 
           background: rgb(0, 0, 0);
           background: linear-gradient(
@@ -65,8 +56,6 @@ export const Container = styled.div<IPoster>`
             height: 38px;
 
             font: var(--font-title-8);
-
-            /* background-color: red; */
           }
 
           .carousel-card-ratio {
@@ -93,24 +82,9 @@ export const Container = styled.div<IPoster>`
           margin-left: 6px;
           background-color: var(--color-primary);
 
-          /* .caroulse-card-add-mark {
-            
-
-            display: flex;
-            align-items: center;
-
-            gap: 5px;
-
-            p {
-              font: var(--font-title-8);
-              color: var(--color-grey-4);
-              font-weight: 600;
-            }
-          } */
           .button-animation {
             height: 100%;
             width: 50px;
-            /*  pointer-events: none;  */
             display: flex;
             justify-content: center;
             background-color: transparent;

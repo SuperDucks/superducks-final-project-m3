@@ -45,7 +45,6 @@ export const UserProvider = ({ children }: IUserProvider) => {
         setUser(response.data);
         setDisplayGenre(response.data.genres);
         setMovieList(response.data.movie_list);
-        /*  navigate('/dashboard') */
       } catch (error) {
         console.log(error);
 

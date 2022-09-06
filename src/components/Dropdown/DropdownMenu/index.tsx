@@ -9,8 +9,6 @@ import { Container } from "./styles";
 const DropdownMenu = () => {
   const { dropdownOpen, logoutUser, setIsOpenEditProfileModal, setDropdownOpen } = useContext(UserContext);
 
-  
-
   return (
     <Container>
       <div className={`dropdown-menu ${dropdownOpen ? "active" : "inactive"}`}>
