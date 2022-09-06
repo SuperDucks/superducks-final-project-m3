@@ -1,8 +1,7 @@
 import { Slide, Slider, SliderProps } from "../Slider";
-
 import { IMoviesInfo } from "../../context/FilmContext/interfaces";
-import Card from "../Card";
 import { Container } from "./styles";
+import CardMyList from "../CardMyList";
 
 const settings: SliderProps = {
   spaceBetween: 5,
@@ -23,7 +22,7 @@ function CarouselSwiperMyList({ moviesInfo }: IMoviesInfo) {
           {moviesInfo.movielist.map((movie) => {
             return (
               <Slide key={movie.id}>
-                <Card movie={movie}></Card>
+                <CardMyList movie={movie}></CardMyList>
               </Slide>
             );
           })}
