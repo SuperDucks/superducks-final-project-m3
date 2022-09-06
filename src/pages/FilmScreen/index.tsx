@@ -3,10 +3,12 @@ import { Container } from "./styles";
 import { AiFillStar } from "react-icons/ai";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { BtnPrimary } from "../../styles/buttons";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { IMovies } from "../../context/FilmContext/interfaces";
 import { useParams } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
+import EditProfileModal from "../../Modals/EditProfileModal";
 
 const FilmScreen = () => {
   const [movie, setMovie] = useState<IMovies>({} as IMovies);
@@ -30,14 +32,16 @@ const FilmScreen = () => {
     }
   }
 
+  const { isOpenEditProfileModal } = useContext(UserContext);
+
   useEffect(() => {
     load();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Container>
+      {isOpenEditProfileModal && <EditProfileModal />}
       <NavBar />
       <main
         className="main-movie"
