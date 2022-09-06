@@ -6,8 +6,8 @@ export const Container = styled.div`
 
   .main-movie {
     width: 100%;
-    height: 80%;
-    padding-top: 150px;
+    height: 100%;
+    padding-top: 130px;
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,7 +46,6 @@ export const Container = styled.div`
       width: 32%;
       margin-top: 80px;
       margin-left: 90px;
-      /* background-color: black; */
 
       display: flex;
       flex-direction: column;
@@ -55,7 +54,6 @@ export const Container = styled.div`
       .main-movie-section-header {
         display: flex;
         flex-direction: column;
-        /* background-color: red; */
 
         h1 {
           width: 75%;
@@ -75,8 +73,6 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         gap: 10px;
-
-        /* background-color: blue; */
 
         h3 {
           font: var(--font-title-7);
@@ -100,8 +96,6 @@ export const Container = styled.div`
       .main-movie-section-footer {
         display: flex;
         gap: 15px;
-
-        /* background-color: green; */
 
         .favorite-button {
           display: flex;
