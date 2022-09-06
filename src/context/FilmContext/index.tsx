@@ -76,19 +76,23 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
   };
 
   const addMovie = (data: IMovies) => {
+    console.log(data);
     if (!movieList?.find((movie) => movie.id === data.id)) {
       addUserMovie([...movieList, data]);
+      toast.success("Film Added!");
     } else {
       const filterMovie = movieList.filter(
         (movieOld) => movieOld.id !== data.id
       );
       addUserMovie(filterMovie);
+      toast.success("Film Removed!");
     }
   };
 
   const removeMovie = (data: IMovies) => {
     const filterMovie = movieList.filter((movieOld) => movieOld.id !== data.id);
     addUserMovie(filterMovie);
+    toast.success("Film Removed!");
   };
 
   const DashboardMovies = [

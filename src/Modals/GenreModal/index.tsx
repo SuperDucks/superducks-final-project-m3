@@ -10,7 +10,7 @@ import { UserContext } from "../../context/UserContext";
 
 const GenreModal = () => {
   const { displayGenre } = useContext(UserContext);
-  const { setIsOpenModalGenre, addUserGenre, isSelect, setIsSelect } = useContext(GenreContext);
+  const { setIsOpenModalGenre, addUserGenre } = useContext(GenreContext);
 
   const toggleGenre = (genreName: string) => {
     if (!displayGenre?.includes(genreName)) {
@@ -46,19 +46,16 @@ const GenreModal = () => {
           </div>
           <div className="genre-container">
             {genres.map((genre) => {
-              // const genreName = genre.name;
               return (
                 <BtnPrimary
                   key={genre.name}
                   buttonStyle="genre"
                   className="genre-buttons"
-                  select={ displayGenre.find((g)=> {
-                    return g === genre.name
-                  })
-                  }
-
+                  select={displayGenre.find((g) => {
+                    return g === genre.name;
+                  })}
                   onClick={() => {
-                    toggleGenre(genre.name)
+                    toggleGenre(genre.name);
                   }}
                 >
                   {genre.name}{" "}

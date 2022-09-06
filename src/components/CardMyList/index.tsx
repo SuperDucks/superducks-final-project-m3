@@ -62,7 +62,7 @@ function CardMyList({ movie }: Imovie) {
                 />
               </button>
               <button className="genre">
-                <p>{movieGenre[0].name}</p>
+                {movieGenre[0] ? <p>{movieGenre[0]?.name}</p> : <p>No genre</p>}
               </button>
             </div>
           </div>
