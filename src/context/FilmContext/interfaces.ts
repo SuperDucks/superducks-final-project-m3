@@ -10,6 +10,7 @@ export interface IFilmProps {
   loadingPage: boolean;
   setLoadingPage: React.Dispatch<React.SetStateAction<boolean>>;
   addMovie: (data: IMovies) => void;
+  removeMovie: (data: IMovies) => void;
   defaultOptions: IDefaultOptions;
 }
 

@@ -7,7 +7,7 @@ import { Imovie } from "../../context/FilmContext/interfaces";
 import { Container } from "./style";
 
 function CardMyList({ movie }: Imovie) {
-  const { addMovie, defaultOptions } = useContext(FilmContext);
+  const { removeMovie, defaultOptions } = useContext(FilmContext);
   const movieGenre = genres.filter((genre) => genre.id === movie.genre_ids[0]);
 
   const [animationState, setAnimationState] = useState({
@@ -48,7 +48,7 @@ function CardMyList({ movie }: Imovie) {
                 className="button-animation"
                 onClick={() => {
                   buttonAnimationMyList();
-                  addMovie(movie);
+                  removeMovie(movie);
                 }}
               >
                 <div className="button-background"></div>

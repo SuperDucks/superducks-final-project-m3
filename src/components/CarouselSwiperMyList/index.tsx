@@ -22,11 +22,9 @@ function CarouselSwiperMyList({ moviesInfo }: IMoviesInfo) {
         <Slider settings={settings}>
           {moviesInfo.movielist.map((movie) => {
             return (
-              <>
-                <Slide key={movie.id}>
-                  <Card movie={movie}></Card>
-                </Slide>
-              </>
+              <Slide key={movie.id}>
+                <Card movie={movie}></Card>
+              </Slide>
             );
           })}
         </Slider>
