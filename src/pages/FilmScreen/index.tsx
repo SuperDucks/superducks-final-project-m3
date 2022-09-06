@@ -10,6 +10,8 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { FilmContext } from "../../context/FilmContext";
 import EditProfileModal from "../../Modals/EditProfileModal";
+import CardMyList from "../../components/CardMyList";
+import { Slide, Slider, SliderProps } from "../../components/Slider";
 
 const FilmScreen = () => {
   const imgbaseUrl = "https://image.tmdb.org/t/p/original/";
@@ -18,7 +20,7 @@ const FilmScreen = () => {
 
   const { movieId } = useParams();
   const { addMovie } = useContext(FilmContext);
-  const { isOpenEditProfileModal } = useContext(UserContext);
+  const { isOpenEditProfileModal, movieList } = useContext(UserContext);
 
   useEffect(() => {
     load();
@@ -56,6 +58,12 @@ const FilmScreen = () => {
     };
 
     addMovie(movieData);
+  };
+
+  const settings: SliderProps = {
+    spaceBetween: 3,
+    slidesPerView: 5,
+    navigation: true,
   };
 
   return (
@@ -101,7 +109,15 @@ const FilmScreen = () => {
         </section>
 
         <div className="main-movie-carousel">
-          <div>Carousel</div>
+          <Slider settings={settings}>
+            {movieList.map((movie) => {
+              return (
+                <Slide key={movie.id}>
+                  <CardMyList key={movie.id} movie={movie}></CardMyList>
+                </Slide>
+              );
+            })}
+          </Slider>
         </div>
       </main>
     </Container>
