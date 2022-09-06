@@ -29,7 +29,9 @@ function NavBar() {
           </figure>
         </NavLink>
         <div className="nav-bar-choice">
-          <button>MY LIST</button>
+          <NavLink to={"/mylist"}>
+            <button>MY LIST</button>
+          </NavLink>
           <hr />
           <div className="nav-bar-search">
             <NavLink to={"/search"}>
