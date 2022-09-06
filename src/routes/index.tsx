@@ -6,6 +6,7 @@ import FilmScreen from "../pages/FilmScreen";
 
 //Protec-Router
 import Home from "../pages/Home";
+import MyList from "../pages/MyList";
 import SearchPage from "../pages/SearchPage";
 
 const RoutesMain = () => (
@@ -18,9 +19,13 @@ const RoutesMain = () => (
     <Route path="/search" element={<ProtectedRoutes />}>
       <Route index element={<SearchPage />} />
     </Route>
+
     <Route path="/movies/:movieId" element={<ProtectedRoutes />}>
       <Route index element={<FilmScreen />} />
     </Route>
+
+    <Route path="/mylist" element={<MyList />} />
+
     <Route path="*" element={<Navigate to="/" />} />
   </Routes>
 );

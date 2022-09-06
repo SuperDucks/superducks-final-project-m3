@@ -8,9 +8,7 @@ const settings: SliderProps = {
   spaceBetween: 5,
   slidesPerView: 6,
   navigation: true,
-  // pagination: {
-  //   clickable: true,
-  // },
+
 };
 
 function CarouselSwiper({ moviesInfo }: IMoviesInfo) {

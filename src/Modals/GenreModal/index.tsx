@@ -57,13 +57,9 @@ const GenreModal = () => {
                   })
                   }
 
-                  // select={ isSelect ? "disable" : "active"}
-
                   onClick={() => {
-                    // toggleGenre(genreName)
                     toggleGenre(genre.name)
                   }}
-                  //usar o find no array de genres pra modificar a classname do butão
                 >
                   {genre.name}{" "}
                 </BtnPrimary>
