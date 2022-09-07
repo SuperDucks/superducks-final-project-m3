@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { GenreContext } from "../../../context/GenreContext";
 
 const DropdownMenu = () => {
+
   const navigate = useNavigate();
   const {
     dropdownOpen,

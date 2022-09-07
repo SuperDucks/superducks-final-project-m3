@@ -6,18 +6,36 @@ import { Container } from "./styles";
 
 const settings: SliderProps = {
   spaceBetween: 5,
-  slidesPerView: 6,
   navigation: true,
-  // pagination: {
-  //   clickable: true,
-  // },
+  breakpoints: {
+    200:{                   
+      slidesPerView: 1,                     
+      slidesPerGroup: 1,  
+    },                  
+    490:{
+      slidesPerView: 2,                   
+      slidesPerGroup: 2,  
+    },
+    700:{
+      slidesPerView: 3,                   
+      slidesPerGroup: 3,  
+    },                  
+    1300:{
+      slidesPerView: 4,                   
+      slidesPerGroup: 4,  
+    },                  
+    1450:{
+      slidesPerView: 5,                  
+      slidesPerGroup: 5,  
+    }   
+  },
+
 };
 
 function CarouselSwiper({ moviesInfo }: IMoviesInfo) {
   return (
     <Container>
       <h2>{moviesInfo.type}</h2>
-
       <div>
         <Slider settings={settings}>
           {moviesInfo.movielist.map((movie) => {

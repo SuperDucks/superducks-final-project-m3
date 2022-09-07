@@ -10,9 +10,6 @@ export const GenreProvider = ({ children }: IGenreProvider) => {
   const [isOpenModalGenre, setIsOpenModalGenre] = useState<boolean>(false);
   const { displayGenre, setDisplayGenre, user } = useContext(UserContext);
 
-  const [ isSelect, setIsSelect ] = useState<boolean>(false);
- 
-
   async function addUserGenre(data: string[]) {
     const token = localStorage.getItem("@TOKEN");
     try {
@@ -25,7 +22,7 @@ export const GenreProvider = ({ children }: IGenreProvider) => {
           },
         }
       );
-      
+
       setDisplayGenre(response.data.genres);
     } catch (error) {
       console.log(error);
@@ -42,8 +39,6 @@ export const GenreProvider = ({ children }: IGenreProvider) => {
         setDisplayGenre,
         displayGenre,
         addUserGenre,
-        isSelect,
-        setIsSelect,
       }}
     >
       {children}

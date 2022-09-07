@@ -6,8 +6,8 @@ export const Container = styled.div`
 
   .main-movie {
     width: 100%;
-    height: 80%;
-    padding-top: 150px;
+    height: 100%;
+    padding-top: 130px;
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,27 +26,31 @@ export const Container = styled.div`
     }
 
     .main-movie-carousel {
+      position: absolute;
+      right: 0;
+      bottom: 0;
       z-index: 2;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      width: 100%;
-      height: 328px;
+      padding-top: 26px;
+      /* display: flex;
+      justify-content: flex-start; */
+      /* align-items: center; */
+      /* flex-direction: row; */
+      width: 90%;
+      height: 360px;
       margin-bottom: 28px;
+      background: rgba(0, 0, 0, 0.4);
+    }
 
-      div {
-        width: 65%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.72);
-      }
+    .main-movie-carousel > div {
+      margin-bottom: 0;
+      margin-left: 20px;
     }
 
     .main-movie-section {
       z-index: 1;
-      width: 32%;
+      width: 36%;
       margin-top: 80px;
       margin-left: 90px;
-      /* background-color: black; */
 
       display: flex;
       flex-direction: column;
@@ -55,7 +59,6 @@ export const Container = styled.div`
       .main-movie-section-header {
         display: flex;
         flex-direction: column;
-        /* background-color: red; */
 
         h1 {
           width: 75%;
@@ -75,8 +78,6 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         gap: 10px;
-
-        /* background-color: blue; */
 
         h3 {
           font: var(--font-title-7);
@@ -100,8 +101,6 @@ export const Container = styled.div`
       .main-movie-section-footer {
         display: flex;
         gap: 15px;
-
-        /* background-color: green; */
 
         .favorite-button {
           display: flex;

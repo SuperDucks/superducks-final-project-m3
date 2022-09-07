@@ -49,6 +49,7 @@ export const Container = styled.div<IProps>`
       height: 20px;
     }
     .btn-my-list {
+
       background-color: transparent;
       font: var(--font-title-7);
       color: var(--color-grey-0);
@@ -65,9 +66,14 @@ export const Container = styled.div<IProps>`
     }
   }
 
+  hr {
+    height: 40px;
+  }
+
   .nav-bar-search {
     button {
       display: flex;
+
       align-items: center;
       gap: 10px;    
       background-color: transparent;

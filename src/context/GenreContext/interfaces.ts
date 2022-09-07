@@ -10,7 +10,4 @@ export interface IGenreContext {
   setDisplayGenre: React.Dispatch<React.SetStateAction<string[]>>;
   displayGenre: string[];
   addUserGenre: (data: string[]) => void;
-  isSelect: boolean;
-  setIsSelect: React.Dispatch<React.SetStateAction<boolean>>;
-  
 }

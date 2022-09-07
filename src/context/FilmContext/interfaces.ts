@@ -25,10 +25,10 @@ export interface IMyListMovies {
 }
 
 export interface IMovies {
+  genres?: any;
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
-
   id: number;
   media_type: string;
   original_language: string;

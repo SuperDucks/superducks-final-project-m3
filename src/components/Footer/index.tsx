@@ -5,6 +5,9 @@ import { FiFigma } from 'react-icons/fi'
 import { IoLogoJavascript } from 'react-icons/io'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { BtnPrimary } from '../../styles/buttons';
+import { AiFillGithub, AiFillHtml5 } from 'react-icons/ai';
+import { DiCss3, DiReact } from 'react-icons/di';
+import { SiStyledcomponents, SiTypescript } from 'react-icons/si'
 
 function Footer() {
   return (
@@ -12,35 +15,73 @@ function Footer() {
       <div className='footer-up'>
         <figure>
           <img src={logo} alt="" />
+
+          <div className='footer-up-contact'>
+            <ul>
+              <BsGithub size={30} />
+              <FiFigma size={30}/>
+              <IoLogoJavascript size={30}/>
+            </ul>
+            <BtnPrimary padding='big' >Contact Us</BtnPrimary>
+          </div>
         </figure>
 
         <div className='footer-up-lists'>
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Portfolio</li>
+            <ul>
+              <p>Product Owner</p>
+              <li>Henrique Carderan</li>
+            </ul>
+            <ul>
+              <p>Scrum Master</p>
+              <li>Dara Gomes</li>
+            </ul>
           </ul>
 
           <ul>
-            <li>Team</li>
-            <li>Services</li>
+            <p>Teach Leader</p>
+            <li>Kelton Wlysses</li>
           </ul>
 
           <ul>
-            <li>Privacy Policy</li>
-            <li>Terms and Conditions</li>
+            <p>Quality Assurance</p>
+            <li>Rian Moraes</li>
+            <li>Daniel Lobato</li>
+          </ul>
+
+        </div>
+
+        <div className='footer-up-techs'>
+          <h2>Techs</h2>
+          <ul>
+            <li>
+              <AiFillHtml5 size={55}/>
+            </li>
+            <li>
+              <DiCss3 size={55} />
+            </li>
+            <li>
+              <IoLogoJavascript size={55} />
+            </li>
+            <li>
+              <DiReact size={55} />
+            </li>
+            <li>
+              <SiTypescript size={55} />
+            </li>
+            <li>
+              <AiFillGithub size={55} />
+            </li>
+            <li>
+              <SiStyledcomponents size={55} />
+            </li>
+            <li>
+              <FiFigma size={55} />
+            </li>
           </ul>
         </div>
 
-        <div className='footer-up-contact'>
-          <ul>
-            <BsGithub size={30} />
-            <FiFigma size={30}/>
-            <IoLogoJavascript size={30}/>
-            <FaLinkedinIn size={30}/>
-          </ul>
-          <BtnPrimary padding='big' >Contact Us</BtnPrimary>
-        </div>
+        
       </div>
       
       <hr />

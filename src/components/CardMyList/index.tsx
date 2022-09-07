@@ -5,6 +5,7 @@ import { FilmContext } from "../../context/FilmContext";
 import { genres } from "../../context/FilmContext/genre";
 import { Imovie } from "../../context/FilmContext/interfaces";
 import { Container } from "./style";
+import { Link } from "react-router-dom";
 
 function CardMyList({ movie }: Imovie) {
   const { removeMovie, defaultOptions } = useContext(FilmContext);
@@ -32,41 +33,48 @@ function CardMyList({ movie }: Imovie) {
   return (
     <Container moviePoster={movie.poster_path}>
       <div className="carousel-container">
-        <div className="carousel-card">
-          <div className="carousel-card-main">
-            <div className="carousel-card-title">
-              <h2>{movie.original_title}</h2>
+        <Link to={`/movies/${movie.id}`}>
+          <div className="carousel-card">
+            <div className="carousel-card-main">
+              <div className="carousel-card-title">
+                <h2>{movie.original_title}</h2>
 
-              <div className="carousel-card-ratio">
-                <AiFillStar size={18} color="yellow" />
-                <p>{movie.vote_average}</p>
+                <div className="carousel-card-ratio">
+                  <AiFillStar size={18} color="yellow" />
+                  <p>{movie.vote_average}</p>
+                </div>
+              </div>
+
+              <div className="carousel-card-add">
+                <button
+                  className="button-animation"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    buttonAnimationMyList();
+                    removeMovie(movie);
+                  }}
+                >
+                  <div className="button-background"></div>
+                  <Lottie
+                    options={defaultOptions}
+                    height={50}
+                    width={50}
+                    direction={animationState.direction}
+                    isStopped={animationState.isStopped}
+                    isPaused={animationState.isPaused}
+                  />
+                </button>
+                <button className="genre">
+                  {movieGenre[0] ? (
+                    <p>{movieGenre[0]?.name}</p>
+                  ) : (
+                    <p>No genre</p>
+                  )}
+                </button>
               </div>
             </div>
-
-            <div className="carousel-card-add">
-              <button
-                className="button-animation"
-                onClick={() => {
-                  buttonAnimationMyList();
-                  removeMovie(movie);
-                }}
-              >
-                <div className="button-background"></div>
-                <Lottie
-                  options={defaultOptions}
-                  height={50}
-                  width={50}
-                  direction={animationState.direction}
-                  isStopped={animationState.isStopped}
-                  isPaused={animationState.isPaused}
-                />
-              </button>
-              <button className="genre">
-                <p>{movieGenre[0].name}</p>
-              </button>
-            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </Container>
   );

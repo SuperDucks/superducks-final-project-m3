@@ -27,9 +27,12 @@ function NavBar() {
           <figure>
             <img src={logo} alt="Logo Duckplay" />
           </figure>
-        </NavLink>      
-      <div className="nav-bar-choice">
-          <button className="btn-my-list">MY LIST</button>
+        </NavLink>                  
+        <div className="nav-bar-choice">
+          <NavLink to={"/mylist"}>
+            <button className="btn-my-list">MY LIST</button>
+          </NavLink>
+
           <hr />
           <div className="nav-bar-search">
             <NavLink to={"/search"}>
