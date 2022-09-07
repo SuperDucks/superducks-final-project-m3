@@ -120,24 +120,13 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
 <hr>
 <h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
-### Administrativo da Dashboard (Gestão de Combinações) [(Link - App)](https://dreamscape.myvtex.com/admin/app/apps/dreamscape.dreamscape@0.1.11/setup) [(Link - Menu)](https://dreamscape.myvtex.com/admin/smart-suggestion)
-
-* **Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.**
-  * **Renderização de detalhes das SKUs que compõem cada combinação:**
-    - Imagem do produto;
-    - Nome do produto;
-    - Total de ocorrências da combinação;
-    - Status (ativo ou inativo).
-
-  * **Ferramentas:**
-    - Opção de seleção do total de combinações que devem aparecer por página;
-    - Botões para avançar e recuar páginas;
-    - Botão para alternar o status de apresentação de cada combinação (ativo ou inativo);
-    - Botão para alterar a espessura da linha;
-    - Botão para alternar a visibilidade das colunas (EXIBE TODAS/ESCONDE TODAS/Combinação/Ocorrência/Ativo).
-    - Botão para deletar combinações;    
-    - Campo para buscar combinações por nome ou ID da SKU;
-    - Filtro de dados por Ativo/Inativo/Todos;        
+* **Apresentação da lista de filmes recém adicionados, mais bem avaliados, recomendados e lista de filmes do usuário.**
+  * **Renderização dos cards de filmes, compõem cada combinação:**
+    - Imagem do filme;
+    - Nome do filme;
+    - Avaliação do filme;
+    - Gênero do filme;
+    - Botão para adicionar/remover da lista do usuário.
 
 <hr>
 
