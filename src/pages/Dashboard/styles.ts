@@ -21,8 +21,12 @@ export const Container = styled.div`
     main {
       width: 100%;
       height: 100%;
-      padding: 68px 0px 0px 56px;
       border-left: 1px solid var(--color-grey-7);
+    
+      h2{
+        margin: 0 auto;
+      }
+      /* background-color: red; */
     }
 
     @media screen and (min-width: 1160px) {
@@ -31,7 +35,12 @@ export const Container = styled.div`
         width: 30%;
       }
       main {
+        padding: 68px 0px 0px 56px;
         width: 70%;
+
+        h2{
+          margin: 0;
+        }
       }
     }
 
