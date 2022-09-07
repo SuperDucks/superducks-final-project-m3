@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 import {  Li } from "./styles";
 
 interface IDropdownProps {
-  text: string;
-  children: ReactNode;
+  text?: string;
+  children?: ReactNode;
 }
 const DropdownItem = ({text, children}: IDropdownProps) => {
 

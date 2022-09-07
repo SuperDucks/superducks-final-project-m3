@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   
   h2 {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     font: var(--font-title-3);
     color: var(--color-grey-0);
     font-weight: 400;

@@ -9,10 +9,13 @@ import { IMovies } from "../../context/FilmContext/interfaces";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import EditProfileModal from "../../Modals/EditProfileModal";
+import { GenreContext } from "../../context/GenreContext";
+import GenreModal from "../../Modals/GenreModal";
 
 const FilmScreen = () => {
   const [movie, setMovie] = useState<IMovies>({} as IMovies);
   const [genres, setGenres] = useState([]);
+  const { isOpenModalGenre } = useContext(GenreContext);
 
   const imgbaseUrl = "https://image.tmdb.org/t/p/original/";
 
@@ -41,6 +44,7 @@ const FilmScreen = () => {
 
   return (
     <Container>
+      {isOpenModalGenre && <GenreModal />}
       {isOpenEditProfileModal && <EditProfileModal />}
       <NavBar />
       <main

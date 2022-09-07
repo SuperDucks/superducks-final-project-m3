@@ -6,10 +6,10 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-
   height: 100vh;
   background: rgba(0, 0, 0, 0.45);
   z-index: 2;
+  padding: 16px;
 
   .modal-content {
     width: 100%;

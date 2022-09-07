@@ -14,7 +14,7 @@ export const Li = styled.li`
     transition: 0.2s;
   }
   span {
-    max-width: 100px;
+    width: 100%;
     margin-left: 10px;
     transition: 0.2s;
   }

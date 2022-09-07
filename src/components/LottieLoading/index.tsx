@@ -1,6 +1,7 @@
 import Lottie from "react-lottie";
 import animateLogin from "../../assets/9103-entertainment.json"
 import { Container } from "./styles";
+import logo from './../../assets/duckplay.svg'
 
 const LottieLoading = () => {
   const loadingOptions = {
@@ -13,8 +14,8 @@ const LottieLoading = () => {
 };
   return (
     <Container> 
-     <Lottie options={loadingOptions} width={400} height={400} speed={2}/>
-     <h1>Duckplay</h1>
+     <Lottie options={loadingOptions} width={200} height={200} speed={2}/>
+     <img src={logo} alt="Duckplay" />
     </Container>
   )
 };

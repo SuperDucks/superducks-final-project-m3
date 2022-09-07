@@ -27,7 +27,7 @@ const EditProfileModal = () => {
   });
 
   /* const [showPassword, setShowPassword] = useState(false);
- */
+   */
   const modalRef = useOutsiedeClick(() => {
     setIsOpenEditProfileModal(false);
   });
@@ -58,53 +58,16 @@ const EditProfileModal = () => {
             editProfileUser(formData, setLoading)
           )}
         >
-            
-          <fieldset>
-            <legend>Edit options</legend>
-            <div className="input-container">
-              <label htmlFor="">Photo</label>
-              <input type="url" placeholder="Photo" {...register("photo")} />
-              <small>{errors.photo?.message}</small>
-            </div>
-            <div className="input-container">
-              <label htmlFor="">Name</label>
-              <input type="text" placeholder="Name" {...register("name")} />
-              <small>{errors.name?.message}</small>
-            </div>
-           {/*  <div className="input-container">
-              <label htmlFor="">Password</label>
-              <div className="container-eye">
-                <input
-                  className="input-password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  id="password"
-                  {...register("password")}
-                />
-                <button
-                  type="button"
-                  onClick={handleBtnClick}
-                  className="show-password"
-                >
-                  {showPassword ? (
-                    <AiFillEyeInvisible size={"20"} />
-                  ) : (
-                    <AiFillEye size={"20"} />
-                  )}
-                </button>
-              </div>
-              <small>{errors.password?.message}</small>
-            </div> */}
-          </fieldset>
-          {/* <div className="input-container">
-            <label htmlFor="">Current password (to change)</label>
-            <input
-              type="password"
-              placeholder="Confirm password"
-              {...register("confirmPassword")}
-            />
-            <small>{errors.confirmPassword?.message}</small>
-          </div> */}
+          <div className="input-container">
+            <label htmlFor="">Photo</label>
+            <input type="url" placeholder="Photo" {...register("photo")} />
+            <small>{errors.photo?.message}</small>
+          </div>
+          <div className="input-container">
+            <label htmlFor="">Name</label>
+            <input type="text" placeholder="Name" {...register("name")} />
+            <small>{errors.name?.message}</small>
+          </div>
           <BtnPrimary
             type="submit"
             padding="big"
