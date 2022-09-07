@@ -119,14 +119,8 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
     - Documentações de Uso.
 
 ### Fluxo de Desenvolvimento (Estratégico)
-- Desenvolvimento de um workspace VTEX IO funcional e com boa experiência de navegação;
 - Construção de um tema próprio e responsivo;
-- Criação de SKUs;
-- Leitura do histórico de vendas da loja;
-- Monitoramento de novas vendas;
-- Processamento de combinações de SKUs vendidas;
-- Armazenamento de dados processados na AWS;
-- Disponibilização da lista de combinações para o lojista (Administrativo da Loja);
+- Disponibilização da lista de sugestões para o usuário;
 
 ### Extras
 * Possibilidade de comentar e ver comentários de amigos na página do filme ou série;
@@ -135,30 +129,18 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
 <hr>
 <h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
-### Administrativo da Dashboard (Gestão de Combinações) [(Link - App)](https://dreamscape.myvtex.com/admin/app/apps/dreamscape.dreamscape@0.1.11/setup) [(Link - Menu)](https://dreamscape.myvtex.com/admin/smart-suggestion)
 
-* **Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.**
-  * **Renderização de detalhes das SKUs que compõem cada combinação:**
-    - Imagem do produto;
-    - Nome do produto;
-    - Total de ocorrências da combinação;
-    - Status (ativo ou inativo).
-
-  * **Ferramentas:**
-    - Opção de seleção do total de combinações que devem aparecer por página;
-    - Botões para avançar e recuar páginas;
-    - Botão para alternar o status de apresentação de cada combinação (ativo ou inativo);
-    - Botão para alterar a espessura da linha;
-    - Botão para alternar a visibilidade das colunas (EXIBE TODAS/ESCONDE TODAS/Combinação/Ocorrência/Ativo).
-    - Botão para deletar combinações;    
-    - Campo para buscar combinações por nome ou ID da SKU;
-    - Filtro de dados por Ativo/Inativo/Todos;        
-
-### Página de produto (Experiência de Compra)
-* **Disponibilização das combinações aprovadas para os clientes;**
-    - Na página de cada produto são apresentadas sugestões de combinações aprovadas pelo lojista;
-    - O consumidor pode interagir com as sugestões adicionando combinações ao carrinho;
-    - No carrinho o consumidor pode remover as SKUs das combinações.
+  * **Bibliotecas:**
+    - Styled-Components;
+    - React-Router-Dom;
+    - React-Hook-Forms;
+    - Yup;
+    - Axios;
+    - React-Icons;
+    - React-toastify;    
+    - Swiper;
+    - React Lottie;
+    - Framer-Motion;        
 
 <hr>
 
