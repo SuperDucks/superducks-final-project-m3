@@ -41,7 +41,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
   }, []);
 
   useEffect(() => {
-    if (topRatedMovies.length > 0) {
+    if (topRatedMovies.length > 0 || upcomingMoviesHome.length > 0) {
       setTimeout(() => {
         setLoadingPage(false);
       }, 3000);
