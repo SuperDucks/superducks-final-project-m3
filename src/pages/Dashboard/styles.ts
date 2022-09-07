@@ -11,20 +11,38 @@ export const Container = styled.div`
   .content {
     width: 100%;
     height: 100%;
-    padding-top: 150px;
+    padding-top: 130px;
     display: flex;
 
     aside {
-      width: 25%;
-      height: 1700px;
-
-      border-right: 1px solid var(--color-grey-7);
+      display: none;
     }
 
     main {
-      width: 75%;
+      width: 100%;
       height: 100%;
       padding: 68px 0px 0px 56px;
+      border-left: 1px solid var(--color-grey-7);
+    }
+
+    @media screen and (min-width: 1160px) {
+      aside {
+        display: flex;
+        width: 30%;
+      }
+      main {
+        width: 70%;
+      }
+    }
+
+    @media screen and (min-width: 1430px) {
+      aside {
+        display: flex;
+        width: 25%;
+      }
+      main {
+        width: 75%;
+      }
     }
   }
 `;
