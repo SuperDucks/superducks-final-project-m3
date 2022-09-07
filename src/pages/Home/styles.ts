@@ -233,11 +233,13 @@ export const StyledSwiper = styled(Swiper)`
   .swiper-button-next {
     z-index: 999999;
   }
-  .swiper-slide {
-    transition: 250ms all;
-    &:hover {
-      transform: scale(1.2);
-    }
+  @media screen and (min-width: 1024px) {
+    .swiper-slide {
+      transition: 250ms all;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }  
   }
 `;
 

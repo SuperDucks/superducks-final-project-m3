@@ -6,7 +6,16 @@
 .swiper-slide{
   display: flex;
   justify-content: center;
+  
+}
 
+@media screen and (min-width: 1024px) {
+  .swiper-slide {
+    transition: 250ms all;
+  }
+  .swiper-slide:hover{
+    transform: scale(1.2);    
+  } 
 }
 
 .swiper-pagination-bullet-active {
