@@ -1,61 +1,92 @@
-import { Container } from './styles';
-import logo from '../../assets/duck-play.svg';
-import { BsGithub } from 'react-icons/bs'
-import { FiFigma } from 'react-icons/fi'
-import { IoLogoJavascript } from 'react-icons/io'
-import { FaLinkedinIn } from 'react-icons/fa'
-import { BtnPrimary } from '../../styles/buttons';
-import { AiFillGithub, AiFillHtml5 } from 'react-icons/ai';
-import { DiCss3, DiReact } from 'react-icons/di';
-import { SiStyledcomponents, SiTypescript } from 'react-icons/si'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { Container } from "./styles";
+import logo from "../../assets/duck-play.svg";
+import { BsGithub } from "react-icons/bs";
+import { FiFigma } from "react-icons/fi";
+import { IoLogoJavascript } from "react-icons/io";
+import { BtnPrimary } from "../../styles/buttons";
+import { AiFillGithub, AiFillHtml5 } from "react-icons/ai";
+import { DiCss3, DiReact } from "react-icons/di";
+import { SiStyledcomponents, SiTypescript } from "react-icons/si";
 
 function Footer() {
   return (
-    <Container>      
-      <div className='footer-up'>
+    <Container>
+      <div className="footer-up">
         <figure>
-          <img src={logo} alt="" />
+          <a href="#">
+            <img src={logo} alt="logo" />
+          </a>
 
-          <div className='footer-up-contact'>
+          <div className="footer-up-contact">
             <ul>
               <BsGithub size={30} />
-              <FiFigma size={30}/>
-              <IoLogoJavascript size={30}/>
+              <FiFigma size={30} />
+              <IoLogoJavascript size={30} />
             </ul>
-            <BtnPrimary padding='big' >Contact Us</BtnPrimary>
+            <BtnPrimary padding="big">Contact Us</BtnPrimary>
           </div>
         </figure>
 
-        <div className='footer-up-lists'>
+        <div className="footer-up-lists">
           <ul>
             <ul>
               <p>Product Owner</p>
-              <li>Henrique Carderan</li>
+              <a
+                href="https://www.linkedin.com/in/carderan-henrique/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li>Henrique Carderan</li>
+              </a>
             </ul>
             <ul>
               <p>Scrum Master</p>
-              <li>Dara Gomes</li>
+              <a
+                href="https://www.linkedin.com/in/daragneri/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li>Dara Gomes</li>
+              </a>
             </ul>
           </ul>
 
           <ul>
             <p>Teach Leader</p>
-            <li>Kelton Wlysses</li>
+            <a
+              href="https://www.linkedin.com/in/kelton-wlysses/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <li>Kelton Wlysses</li>
+            </a>
           </ul>
 
           <ul>
             <p>Quality Assurance</p>
-            <li>Rian Moraes</li>
-            <li>Daniel Lobato</li>
+            <a
+              href="https://www.linkedin.com/in/rian-moraes/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <li>Rian Moraes</li>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/simplesmentedan/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <li>Daniel Lobato</li>
+            </a>
           </ul>
-
         </div>
 
-        <div className='footer-up-techs'>
+        <div className="footer-up-techs">
           <h2>Techs</h2>
           <ul>
             <li>
-              <AiFillHtml5 size={55}/>
+              <AiFillHtml5 size={55} />
             </li>
             <li>
               <DiCss3 size={55} />
@@ -80,17 +111,14 @@ function Footer() {
             </li>
           </ul>
         </div>
-
-        
       </div>
-      
-      <hr />
-      
-      <div className='footer-down'>
-        <p>SUPERDUCKS © ALL RIGHTS RESERVED.</p>
-      </div>      
-    </Container>
 
+      <hr />
+
+      <div className="footer-down">
+        <p>SUPERDUCKS © ALL RIGHTS RESERVED.</p>
+      </div>
+    </Container>
   );
-};
+}
 export default Footer;
