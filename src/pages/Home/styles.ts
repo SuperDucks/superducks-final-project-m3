@@ -244,6 +244,10 @@ export const MovieCardSlide = styled.div`
   img {
     max-width: 100%;
     max-height: 100%;
+    @media screen and (max-width: 600px) {
+      max-width: 80%;
+      max-height: 80%;
+  }
   }
 `;
 
