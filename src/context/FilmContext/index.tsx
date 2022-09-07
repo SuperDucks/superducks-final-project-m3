@@ -11,6 +11,7 @@ export const FilmContext = createContext({} as IFilmProps);
 export const FilmProvider = ({ children }: FilmProviderProps) => {
   const [topRatedMovies, setTopRatedMovies] = useState<IMovies[] | []>([]);
   const [upcomingMovies, setUpcomingMovies] = useState<IMovies[] | []>([]);
+  const [upcomingMoviesHome, setUpcomingMoviesHome] = useState<IMovies[] | []>([]);
   const [recommendationMovies, setRecommendationsMovies] = useState<
     IMovies[] | []
   >([]);
@@ -36,6 +37,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
   useEffect(() => {
     getTopRatedMovies();
     getUpcomingMovies();
+    getUpcomingMoviesHome();
   }, []);
 
   useEffect(() => {
@@ -138,6 +140,16 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
       })
       .catch((err) => console.log(err));
   };
+  const getUpcomingMoviesHome = () => {
+    api
+      .get(
+        "/movie/upcoming?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1"
+      )
+      .then((res) => {
+        setUpcomingMoviesHome(res.data.results);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <FilmContext.Provider
@@ -149,6 +161,7 @@ export const FilmProvider = ({ children }: FilmProviderProps) => {
         defaultOptions,
         MyListFilmes,
         removeMovie,
+        upcomingMoviesHome
       }}
     >
       {children}
