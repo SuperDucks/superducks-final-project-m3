@@ -30,10 +30,11 @@ export const Container = styled.div`
       right: 0;
       bottom: 0;
       z-index: 2;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      flex-direction: row;
+      padding-top: 26px;
+      /* display: flex;
+      justify-content: flex-start; */
+      /* align-items: center; */
+      /* flex-direction: row; */
       width: 90%;
       height: 360px;
       margin-bottom: 28px;

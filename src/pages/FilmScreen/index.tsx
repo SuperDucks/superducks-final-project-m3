@@ -61,7 +61,7 @@ const FilmScreen = () => {
   };
 
   const settings: SliderProps = {
-    spaceBetween: 3,
+    spaceBetween: 2,
     slidesPerView: 5,
     navigation: true,
   };
