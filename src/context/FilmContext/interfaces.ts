@@ -9,6 +9,7 @@ export interface IFilmProps {
   MyListFilmes: IMyListMovies[];
   loadingPage: boolean;
   setLoadingPage: React.Dispatch<React.SetStateAction<boolean>>;
+  upcomingMoviesHome: IMovies[] | [];
   addMovie: (data: IMovies) => void;
   removeMovie: (data: IMovies) => void;
   defaultOptions: IDefaultOptions;
