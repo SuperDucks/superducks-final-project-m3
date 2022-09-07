@@ -41,8 +41,9 @@ export const Container = styled.div<IPoster>`
         align-items: space-between;
 
         .carousel-card-title {
-          margin-left: 12px;
+          /* margin-left: 8px; */
           padding: 8px;
+          padding-left: 12px;
 
           background: rgb(0, 0, 0);
           background: linear-gradient(

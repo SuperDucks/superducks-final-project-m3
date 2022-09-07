@@ -66,8 +66,29 @@ const FilmScreen = () => {
 
   const settings: SliderProps = {
     spaceBetween: 2,
-    slidesPerView: 5,
     navigation: true,
+    breakpoints: {
+      200:{                   
+        slidesPerView: 1,                     
+        slidesPerGroup: 1,  
+      },                  
+      490:{
+        slidesPerView: 2,                   
+        slidesPerGroup: 2,  
+      },
+      1040:{
+        slidesPerView: 2,                   
+        slidesPerGroup: 2,  
+      },                  
+      1150:{
+        slidesPerView: 3,                   
+        slidesPerGroup: 3,  
+      },                  
+      1450:{
+        slidesPerView: 3,                  
+        slidesPerGroup: 3,  
+      }   
+    },
   };
 
   return (
@@ -81,9 +102,8 @@ const FilmScreen = () => {
           backgroundImage: `url(${imgbaseUrl}${movie.backdrop_path})`,
         }}
       >
-        <div className="background-form"></div>
-
         <section className="main-movie-section">
+          
           <div className="main-movie-section-header">
             <h1>{movie.title}</h1>
             <h2>
@@ -113,17 +133,20 @@ const FilmScreen = () => {
           </div>
         </section>
 
-        <div className="main-movie-carousel">
-          <Slider settings={settings}>
-            {movieList.map((movie) => {
-              return (
-                <Slide key={movie.id}>
-                  <CardMyList key={movie.id} movie={movie}></CardMyList>
-                </Slide>
-              );
-            })}
-          </Slider>
+        <div className="main-movie-carousel-background">
+          <div className="main-movie-carousel">
+            <Slider settings={settings}>
+              {movieList.map((movie) => {
+                return (
+                  <Slide key={movie.id}>
+                    <CardMyList key={movie.id} movie={movie}></CardMyList>
+                  </Slide>
+                );
+              })}
+            </Slider>
+          </div>
         </div>
+
       </main>
     </Container>
   );
