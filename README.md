@@ -61,7 +61,9 @@ O módulo 03 é o último módulo do curso de Front-End na Kenzie Academy Brasil
 * [Organização das Tarefas](#organização-das-tarefas)
 * [Extras](#extras)
 
-:small_blue_diamond: [Back-End e Banco de Dados](#-back-end-e-banco-de-dados--)
+:small_blue_diamond: [Front-End](#-back-end-e-banco-de-dados--)
+
+:small_blue_diamond: [Back-End e Banco de Dados](#-front-end--)
 
 :small_blue_diamond: [Agradecimentos](#--agradecimentos--)
 
@@ -118,6 +120,8 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
 * Compartilhamento da própria lista pessoal com os amigos;
 
 <hr>
+
+<!--FRONT-END-->
 <h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 * **Apresentação da lista de filmes recém adicionados, mais bem avaliados, recomendados e lista de filmes do usuário.**
