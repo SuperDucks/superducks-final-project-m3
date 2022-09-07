@@ -11,7 +11,7 @@ export const Container = styled.div<IPoster>`
   margin-bottom: 56px;
 
   h2 {
-    font: var(--font-title-3);
+    font: var(--font-title-8);
     color: var(--color-grey-0);
     font-weight: 400;
   }
@@ -21,9 +21,7 @@ export const Container = styled.div<IPoster>`
     display: flex;
 
     .carousel-card {
-      background-image: url("https://image.tmdb.org/t/p/original${({
-        moviePoster,
-      }) => moviePoster}");
+      background-image: url("https://image.tmdb.org/t/p/original${({ moviePoster }) => moviePoster}");
       background-position: center;
       background-size: cover;
       width: 196px;
