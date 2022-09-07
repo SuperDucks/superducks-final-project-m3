@@ -9,12 +9,15 @@ import { IMovies } from "../../context/FilmContext/interfaces";
 import CardSearch from "../../components/CardSearch";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
+import GenreModal from "../../Modals/GenreModal";
+import { GenreContext } from "../../context/GenreContext";
 
 function SearchPage() {
   const [movies, setMovies] = useState<IMovies[]>([]);
   const [searchMovies, setSearchMovies] = useState<Boolean>(false);
   const [fistMovies, setFistMovies] = useState<IMovies[]>([]);
   const [search, setSearch] = useState("");
+  const { isOpenModalGenre } = useContext(GenreContext);
 
   const urlAPI = `search/movie/?&api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&query=${search}`;
 
@@ -46,9 +49,9 @@ function SearchPage() {
   return (
     <>
       <Container>
-        <NavBar />
+        {isOpenModalGenre && <GenreModal />}
         {isOpenEditProfileModal && <EditProfileModal />}
-
+        <NavBar />
         <main className="search_main">
           <div className="search_main_input">
             <button onClick={load}>

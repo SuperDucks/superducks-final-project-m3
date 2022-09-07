@@ -58,10 +58,9 @@ const Home = () => {
               <div className="menu-content">
                 <div className="menu-header">
                   <div className="menu-header-title">
-                    <h2>Já tem uma conta Duckplay?</h2>
+                    <h2>Already have an account?</h2>
                     <span>
-                      Entre com sua conta e conheça as melhores sugestões para
-                      você.
+                    Log in with your account and discover the best suggestions for you.
                     </span>
                   </div>
                   <div className="menu-header-login">
@@ -76,12 +75,12 @@ const Home = () => {
                     </BtnPrimary>
                   </div>
                   <div className="menu-header-register">
-                    <h2>Ainda não é cadastrado?</h2>
+                    <h2>New to Duckplay?</h2>
                     <BtnRegister onClick={() => {
                       setIsOpen(false)
                       setIsOpenModalRegister(true)
                     }}>
-                      Cadastre-se agora
+                      Sign up now
                     </BtnRegister>
                   </div>
                 </div>

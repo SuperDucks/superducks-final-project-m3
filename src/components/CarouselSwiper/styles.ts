@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   
   h2 {
+
     margin-bottom: 16px;
     font: var(--font-title-7);
     color: var(--color-grey-0);

@@ -36,7 +36,7 @@ const GenreModal = () => {
           ref={modalRef}
         >
           <div className="container-title">
-            <ThemeTitle>Genres</ThemeTitle>
+            <h2 className="title">Genres</h2>
             <button
               className="close"
               onClick={() => setIsOpenModalGenre(false)}

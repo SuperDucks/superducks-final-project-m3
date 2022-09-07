@@ -10,13 +10,17 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { FilmContext } from "../../context/FilmContext";
 import EditProfileModal from "../../Modals/EditProfileModal";
+import { GenreContext } from "../../context/GenreContext";
+import GenreModal from "../../Modals/GenreModal";
 import CardMyList from "../../components/CardMyList";
 import { Slide, Slider, SliderProps } from "../../components/Slider";
+
 
 const FilmScreen = () => {
   const imgbaseUrl = "https://image.tmdb.org/t/p/original/";
   const [movie, setMovie] = useState<IMovies>({} as IMovies);
   const [genres, setGenres] = useState([]);
+  const { isOpenModalGenre } = useContext(GenreContext);
 
   const { movieId } = useParams();
   const { addMovie } = useContext(FilmContext);
@@ -68,6 +72,7 @@ const FilmScreen = () => {
 
   return (
     <Container>
+      {isOpenModalGenre && <GenreModal />}
       {isOpenEditProfileModal && <EditProfileModal />}
       <NavBar />
       <main

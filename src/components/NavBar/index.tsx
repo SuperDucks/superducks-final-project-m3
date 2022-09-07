@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/yellow-logo.svg";
 import { AiOutlineSearch } from "react-icons/ai";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useContext, useState } from "react";
@@ -9,7 +9,7 @@ import DropdownMenu from "../Dropdown/DropdownMenu";
 import { useOutsiedeClick } from "../../hooks/useOutsideClick";
 
 function NavBar() {
-  const { user, setDropdownOpen } = useContext(UserContext);
+  const { user, setDropdownOpen, dropdownOpen } = useContext(UserContext);
   const [invisible, setInvisible] = useState(true);
 
   window.addEventListener("scroll", () => {
@@ -27,30 +27,30 @@ function NavBar() {
           <figure>
             <img src={logo} alt="Logo Duckplay" />
           </figure>
-        </NavLink>
+        </NavLink>                  
         <div className="nav-bar-choice">
           <NavLink to={"/mylist"}>
-            <button>MY LIST</button>
+            <button className="btn-my-list">MY LIST</button>
           </NavLink>
+
           <hr />
           <div className="nav-bar-search">
             <NavLink to={"/search"}>
               <button onClick={() => navigate("/search", { replace: true })}>
                 <p>SEARCH</p>
-                <AiOutlineSearch size={35} />
+                <AiOutlineSearch size={25} />
               </button>
             </NavLink>
           </div>
         </div>
       </div>
-
       <div
         className="nav-bar-profile"
         onMouseLeave={() => setDropdownOpen(false)}
       >
-        <h3>{user?.name}</h3>
+        <h3 className="user-name">{`Hi, ${user?.name}`}</h3>
         <div ref={modalRef}>
-          <button onMouseOver={() => setDropdownOpen(true)}>
+          <button onTouchStart={() => setDropdownOpen(!dropdownOpen)} onMouseOver={() => setDropdownOpen(true)}>
             <RiArrowDropDownLine color="white" fontSize={50} />
           </button>
           <DropdownMenu />

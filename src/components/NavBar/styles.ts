@@ -4,42 +4,65 @@ interface IProps {
   invisible: boolean;
 }
 export const Container = styled.div<IProps>`
-  width: 100%;
   height: 130px;
-
+  width: 100%;
   position: fixed;
   display: flex;
-
   justify-content: space-between;
   align-items: center;
   z-index: 40;
 
-  padding-left: 6%;
-  padding-right: 6%;
+  padding: 16px;
 
   transition: background-color 0.3s ease, opacity 0.2s linear;
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.64), transparent);
-  background: ${(props) =>
-    props.invisible ? "rgba(17, 17, 17, 0.5)" : "var(--color-grey-5)"};
+  /* background: ${(props) =>
+    props.invisible ? "rgba(17, 17, 17, 0.5)" : "var(--color-grey-5)"}; */
+  @media screen and (min-width: 1024px) {
+    padding: 0px 80px;
+  }
+  background: linear-gradient(0deg, rgba(11,11,11,0) 0%, rgba(9,10,10,0.27244401178440125) 34%, rgba(7,8,8,0.7458333675266982) 100%);
 
+  
   .logo-align {
-    width: 39%;
+   
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    gap: 40px;
+    width: 30%;
+
+    img {
+      width: 170px;
+      @media screen and (min-width: 1024px){
+      width: 190px;
+    }
+    }
   }
 
   .nav-bar-choice {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+    display: none;
+    hr {
+      height: 20px;
+    }
+    .btn-my-list {
 
-    button {
       background-color: transparent;
       font: var(--font-title-7);
       color: var(--color-grey-0);
       font-weight: 600;
+      width: 80px;
+    }
+    p {
+      font: var(--font-title-7);
+      font-weight: 600;
+    }
+    @media screen and (min-width: 700px){
+      display: flex;
+      
     }
   }
 
@@ -52,8 +75,7 @@ export const Container = styled.div<IProps>`
       display: flex;
 
       align-items: center;
-      gap: 10px;
-      padding-right: 15px;
+      gap: 10px;    
       background-color: transparent;
       color: var(--color-grey-0);
     }
@@ -67,11 +89,16 @@ export const Container = styled.div<IProps>`
     display: flex;
     align-items: center;
     height: 100%;
+    position: relative;
 
-    h3 {
-      font: var(--font-title-6);
+    .user-name {
+      font: var(--font-title-7);
       color: var(--color-grey-0);
       font-weight: 500;
+      @media screen and (max-width: 700px){
+        display: none;
+        font: var(--font-title-8);
+      }
     }
 
     button {

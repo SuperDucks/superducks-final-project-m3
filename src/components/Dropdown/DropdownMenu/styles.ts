@@ -4,25 +4,47 @@ export const Container = styled.div`
   .dropdown-menu {
     position: absolute;
     z-index: 45;
-    top: 110px;
-    right: 3.9%;
+    top: 100px;
+    right: 0;
     background-color: white;
     border-radius: 8px;
     padding: 10px 20px;
-    width: 16%;
+    width: 200px;
     @media screen and (min-width: 1024px) {
       width: 220px;
+      top: 115px;
     }
-
     ::before {
       content: "";
       position: absolute;
       top: -5px;
-      right: 95px;
+      right: 6.5%;
       height: 20px;
       width: 20px;
       background-color: white;
       transform: rotate(45deg);
+     
+    }
+    .user-dropdown {
+      display: block;
+      @media screen and (min-width: 700px){
+        display: none;
+      }
+      span {
+        font-weight: 600;
+      }
+    }
+    .genres-dropdown {
+      display: block;
+      @media screen and (min-width: 700px){
+        display: none;
+      }
+    }
+    .search-dropdown {
+      display: block;
+      @media screen and (min-width: 700px){
+        display: none;
+      }
     }
   }
 
