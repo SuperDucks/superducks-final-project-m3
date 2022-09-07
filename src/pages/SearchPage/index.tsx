@@ -38,7 +38,7 @@ function SearchPage() {
   async function fistMoviesF() {
     try {
       const resposta = await api.get(
-        "/movie/top_rated?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1/"
+        "/movie/top_rated/?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1/"
       );
       setFistMovies(resposta.data.results);
     } catch (erro) {}
