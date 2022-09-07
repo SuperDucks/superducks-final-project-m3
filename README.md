@@ -59,14 +59,9 @@ O módulo 03 é o último módulo do curso de Front-End na Kenzie Academy Brasil
 :small_blue_diamond: [Projeto](#-projeto--)
 * [Meios de Comunicação](#meios-de-comunicação)
 * [Organização das Tarefas](#organização-das-tarefas)
-* [Fluxo de Desenvolvimento (Estratégico)](#fluxo-de-desenvolvimento-estratégico)
 * [Extras](#extras)
 
-:small_blue_diamond: [Front-End](#-front-end--)
-* [Página de produto (Experiência de Compra)](#página-de-produto-experiência-de-compra)
-
 :small_blue_diamond: [Back-End e Banco de Dados](#-back-end-e-banco-de-dados--)
-
 
 :small_blue_diamond: [Agradecimentos](#--agradecimentos--)
 
@@ -118,10 +113,6 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
     - Links Importantes;
     - Documentações de Uso.
 
-### Fluxo de Desenvolvimento (Estratégico)
-- Construção de um tema próprio e responsivo;
-- Disponibilização da lista de sugestões para o usuário;
-
 ### Extras
 * Possibilidade de comentar e ver comentários de amigos na página do filme ou série;
 * Compartilhamento da própria lista pessoal com os amigos;
@@ -129,18 +120,24 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
 <hr>
 <h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
+### Administrativo da Dashboard (Gestão de Combinações) [(Link - App)](https://dreamscape.myvtex.com/admin/app/apps/dreamscape.dreamscape@0.1.11/setup) [(Link - Menu)](https://dreamscape.myvtex.com/admin/smart-suggestion)
 
-  * **Bibliotecas:**
-    - Styled-Components;
-    - React-Router-Dom;
-    - React-Hook-Forms;
-    - Yup;
-    - Axios;
-    - React-Icons;
-    - React-toastify;    
-    - Swiper;
-    - React Lottie;
-    - Framer-Motion;        
+* **Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.**
+  * **Renderização de detalhes das SKUs que compõem cada combinação:**
+    - Imagem do produto;
+    - Nome do produto;
+    - Total de ocorrências da combinação;
+    - Status (ativo ou inativo).
+
+  * **Ferramentas:**
+    - Opção de seleção do total de combinações que devem aparecer por página;
+    - Botões para avançar e recuar páginas;
+    - Botão para alternar o status de apresentação de cada combinação (ativo ou inativo);
+    - Botão para alterar a espessura da linha;
+    - Botão para alternar a visibilidade das colunas (EXIBE TODAS/ESCONDE TODAS/Combinação/Ocorrência/Ativo).
+    - Botão para deletar combinações;    
+    - Campo para buscar combinações por nome ou ID da SKU;
+    - Filtro de dados por Ativo/Inativo/Todos;        
 
 <hr>
 
@@ -148,10 +145,6 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
 <h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 <h3 style="color:cyan">SuperDucks<h3/>
-
-#### APP/API `dreamscape.backendapi@0.x` [(Link - App)](https://dreamscape.myvtex.com/admin/app/apps/dreamscape.backendapi@0.0.16/setup)
-
-
 
 #### APIs implementadas no projeto
 Para a implementação do back-end no projeto foi pensando a utilização de duas APIs em conjunto. Uma para gerenciamento de usuários e a segunda para consulta de banco de dados dos filmes e séries.
@@ -177,7 +170,7 @@ Para a implementação do back-end no projeto foi pensando a utilização de dua
  - Coach
      - Joyce Pereira da Gama
  - Instrutor
-     - Gabriel Tsunoda
+     - Gabriel Tsunode
 
  Agradecemos também a toda a rede de colaboração que fez o <b style=color:lightgreen>Módulo 03</b> acontecer e ser um sucesso. 🎉🎊🎇🥳🎆🎈🚀
 <hr>
