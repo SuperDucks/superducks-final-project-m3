@@ -61,9 +61,9 @@ O módulo 03 é o último módulo do curso de Front-End na Kenzie Academy Brasil
 * [Organização das Tarefas](#organização-das-tarefas)
 * [Extras](#extras)
 
-:small_blue_diamond: [Front-End](#-back-end-e-banco-de-dados--)
+:small_blue_diamond: [Front-End](#-front-end--)
 
-:small_blue_diamond: [Back-End e Banco de Dados](#-front-end--)
+:small_blue_diamond: [Back-End e Banco de Dados](#-back-end-e-banco-de-dados--)
 
 :small_blue_diamond: [Agradecimentos](#--agradecimentos--)
 
