@@ -41,7 +41,7 @@ function CardMyList({ movie }: Imovie) {
 
                 <div className="carousel-card-ratio">
                   <AiFillStar size={18} color="yellow" />
-                  <p>{movie.vote_average}</p>
+                  <p>{movie.vote_average.toFixed(1)}</p>
                 </div>
               </div>
 
