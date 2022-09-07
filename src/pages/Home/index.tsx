@@ -6,11 +6,6 @@ import {
   BtnRegister,
 } from "../../styles/buttons";
 import { SwiperSlide } from "swiper/react";
-import dead from "./../../assets/dead.svg";
-import stranger from "./../../assets/stranger.svg";
-import carro1 from "./../../assets/img-carro-01.svg";
-import carro2 from "./../../assets/carro2.svg";
-import carro3 from "./../../assets/carro3.svg";
 import { HiMenu } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
 
@@ -26,6 +21,7 @@ import LoginModal from "../../Modals/LoginModal";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import RegisterModal from "../../Modals/RegisterModal";
+import { FilmContext } from "../../context/FilmContext";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +31,9 @@ const Home = () => {
     setIsOpenModalRegister,
     isOpenModalRegister,
   } = useContext(UserContext);
-
+  const {upcomingMoviesHome} = useContext(FilmContext);
+  const moviesHome = upcomingMoviesHome
+  moviesHome.length = 10
   return (
     <Container>
       {isOpenModal && <LoginModal />}
@@ -147,46 +145,17 @@ const Home = () => {
                   modules={[Navigation]}
                   className="mySwiper"
                 >
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={dead} alt="dead" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={stranger} alt="stranger" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={carro1} alt="carro1" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={carro2} alt="carro2" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={carro3} alt="carro3" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={carro1} alt="carro1" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={dead} alt="dead" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <MovieCardSlide>
-                      <img src={carro3} alt="carro3" />
-                    </MovieCardSlide>
-                  </SwiperSlide>
+                  {
+                    moviesHome.map((movie) => {
+                      return (
+                      <SwiperSlide key={movie.id}>
+                        <MovieCardSlide>
+                          <img src={`https://image.tmdb.org/t/p/original${ movie.poster_path }`} alt={movie.title}/>
+                        </MovieCardSlide>
+                      </SwiperSlide>
+                      )
+                    })
+                  }
                 </StyledSwiper>
               </div>
             </Container2>
