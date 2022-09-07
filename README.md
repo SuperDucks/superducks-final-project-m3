@@ -140,7 +140,7 @@ Na página inicial do catálogo, as sugestões personalizadas são apresentadas 
 <h3 style="color:cyan">SuperDucks<h3/>
 
 #### APIs implementadas no projeto
-Para a implementação do back-end no projeto foi pensando a utilização de duas APIs em conjunto. Uma para gerenciamento de usuários e a segunda para consulta de banco de dados dos filmes e séries.
+Para a implementação do back-end no projeto foi pensado a utilização de duas APIs em conjunto. Uma para gerenciamento de usuários e a segunda para consulta de banco de dados dos filmes e séries.
 
 - JSON Server
 - https://www.themoviedb.org/
