@@ -36,7 +36,7 @@ export const Container = styled.div`
     }
     .genres-dropdown {
       display: block;
-      @media screen and (min-width: 700px){
+      @media screen and (min-width: 1160px){
         display: none;
       }
     }
