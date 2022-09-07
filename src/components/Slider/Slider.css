@@ -1,6 +1,7 @@
 .swiper{
   /* padding: 32px; */
 
+
 }
 
 .swiper-slide{
@@ -15,8 +16,9 @@
   }
   .swiper-slide:hover{
     transform: scale(1.2);    
-  } 
+  }  
 }
+
 
 .swiper-pagination-bullet-active {
   background-color: #718096;
