@@ -1,12 +1,19 @@
 .swiper{
   /* padding: 32px; */
 
+
 }
 
 .swiper-slide{
   display: flex;
   justify-content: center;
 
+  transition: 250ms all;
+  
+}
+
+.swiper-slide:hover {
+  transform: scale(1.1);
 }
 
 .swiper-pagination-bullet-active {
