@@ -38,11 +38,19 @@ function SearchPage() {
   async function fistMoviesF() {
     try {
       const resposta = await api.get(
-        "/movie/top_rated?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1"
+        "/movie/top_rated?api_key=ffbfd65ffec7d7be7f2df127feb18d85&language=en-US&page=1/"
       );
       setFistMovies(resposta.data.results);
     } catch (erro) {}
   }
+
+  const inputSearch = document.getElementById("search");
+  inputSearch?.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("btn")?.click();
+    }
+  });
 
   const { isOpenEditProfileModal } = useContext(UserContext);
 
@@ -54,18 +62,19 @@ function SearchPage() {
         <NavBar />
         <main className="search_main">
           <div className="search_main_input">
-            <button onClick={load}>
+            <button id="btn" onClick={load}>
               <AiOutlineSearch size={62} />
             </button>
-
-            <input
-              type="text"
-              name="query"
-              id="search"
-              placeholder="
+            <form onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="text"
+                name="query"
+                id="search"
+                placeholder="
               What would you like to search ?"
-              onChange={(e) => setSearch(e.target.value)}
-            />
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </form>
           </div>
 
           <div className="content_main">
