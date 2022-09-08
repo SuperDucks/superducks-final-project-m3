@@ -18,8 +18,12 @@
  <img src="https://img.shields.io/static/v1?label=&message=JAVASCRIPT &color=green">
  <img src="https://img.shields.io/badge/-TYPESCRIPT-/?style=flat&color=3178c6">
  <img src="https://img.shields.io/badge/-REACT-/?style=flat&color=20232a">
+ <div style="padding:5px 50px" align="center">
+ https://superducks-final-project-m3.vercel.app/
+ </div>
  
 </div>
+
 <hr>
 <div style="padding:5px 50px" align="center">
  <a href="https://kenzie.com.br/" title="https://kenzie.com.br/">
