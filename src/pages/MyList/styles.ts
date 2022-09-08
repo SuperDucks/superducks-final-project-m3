@@ -75,7 +75,10 @@ export const Container = styled.div`
         padding: 68px 0px 0px 56px;
         width: 70%;
         
-
+      section {
+        justify-content: flex-start;
+        margin: 0;
+      }
         h1{
           margin: 0;
         }
