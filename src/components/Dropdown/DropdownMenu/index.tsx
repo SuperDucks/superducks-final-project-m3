@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { BiLogOut } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaUserEdit } from "react-icons/fa";
+import { AiOutlineUnorderedList } from "react-icons/ai";
 import { FiCheckSquare } from "react-icons/fi";
 import { UserContext } from "../../../context/UserContext";
 import DropdownItem from "../DropdownItem";
@@ -37,6 +38,17 @@ const DropdownMenu = () => {
           >
             <DropdownItem text={"Search"}>
               <AiOutlineSearch size={25} />
+            </DropdownItem>
+          </div>
+          <div
+            className="mylist-dropdown"
+            onClick={() => {
+              setDropdownOpen(false);
+              navigate("/mylist", { replace: true })
+            }}
+          >
+            <DropdownItem text={"My list"}>
+              <AiOutlineUnorderedList size={25} />
             </DropdownItem>
           </div>
           <div
