@@ -237,7 +237,7 @@ export const StyledSwiper = styled(Swiper)`
     .swiper-slide {
       transition: 250ms all;
       &:hover {
-        transform: scale(1.2);
+        transform: scale(1.05);
       }
     }  
   }

@@ -15,7 +15,7 @@
     transition: 250ms all;
   }
   .swiper-slide:hover{
-    transform: scale(1.2);    
+    transform: scale(1.05);    
   }  
 }
 
