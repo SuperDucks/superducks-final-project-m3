@@ -46,6 +46,12 @@ export const Container = styled.div`
         display: none;
       }
     }
+    .mylist-dropdown{
+      display: block;
+      @media screen and (min-width: 700px){
+        display: none;
+      }
+    }
   }
 
   .dropdown-menu.active {

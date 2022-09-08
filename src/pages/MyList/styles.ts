@@ -15,23 +15,21 @@ export const Container = styled.div`
   background-color: var(--color-grey-6);
 
   .content {
+    
     width: 100%;
     height: 100%;
     padding-top: 130px;
     display: flex;
 
     aside {
-      width: 25%;
+      display: none;
 
     }
-
     main {
-      width: 75%;
+      width: 100%;
       height: 100%;
-      padding: 36px 0px 86px 56px;
-
+      margin: 0;  
       border-left: 1px solid var(--color-grey-7);
-
 
       display: flex;
       flex-direction: column;
@@ -42,16 +40,20 @@ export const Container = styled.div`
         font: var(--font-title-2);
         color: var(--color-grey-0);
         font-weight: 500;
+        margin: 0 auto; 
         
       }
 
       section{
         width: 90%;
         display: flex;
+        justify-content: center;
         gap: 36px;
         flex-wrap: wrap;
+        margin: 0 auto; 
 
         section > div{
+          
           ${flexMedias(5,'32px')}
 
           @media (max-width: 1300px){
@@ -62,6 +64,33 @@ export const Container = styled.div`
             ${flexMedias(3,'16px')}
           }
         }
+      }
+    }
+    @media screen and (min-width: 1160px) {
+      aside {
+        display: flex;
+        width: 30%;
+      }
+      main {
+        padding: 68px 0px 0px 56px;
+        width: 70%;
+        
+      section {
+        justify-content: flex-start;
+        margin: 0;
+      }
+        h1{
+          margin: 0;
+        }
+      }
+    }
+    @media screen and (min-width: 1430px) {
+      aside {
+        display: flex;
+        width: 25%;
+      }
+      main {
+        width: 75%;
       }
     }
   }
